@@ -14,4 +14,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     $locationProvider.hashPrefix('!');
 
     $routeProvider.otherwise({redirectTo: '/home'});
+
+    $(document).click(function () {
+        $('.navbar-collapse').collapse('hide');
+    });
 }]);
+
