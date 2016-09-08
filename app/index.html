@@ -37,10 +37,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <!--<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>-->
-                <li><a href="#!/Core">Core Class Search</a></li>
-                <li><a href="#!/Department">Department Search</a></li>
-                <li><a href="#!/Class">Class Search</a></li>
-                <li><a href="#!/OfferedClass">Offered Class Search</a></li>
+                <li><a href="#!/core">Core Class Search</a></li>
+                <li><a href="#!/department">Department Search</a></li>
+                <li><a href="#!/class">Class Search</a></li>
+                <li><a href="#!/offeredclass">Offered Class Search</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -50,14 +50,16 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-
 <div ng-view></div>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="view2/view2.js"></script>
+<script src="views/class/class.js"></script>
+<script src="views/core/core.js"></script>
+<script src="views/department/department.js"></script>
+<script src="views/home/home.js"></script>
+<script src="views/offeredclass/offeredclass.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
