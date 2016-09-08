@@ -18,12 +18,6 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="app.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    <script>
-        $('.nav a').on('click', function(){
-            $('.btn-navbar').click(); //bootstrap 2.x
-            $('.navbar-toggle').click() //bootstrap 3.x by Richard
-        });
-    </script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -63,6 +57,11 @@
 <![endif]-->
 <div ng-view></div>
 
+<script>
+    $(document).click(function () {
+        $('.navbar-collapse').collapse('hide');
+    });
+</script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
