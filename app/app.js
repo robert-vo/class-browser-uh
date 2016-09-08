@@ -2,13 +2,16 @@
 
 // Declare app level module which depends on views, and components
 angular.module('classBrowserUHApp', [
-  'ngRoute',
-  'classBrowserUHApp.view1',
-  'classBrowserUHApp.view2',
-  'classBrowserUHApp.version'
+    'ngRoute',
+    'classBrowserUHApp.version',
+    'classBrowserUHApp.home',
+    'classBrowserUHApp.class',
+    'classBrowserUHApp.core',
+    'classBrowserUHApp.department',
+    'classBrowserUHApp.offeredclass'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+    $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
+    $routeProvider.otherwise({redirectTo: '/home'});
 }]);
