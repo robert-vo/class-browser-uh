@@ -8,7 +8,8 @@ angular.module('classBrowserUHApp', [
     'classBrowserUHApp.class',
     'classBrowserUHApp.core',
     'classBrowserUHApp.department',
-    'classBrowserUHApp.offeredclass'
+    'classBrowserUHApp.offeredclass',
+    'classBrowserUHApp.navbar'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
@@ -19,4 +20,3 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         $('.navbar-collapse').collapse('hide');
     });
 }]);
-
