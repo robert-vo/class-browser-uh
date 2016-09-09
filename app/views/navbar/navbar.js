@@ -3,7 +3,7 @@
 angular.module('classBrowserUHApp.navbar', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/', {
+    $routeProvider.when('/navbar', {
         controller: 'NavBarCtrl'
     });
 }])
