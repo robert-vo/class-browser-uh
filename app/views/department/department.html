@@ -6,20 +6,30 @@
 </head>
 <body>
 
+
+
+
+
 <div class="container">
     <div class="jumbotron">
-        <p>Department View</p>
-
-<div class="form-group">
-    <label for="sel1">Select list:</label>
-    <select class="form-control" id="sel1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-    </select>
-</div>
-
+        <h2>Department Search</h2>
+        <p ng-show="showDiv">Retrieved {{numberOfRows}} departments.</p>
+        <button type="button" class="btn btn-default" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
+        <table st-table="rowCollection" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Department Abbreviation</th>
+                <th>Department Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in rowCollection">
+                <td>{{row.departmentName}}</td>
+                <td>{{row.departmentFullName}}</td>
+            </tr>
+            </tbody>
+        </table>
         </div></div>
 </body>
+
 </html>
