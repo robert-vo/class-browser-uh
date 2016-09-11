@@ -12,4 +12,8 @@ angular.module('classBrowserUHApp.navbar', ['ngRoute'])
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
     };
+
+    $(document).click(function () {
+        $('.navbar-collapse').collapse('hide');
+    });
 });
