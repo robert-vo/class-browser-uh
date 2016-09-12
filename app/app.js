@@ -36,4 +36,5 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 controller('EnvVarCtrl', ['$scope', 'envService', function($scope, envService) {
     $scope.environment = envService.get(); // store the current environment
     $scope.vars = envService.read('all');
+    $scope.apiUrl = $scope.vars.apiUrl;
 }]);
