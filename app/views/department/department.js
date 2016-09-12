@@ -10,7 +10,7 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
 }])
 
 .controller('DepartmentCtrl', function($scope, $http) {
-    var url = $scope.vars.apiUrl + '/department';
+    var url = $scope.apiUrl + '/department';
 
     $scope.resultSet = [];
     $scope.numberOfRows = 0;
