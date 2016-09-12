@@ -12,29 +12,20 @@ angular.module('classBrowserUHApp', [
     'environment'
 ]).
 config(function(envServiceProvider) {
-    // set the domains and variables for each environment
     envServiceProvider.config({
         domains: {
-            development: ['localhost', 'dev.local'],
-            production: ['acme.com', 'acme.net', 'acme.org']
-            // anotherStage: []
+            development: ['localhost'],
+            production: ['aws.com']
         },
         vars: {
             development: {
-                apiUrl: '//localhost/api',
-                staticUrl: '//localhost/static'
-                // antoherCustomVar: ''
+                apiUrl: '//localhost:8080/api'
             },
             production: {
-                apiUrl: '//api.acme.com/v2',
-                staticUrl: '//static.acme.com'
-                // antoherCustomVar: ''
+                apiUrl: '//aws.com'
             }
         }
     });
-
-    // run the environment check, so the comprobation is made
-    // before controllers and services are built
     envServiceProvider.check();
 }).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
