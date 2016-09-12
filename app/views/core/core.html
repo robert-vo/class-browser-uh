@@ -11,10 +11,11 @@
             <form name="coreSearchForm">
             <select class="form-control" name="mySelect" id="mySelect"
                     ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
-                    ng-model="coreCategory"></select>
+                    ng-model="coreCategory"
+                    ng-change="populateCoreClasses()"></select>
             <p ng-show="showDiv">{{message}}</p>
                 </form>
-            <button type="button" class="btn btn-default" ng-click='populateCoreClasses()'>Get Core Classes</button>
+            <!--<button type="button" class="btn btn-default" ng-click='populateCoreClasses()'>Get Core Classes</button>-->
             <table st-table="rowCollection" class="table table-striped">
                 <thead>
                 <tr>
