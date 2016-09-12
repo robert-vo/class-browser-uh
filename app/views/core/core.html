@@ -5,12 +5,39 @@
     <title>Core</title>
 </head>
 <body>
-
     <div class="container">
         <div class="jumbotron">
-            <p>Core View</p>
+            <h2>Core Class Search</h2>
+            <form name="coreSearchForm">
+            <select class="form-control" name="mySelect" id="mySelect"
+                    ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
+                    ng-model="coreCategory"></select>
+            <p ng-show="showDiv">{{message}}</p>
+                </form>
+            <button type="button" class="btn btn-default" ng-click='populateCoreClasses()'>Get Core Classes</button>
+            <table st-table="rowCollection" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Department Name</th>
+                    <th>Department CRN</th>
+                    <th>Class Title</th>
+                    <th>Credit Hours</th>
+                    <th>Class Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in resultSet">
+                    <td>{{row.department}}</td>
+                    <td>{{row.department_crn}}</td>
+                    <td>{{row.class_title}}</td>
+                    <td>{{row.credit_hours}}</td>
+                    <td>{{row.class_description}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
 
 </body>
 </html>
