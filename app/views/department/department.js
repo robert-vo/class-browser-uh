@@ -10,9 +10,9 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
 }])
 
 .controller('DepartmentCtrl', function($scope, $http) {
-    var url = 'http://localhost:8080/api/department';
+    var url = $scope.vars.apiUrl + '/department';
 
-    $scope.rowCollection = [];
+    $scope.resultSet = [];
     $scope.numberOfRows = 0;
 
     $scope.populateDepartments = function() {
@@ -22,7 +22,7 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
             .success(function(data) {
                 console.log("Retrieved " + data.numberOfRows + " departments.");
                 console.log(data);
-                $scope.rowCollection = data.result;
+                $scope.resultSet = data.result;
                 $scope.showDiv = true;
                 $scope.numberOfRows = data.numberOfRows;
             })
