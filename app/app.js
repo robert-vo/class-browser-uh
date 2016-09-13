@@ -9,7 +9,8 @@ angular.module('classBrowserUHApp', [
     'classBrowserUHApp.department',
     'classBrowserUHApp.offeredclass',
     'classBrowserUHApp.navbar',
-    'environment'
+    'environment',
+    'smart-table'
 ]).
 config(function(envServiceProvider) {
     envServiceProvider.config({
@@ -34,7 +35,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     $routeProvider.otherwise({redirectTo: '/home'});
 }]).
 controller('EnvVarCtrl', ['$scope', 'envService', function($scope, envService) {
-    $scope.environment = envService.get(); // store the current environment
+    $scope.environment = envService.get();
     $scope.vars = envService.read('all');
     $scope.apiUrl = $scope.vars.apiUrl;
 }]);
