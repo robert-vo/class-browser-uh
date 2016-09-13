@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Core</title>
+    <style>
+        .select-page {
+            width: 50px;
+            text-align: center;
+        }
+        .pagination li a input {
+            padding: 0;
+            margin: -5px 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -40,7 +50,7 @@
                  <tfoot>
                  <tr>
                      <td colspan="5" class="text-center">
-                         <div st-items-by-page="2" st-pagination=""></div>
+                         <div st-items-by-page="4" st-pagination="" st-template="views/core/pagination.custom.html"></div>
                      </td>
                  </tr>
                  </tfoot>
