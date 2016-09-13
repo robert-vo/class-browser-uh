@@ -10,36 +10,42 @@
             <h2>Core Class Search</h2>
             <p>Please select a core category below to view classes that fulfills a certain core category.</p>
             <form name="coreSearchForm">
-            <select class="form-control" name="mySelect" id="mySelect"
-                    ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
-                    ng-model="coreCategory"
-                    ng-change="populateCoreClasses()"></select>
-                <p></p><p ng-show="showDiv">{{message}}</p>
-                <p ng-show="showDiv">{{messageTwo}}</p>
-                </form>
-            <table st-table="rowCollection" class="table table-striped" ng-show="showDiv">
-                <thead>
-                <tr>
-                    <th>Department Name</th>
-                    <th>Department CRN</th>
-                    <th>Class Title</th>
-                    <th>Credit Hours</th>
-                    <th>Class Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="row in resultSet">
-                    <td>{{row.department}}</td>
-                    <td>{{row.department_crn}}</td>
-                    <td>{{row.class_title}}</td>
-                    <td>{{row.credit_hours}}</td>
-                    <td>{{row.class_description}}</td>
-                </tr>
-                </tbody>
-            </table>
+                <select class="form-control"
+                        ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
+                        ng-model="coreCategory"
+                        ng-change="populateCoreClasses()">
+                </select>
+                <p ng-show="showDiv">{{message}}</p>
+                <p ng-show="showDiv"><p>{{messageTwo}}</p>
+            </form>
+             <table st-safe-src="rowCollection" st-table="displayed" class="table table-bordered table-striped" ng-show="showDiv">
+                 <thead>
+                 <tr>
+                     <th>Department Name</th>
+                     <th>Department CRN</th>
+                     <th>Class Title</th>
+                     <th>Credit Hours</th>
+                     <th>Class Description</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr ng-repeat="row in displayed">
+                     <td>{{row.department}}</td>
+                     <td>{{row.department_crn}}</td>
+                     <td>{{row.class_title}}</td>
+                     <td>{{row.credit_hours}}</td>
+                     <td>{{row.class_description}}</td>
+                 </tr>
+                 </tbody>
+                 <tfoot>
+                 <tr>
+                     <td colspan="5" class="text-center">
+                         <div st-items-by-page="2" st-pagination=""></div>
+                     </td>
+                 </tr>
+                 </tfoot>
+             </table>
         </div>
     </div>
-
-
 </body>
 </html>
