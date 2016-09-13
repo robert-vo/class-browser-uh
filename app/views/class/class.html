@@ -5,12 +5,62 @@
     <title>Class</title>
 </head>
 <body>
+<div class="container">
+    <div class="jumbotron">
+        <h2>Class Search</h2>
+        <p>class</p>
+        <form name="coreSearchForm">
+            Select subjects:
+            <select multiple
+                    class="form-control"
+                    ng-options="option.departmentFullName for option in departments.availableOptions track by option.departmentAbbreviation"
+                    ng-model="departmentModel">
+            </select>
 
-    <div class="container">
-        <div class="jumbotron">
-            <p>Class View</p>
-        </div>
+            Select number of credit hours:
+            <select multiple
+                    class="form-control"
+                    ng-options="option.creditHours for option in creditHours.availableOptions track by option.creditHours"
+                    ng-model="creditHourModel">
+            </select>
+
+            Select core requirement:
+            <select multiple
+                    class="form-control"
+                    ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
+                    ng-model="coreModel">
+            </select>
+            <!--<p></p><p ng-show="showDiv">{{message}}</p>-->
+            <!--<p ng-show="showDiv"><p>{{messageTwo}}</p>-->
+        </form>
+        <table st-safe-src="rowCollection" st-table="displayed" class="table table-bordered table-striped" ng-show="showDiv">
+            <thead>
+            <tr>
+                <th>Department Name</th>
+                <th>Department CRN</th>
+                <th>Class Title</th>
+                <th>Credit Hours</th>
+                <th>Class Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in displayed">
+                <td>{{row.department}}</td>
+                <td>{{row.department_crn}}</td>
+                <td>{{row.class_title}}</td>
+                <td>{{row.credit_hours}}</td>
+                <td>{{row.class_description}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5" class="text-center">
+                    <div st-items-by-page="10" st-pagination="" st-template="views/templates/pagination.custom.html"></div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
     </div>
-
+</div>
 </body>
 </html>
