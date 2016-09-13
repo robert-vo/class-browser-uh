@@ -8,13 +8,11 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
         controller: 'CoreCtrl'
     });
 }])
-.controller('CoreCtrl', function($scope, $http) {
+.controller('CoreCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.resultSet = [];
-    $scope.numberOfRows = 0;
+    $scope.rowCollection = [];
     $scope.message = "";
     $scope.messageTwo = "";
-
     $scope.coreCategories = {
         availableOptions: [
             {categoryNumber: 1, categoryName: "Communication"},
@@ -26,33 +24,38 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
             {categoryNumber: 7, categoryName : "Government/Political Science"},
             {categoryNumber: 8, categoryName : "Social & Behavioral Sciences"},
             {categoryNumber: 9, categoryName : "Government/Political Science"},
-            {categoryNumber: 10, categoryName : "Writing in the Disciplines"}],
-        selectedOption: {
-                categoryNumber: 1, categoryName: "I. Communication"
-        }
+            {categoryNumber: 10, categoryName : "Writing in the Disciplines"}
+        ]
     };
 
-    $scope.populateCoreClasses = function() {
+    $scope.populateCoreClasses = function(){
+
+        var apiUrl = $scope.apiUrl + '/core=' + $scope.coreCategory.categoryNumber;
+
         console.log("User selected category number: " + $scope.coreCategory.categoryNumber);
         console.log("Populating Core Classes...");
 
-        var url = $scope.apiUrl + '/core=' + $scope.coreCategory.categoryNumber;
-        $http.get(url)
+        $http
+            .get(apiUrl)
             .success(function (data) {
-                var message = "Retrieved " + data.numberOfRows +
-                    " classes that fall under the " + data.result[0].core_title + " category.";
-                var messageTwo = "The " + data.result[0].core_title + " core category requires " +
-                    data.result[0].hours_required + " hours to be taken to fulfill the core requirement.";
-                console.log(message);
-                console.log(data);
-                $scope.resultSet = data.result;
+                $scope.message = generateFirstMessage(data.result[0].core_title, data.numberOfRows);
+                $scope.messageTwo = generateSecondMessage(data.result[0].core_title, data.result[0].hours_required);
+                $scope.rowCollection = data.result;
                 $scope.showDiv = true;
-                $scope.numberOfRows = data.numberOfRows;
-                $scope.message = message;
-                $scope.messageTwo = messageTwo;
             })
             .error(function (data) {
                 alert("Unable to retrieve the data.");
             });
-    }
-    });
+    };
+
+    var generateFirstMessage = function(coreTitle, numberOfRows) {
+        return "Retrieved " + numberOfRows +
+            " classes that fall under the " + coreTitle + " category.";
+    };
+
+    var generateSecondMessage = function(coreTitle, hoursRequired) {
+        return "The " + coreTitle + " core category requires " +
+            hoursRequired + " hours to be taken to fulfill the core requirement.";
+    };
+
+}]);
