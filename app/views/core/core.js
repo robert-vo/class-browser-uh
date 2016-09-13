@@ -23,7 +23,7 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
             {categoryNumber: 6, categoryName : "American History"},
             {categoryNumber: 7, categoryName : "Government/Political Science"},
             {categoryNumber: 8, categoryName : "Social & Behavioral Sciences"},
-            {categoryNumber: 9, categoryName : "Government/Political Science"},
+            {categoryNumber: 9, categoryName : "Mathematics/Reasoning"},
             {categoryNumber: 10, categoryName : "Writing in the Disciplines"}
         ]
     };
