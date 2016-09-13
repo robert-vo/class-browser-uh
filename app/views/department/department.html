@@ -12,7 +12,7 @@
         <p ng-show="!showDiv">Click on the button below to view all of the department abbreviations and names.</p>
         <p ng-show="showDiv">Retrieved {{numberOfRows}} departments.</p>
         <button type="button" class="btn btn-default" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
-        <table st-table="rowCollection" class="table table-striped" ng-show="showDiv">
+        <table st-table="rowCollection" class="table table-bordered table-striped" ng-show="showDiv">
             <thead>
             <tr>
                 <th>Department Abbreviation</th>
