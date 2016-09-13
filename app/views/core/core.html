@@ -8,15 +8,16 @@
     <div class="container">
         <div class="jumbotron">
             <h2>Core Class Search</h2>
+            <p>Please select a core category below to view classes that fulfills a certain core category.</p>
             <form name="coreSearchForm">
             <select class="form-control" name="mySelect" id="mySelect"
                     ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
                     ng-model="coreCategory"
                     ng-change="populateCoreClasses()"></select>
-            <p ng-show="showDiv">{{message}}</p>
+                <p></p><p ng-show="showDiv">{{message}}</p>
+                <p ng-show="showDiv">{{messageTwo}}</p>
                 </form>
-            <!--<button type="button" class="btn btn-default" ng-click='populateCoreClasses()'>Get Core Classes</button>-->
-            <table st-table="rowCollection" class="table table-striped">
+            <table st-table="rowCollection" class="table table-striped" ng-show="showDiv">
                 <thead>
                 <tr>
                     <th>Department Name</th>
