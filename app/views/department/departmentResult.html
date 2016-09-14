@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department Result</title>
+</head>
+<body>
+<table st-table="rowCollection" class="table table-bordered table-striped" ng-show="showDiv">
+    <thead>
+    <tr>
+        <th>Department Abbreviation</th>
+        <th>Department Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in resultSet">
+        <td>{{row.departmentName}}</td>
+        <td>{{row.departmentFullName}}</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
