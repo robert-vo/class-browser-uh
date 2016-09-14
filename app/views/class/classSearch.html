@@ -1,0 +1,52 @@
+<h2>Class Search</h2>
+<p>
+    A directory of classes that have been offered at one point in time.
+    Leaving a field blank, "Nothing Selected", searches for everything in the particular category.
+</p>
+
+<form name="coreSearchForm" ng-controller="ClassCtrl">
+    <div class="form-group">
+        <label class="control-label" for="subject"><p>Select subjects: </p></label>
+        <ol class="nya-bs-select"
+            ng-model="departmentModel"
+            data-live-search="true"
+            data-selected-text-format={{selectedCountLimit}}
+            id="subject"
+            multiple>
+            <li nya-bs-option="option in departments.availableOptions">
+                <a>{{option.departmentName}} : {{ option.departmentFullName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+            </li>
+        </ol>
+        <p></p>
+        <label class="control-label" for="creditHours"><p>Select number of credit hours: </p></label>
+        <ol class="nya-bs-select"
+            ng-model="creditHourModel"
+            data-selected-text-format={{selectedCountLimit}}
+            multiple
+            id="creditHours">
+            <li nya-bs-option="option in creditHours.availableOptions">
+                <a>{{ option.creditHours }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+            </li>
+        </ol>
+        <p></p>
+        <label class="control-label" for="core"><p>Select core requirement: </p></label>
+        <ol class="nya-bs-select"
+            ng-model="coreModel"
+            data-live-search="true"
+            data-selected-text-format={{selectedCountLimit}}
+            multiple
+            id="core">
+            <li nya-bs-option="option in coreCategories.availableOptions">
+                <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+            </li>
+        </ol>
+
+        <!--<p></p><p ng-show="showDiv">{{message}}</p>-->
+        <!--<p ng-show="showDiv"><p>{{messageTwo}}</p>-->
+        <!--<p ng-show="showDiv">You have selected: {{departmentModel}}</p>-->
+        <!--<p ng-show="showDiv">You have selected: {{creditHourModel}}</p>-->
+        <!--<p ng-show="showDiv">You have selected: {{coreModel}}</p>-->
+
+    </div>
+</form>
+<button type="button" class="btn btn-default" ng-click='populateClasses()'>Populate Classes</button>
