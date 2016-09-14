@@ -23,7 +23,7 @@
                 <ol class="nya-bs-select"
                 ng-model="departmentModel"
                 data-live-search="true"
-                data-selected-text-format="count>2"
+                data-selected-text-format={{selectedCountLimit}}
                 id="subject"
                 multiple>
                 <li nya-bs-option="option in departments.availableOptions">
@@ -37,7 +37,7 @@
             <label class="control-label" for="creditHours"><p>Select number of credit hours: </p></label>
             <ol class="nya-bs-select"
                 ng-model="creditHourModel"
-                data-selected-text-format="count>2"
+                data-selected-text-format={{selectedCountLimit}}
                 multiple
                 id="creditHours">
                 <li nya-bs-option="option in creditHours.availableOptions">
@@ -52,7 +52,7 @@
             <ol class="nya-bs-select"
                 ng-model="coreModel"
                 data-live-search="true"
-                data-selected-text-format="count>2"
+                data-selected-text-format={{selectedCountLimit}}
                 multiple
                 id="core">
                 <li nya-bs-option="option in coreCategories.availableOptions">
