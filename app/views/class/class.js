@@ -9,23 +9,26 @@ config(['$routeProvider', function($routeProvider) {
 }]).
 controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.selectedCountLimit = 'count > 3';
-
     $scope.rowCollection = [];
-    var url = $scope.apiUrl + '/department';
 
     $scope.departments = {
         availableOptions: []
     };
 
-    $http.get(url)
-        .success(function(data) {
-            console.log("Retrieved " + data.numberOfRows + " departments.");
-            console.log(data);
-            $scope.departments.availableOptions = data.result;
-        })
-        .error(function(data) {
-            alert("Unable to retrieve the data.");
-        });
+    var populateDepartments = function() {
+        var url = $scope.apiUrl + '/department';
+        $http.get(url)
+            .success(function (data) {
+                console.log("Retrieved " + data.numberOfRows + " departments.");
+                console.log(data);
+                $scope.departments.availableOptions = data.result;
+            })
+            .error(function (data) {
+                alert("Unable to retrieve the data.");
+            })
+    };
+
+    populateDepartments();
 
     $scope.creditHours = {
         availableOptions: [
@@ -58,9 +61,27 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         ]
     };
 
+    var runPopulateClasses = function(apiUrl) {
+        $http
+            .get(apiUrl)
+            .success(function (data) {
+                $scope.message = "You selected whatever";
+                $scope.messageTwo = "Retrieved " + data.numberOfRows + " classes.";
+                $scope.rowCollection = [];
+                $scope.rowCollection = data.result;
+                $scope.showDiv = true;
+                console.log("Show div has value of " + $scope.showDiv);
+                console.log(data);
+                console.log('finished with data ' + data.numberOfRows);
+            })
+            .error(function (data) {
+                alert("Unable to retrieve the data.");
+            });
+    };
+
     $scope.populateClasses = function(){
 
-        var apiUrl = $scope.apiUrl + '/information?';
+        var apiUrl = $scope.apiUrl + '/information?department=aas&credit_hours=2';
 
         // http://localhost:8080/api/information?department=aas&credit_hours=2
         // department - A String that represents the department class(es) belong to.
@@ -71,19 +92,15 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         // console.log("User selected credit-hours: " + $scope.creditHours);
         // console.log("User selected core: " + $scope.core);
         console.log("Populating Classes...");
-        console.log($scope.departmentModel);
-        console.log($scope.creditHourModel);
-        console.log($scope.coreModel);
-
-        // $http
-        //     .get(apiUrl)
-        //     .success(function (data) {
-        //         $scope.rowCollection = data.result;
-        //         $scope.showDiv = true;
-        //         console.log(data);
-        //     })
-        //     .error(function (data) {
-        //         alert("Unable to retrieve the data.");
-        //     });
+        // console.log($scope.departmentModel);
+        // console.log($scope.creditHourModel);
+        // console.log($scope.coreModel);
+        runPopulateClasses(apiUrl);
     };
+
+    $scope.goBack = function() {
+        console.log('going back');
+        $scope.showDiv = false;
+    }
+
 }]);
