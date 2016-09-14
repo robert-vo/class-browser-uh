@@ -6,28 +6,28 @@
     <link href="views/core/core.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h2>Core Class Search</h2>
-            <p>Select a core category below to view classes that fulfills a certain core category.</p>
-            <form name="coreSearchForm">
-                <ol class="nya-bs-select"
-                    ng-model="coreCategory"
-                    data-live-search="true"
-                    ng-change="populateCoreClasses()"
-                    title="Select a core category here.">
-                    <li nya-bs-option="option in coreCategories.availableOptions">
-                        <a>
-                            {{ option.categoryName }}
-                            <span class="glyphicon glyphicon-ok check-mark">
+<div class="container">
+    <div class="jumbotron">
+        <h2>Core Class Search</h2>
+        <p>Select a core category below to view classes that fulfills a certain core category.</p>
+        <form name="coreSearchForm">
+            <ol class="nya-bs-select"
+                ng-model="coreCategory"
+                data-live-search="true"
+                ng-change="populateCoreClasses()"
+                title="Select a core category here.">
+                <li nya-bs-option="option in coreCategories.availableOptions">
+                    <a>
+                        {{ option.categoryName }}
+                        <span class="glyphicon glyphicon-ok check-mark">
                             </span>
-                        </a>
-                    </li>
-                </ol>
-            </form>
+                    </a>
+                </li>
+            </ol>
+        </form>
 
-            <div ng-include="'views/core/coreResult.html'"></div>
-        </div>
+        <div ng-include="'views/core/coreResult.html'"></div>
     </div>
+</div>
 </body>
 </html>
