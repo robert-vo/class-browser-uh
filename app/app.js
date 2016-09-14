@@ -10,7 +10,8 @@ angular.module('classBrowserUHApp', [
     'classBrowserUHApp.offeredclass',
     'classBrowserUHApp.navbar',
     'environment',
-    'smart-table'
+    'smart-table',
+    'nya.bootstrap.select'
 ]).
 config(function(envServiceProvider) {
     envServiceProvider.config({
@@ -49,4 +50,4 @@ directive('pageSelect', function() {
             });
         }
     }
-});
+});;

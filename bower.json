@@ -12,9 +12,9 @@
     "angular-mocks": "~1.5.0",
     "html5-boilerplate": "^5.3.0",
     "bootstrap": "^3.3.7",
-    "materialize": "^0.97.7",
     "jquery": "^3.1.0",
     "angular-smart-table": "^2.1.8",
-    "angular-environment": "^1.0.4"
+    "angular-environment": "^1.0.4",
+    "nya-bootstrap-select": "^2.1.8"
   }
 }
