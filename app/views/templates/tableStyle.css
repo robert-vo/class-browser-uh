@@ -14,3 +14,20 @@
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: searchfield-cancel-button;
 }
+
+.form-control::-webkit-input-placeholder {
+    color: black;
+    font-weight: normal;
+}
+.form-control:-moz-placeholder {
+    color: black;
+    font-weight: normal;
+}
+.form-control::-moz-placeholder {
+    color: black;
+    font-weight: normal;
+}
+.form-control:-ms-input-placeholder {
+    color: black;
+    font-weight: normal;
+}
