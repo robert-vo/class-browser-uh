@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Core</title>
-
+    <link href="views/core/core.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -11,7 +11,7 @@
             <h2>Core Class Search</h2>
             <p>Select a core category below to view classes that fulfills a certain core category.</p>
             <form name="coreSearchForm">
-                <ol class="nya-bs-select col-lg-10"
+                <ol class="nya-bs-select"
                     ng-model="coreCategory"
                     data-live-search="true"
                     ng-change="populateCoreClasses()"
@@ -27,39 +27,37 @@
                 <p></p><p ng-show="showDiv">{{message}}</p>
                 <p ng-show="showDiv"><p>{{messageTwo}}</p>
             </form>
-             <table st-safe-src="rowCollection"
-                    st-table="displayed"
-                    class="table table-bordered table-striped"
-                    ng-show="showDiv">
-                 <thead>
-                 <tr>
-                     <th>Department Name</th>
-                     <th>Department CRN</th>
-                     <th>Class Title</th>
-                     <th>Credit Hours</th>
-                     <th>Class Description</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                 <tr ng-repeat="row in displayed">
-                     <td>{{row.department}}</td>
-                     <td>{{row.department_crn}}</td>
-                     <td>{{row.class_title}}</td>
-                     <td>{{row.credit_hours}}</td>
-                     <td>{{row.class_description}}</td>
-                 </tr>
-                 </tbody>
-                 <tfoot>
-                 <tr>
-                     <td colspan="5" class="text-center">
-                         <div st-items-by-page="10"
-                              st-pagination=""
-                              st-template="views/templates/pagination.custom.html">
-                         </div>
-                     </td>
-                 </tr>
-                 </tfoot>
-             </table>
+            <table st-safe-src="rowCollection"
+                   st-table="displayed"
+                   class="table table-bordered table-striped"
+                   ng-show="showDiv">
+                <thead>
+                <tr>
+                    <th>Department Name</th>
+                    <th>Department CRN</th>
+                    <th>Class Title</th>
+                    <th>Credit Hours</th>
+                    <th>Class Description</th>
+                </tr></thead>
+                <tbody>
+                <tr ng-repeat="row in displayed">
+                    <td>{{row.department}}</td>
+                    <td>{{row.department_crn}}</td>
+                    <td>{{row.class_title}}</td>
+                    <td>{{row.credit_hours}}</td>
+                    <td>{{row.class_description}}</td>
+                </tr></tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-items-by-page="10"
+                             st-pagination=""
+                             st-template="views/templates/pagination.custom.html">
+                        </div>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
 </body>
