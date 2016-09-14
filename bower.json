@@ -15,6 +15,7 @@
     "jquery": "^3.1.0",
     "angular-smart-table": "^2.1.8",
     "angular-environment": "^1.0.4",
-    "nya-bootstrap-select": "^2.1.8"
+    "nya-bootstrap-select": "^2.1.8",
+    "underscore": "^1.8.3"
   }
 }
