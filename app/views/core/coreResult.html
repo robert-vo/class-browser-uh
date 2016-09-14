@@ -8,25 +8,26 @@
        class="table table-bordered table-striped"
        ng-show="showDiv">
     <thead>
-    <tr>
-        <th width="10%" class="sortable" st-sort="department">Subject</th>
-        <th width="10%" class="sortable" st-sort="department_crn">CRN</th>
-        <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
-        <th>Credit Hours</th>
-        <th width="60%">Class Description</th>
-    </tr>
-    <tr>
-        <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
-    </tr>
+        <tr>
+            <th width="10%" class="sortable" st-sort="department">Subject</th>
+            <th width="10%" class="sortable" st-sort="department_crn">CRN</th>
+            <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
+            <th>Credit Hours</th>
+            <th width="60%">Class Description</th>
+        </tr>
+        <tr>
+            <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
+        </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="row in displayed">
-        <td>{{row.department}}</td>
-        <td>{{row.department_crn}}</td>
-        <td>{{row.class_title}}</td>
-        <td>{{row.credit_hours}}</td>
-        <td>{{row.class_description}}</td>
-    </tr></tbody>
+        <tr ng-repeat="row in displayed">
+            <td>{{row.department}}</td>
+            <td>{{row.department_crn}}</td>
+            <td>{{row.class_title}}</td>
+            <td>{{row.credit_hours}}</td>
+            <td>{{row.class_description}}</td>
+        </tr>
+    </tbody>
     <tfoot>
     <tr>
         <td colspan="5" class="text-center">
