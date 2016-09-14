@@ -1,3 +1,5 @@
+<link href="views/templates/tableStyle.css" rel="stylesheet">
+
 <p ng-show="showDiv"><p>{{messageTwo}}</p>
 <p></p><p ng-show="showDiv">{{message}}</p>
 <h2 ng-show="showDiv">Core Search Results</h2>
@@ -7,12 +9,16 @@
        ng-show="showDiv">
     <thead>
     <tr>
-        <th>Department Name</th>
-        <th>Department CRN</th>
-        <th>Class Title</th>
+        <th width="10%" class="sortable" st-sort="department">Subject</th>
+        <th width="10%" class="sortable" st-sort="department_crn">CRN</th>
+        <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
         <th>Credit Hours</th>
-        <th>Class Description</th>
-    </tr></thead>
+        <th width="60%">Class Description</th>
+    </tr>
+    <tr>
+        <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search the results here."/></th>
+    </tr>
+    </thead>
     <tbody>
     <tr ng-repeat="row in displayed">
         <td>{{row.department}}</td>
