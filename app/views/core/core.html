@@ -11,7 +11,10 @@
             <h2>Core Class Search</h2>
             <p>Please select a core category below to view classes that fulfills a certain core category.</p>
             <form name="coreSearchForm">
-                <ol class="nya-bs-select" ng-model="coreCategory" data-live-search="true" ng-change="populateCoreClasses()">
+                <ol class="nya-bs-select"
+                    ng-model="coreCategory"
+                    data-live-search="true"
+                    ng-change="populateCoreClasses()">
                     <li nya-bs-option="option in coreCategories.availableOptions">
                         <a>
                             {{ option.categoryName }}
@@ -23,7 +26,10 @@
                 <p></p><p ng-show="showDiv">{{message}}</p>
                 <p ng-show="showDiv"><p>{{messageTwo}}</p>
             </form>
-             <table st-safe-src="rowCollection" st-table="displayed" class="table table-bordered table-striped" ng-show="showDiv">
+             <table st-safe-src="rowCollection"
+                    st-table="displayed"
+                    class="table table-bordered table-striped"
+                    ng-show="showDiv">
                  <thead>
                  <tr>
                      <th>Department Name</th>
@@ -45,7 +51,10 @@
                  <tfoot>
                  <tr>
                      <td colspan="5" class="text-center">
-                         <div st-items-by-page="10" st-pagination="" st-template="views/templates/pagination.custom.html"></div>
+                         <div st-items-by-page="10"
+                              st-pagination=""
+                              st-template="views/templates/pagination.custom.html">
+                         </div>
                      </td>
                  </tr>
                  </tfoot>
