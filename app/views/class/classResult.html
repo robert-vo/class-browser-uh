@@ -1,0 +1,45 @@
+<link href="views/templates/tableStyle.css" rel="stylesheet">
+
+
+<button type="button" class="btn btn-default" ng-click='goBack()'>Go Back To Class Search</button>
+<p><p>{{messageTwo}}</p>
+<p></p><p>{{message}}</p>
+
+<h2>Class Search Results</h2>
+    <table st-safe-src="rowCollection"
+           st-table="displayed"
+           class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Department Name</th>
+            <th>Department CRN</th>
+            <th>Class Title</th>
+            <th>Credit Hours</th>
+            <th>Class Description</th>
+            <th>Core ID</th>
+        </tr>
+        <tr>
+            <th colspan="6"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
+        </tr>
+        </thead>
+    <tbody>
+        <tr ng-repeat="row in displayed">
+            <td>{{row.department}}</td>
+            <td>{{row.department_crn}}</td>
+            <td>{{row.class_title}}</td>
+            <td>{{row.credit_hours}}</td>
+            <td>{{row.class_description}}</td>
+            <td>{{row.core_id}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5" class="text-center">
+            <div st-items-by-page="10"
+                 st-pagination=""
+                 st-template="views/templates/pagination.custom.html">
+            </div>
+        </td>
+    </tr>
+    </tfoot>
+</table>
