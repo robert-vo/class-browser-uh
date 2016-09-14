@@ -11,11 +11,15 @@
             <h2>Core Class Search</h2>
             <p>Please select a core category below to view classes that fulfills a certain core category.</p>
             <form name="coreSearchForm">
-                <select class="form-control"
-                        ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
-                        ng-model="coreCategory"
-                        ng-change="populateCoreClasses()">
-                </select>
+                <ol class="nya-bs-select" ng-model="coreCategory" data-live-search="true" ng-change="populateCoreClasses()">
+                    <li nya-bs-option="option in coreCategories.availableOptions">
+                        <a>
+                            {{ option.categoryName }}
+                            <span class="glyphicon glyphicon-ok check-mark">
+                            </span>
+                        </a>
+                    </li>
+                </ol>
                 <p></p><p ng-show="showDiv">{{message}}</p>
                 <p ng-show="showDiv"><p>{{messageTwo}}</p>
             </form>
