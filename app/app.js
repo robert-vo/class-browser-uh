@@ -15,9 +15,9 @@ angular.module('classBrowserUHApp', [
 ]).
 config(function(nyaBsConfigProvider) {
     var nyaSearchBoxMessages = {
-        defaultNoneSelection: 'Nothing selected',
+        defaultNoneSelection: 'Nothing Selected',
         noSearchResult: 'No Search Results Found!',
-        numberItemSelected: '%d item selected'
+        numberItemSelected: '%d Items Selected'
     };
     nyaBsConfigProvider.setLocalizedText('en-us', nyaSearchBoxMessages);
 }).
@@ -57,4 +57,4 @@ directive('pageSelect', function() {
             });
         }
     }
-});;
+});
