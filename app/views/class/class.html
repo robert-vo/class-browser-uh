@@ -3,26 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Class</title>
+    <link href="views/class/class.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
     <div class="jumbotron">
         <h2>Class Search</h2>
+        <p>
+            A directory of classes that have been offered at one point in time.
+            Leaving a field blank, "Nothing Selected", searches for everything in the particular category.
+        </p>
 
-        <form name="coreSearchForm" ng-submit="populateClasses()" ng-controller="ClassCtrl">
-            <p>Select subjects:</p>
-            <ol class="nya-bs-select" ng-model="departmentModel" data-live-search="true" multiple>
+        <form name="coreSearchForm" ng-controller="ClassCtrl">
+
+            <div class="form-group">
+            <label class="control-label" for="subject"><p>Select subjects: </p></label>
+
+                <ol class="nya-bs-select"
+                ng-model="departmentModel"
+                data-live-search="true"
+                data-selected-text-format="count>2"
+                id="subject"
+                multiple>
                 <li nya-bs-option="option in departments.availableOptions">
                     <a>
-                        {{ option.departmentFullName }}
+                        {{option.departmentName}} : {{ option.departmentFullName }}
                         <span class="glyphicon glyphicon-ok check-mark"></span>
                     </a>
                 </li>
             </ol>
-
-            <p>Select number of credit hours:</p>
-            <ol class="nya-bs-select" ng-model="creditHourModel" data-live-search="true" multiple>
+            <p></p>
+            <label class="control-label" for="creditHours"><p>Select number of credit hours: </p></label>
+            <ol class="nya-bs-select"
+                ng-model="creditHourModel"
+                data-selected-text-format="count>2"
+                multiple
+                id="creditHours">
                 <li nya-bs-option="option in creditHours.availableOptions">
                     <a>
                         {{ option.creditHours }}
@@ -30,9 +47,14 @@
                     </a>
                 </li>
             </ol>
-
-            <p>Select core requirement:</p>
-            <ol class="nya-bs-select" ng-model="coreModel" data-live-search="true" multiple>
+            <p></p>
+            <label class="control-label" for="core"><p>Select core requirement: </p></label>
+            <ol class="nya-bs-select"
+                ng-model="coreModel"
+                data-live-search="true"
+                data-selected-text-format="count>2"
+                multiple
+                id="core">
                 <li nya-bs-option="option in coreCategories.availableOptions">
                     <a>
                         {{ option.categoryName }}
@@ -41,13 +63,14 @@
                 </li>
             </ol>
 
-            <input type="submit" id="submit" value="Submit" />
             <!--<p></p><p ng-show="showDiv">{{message}}</p>-->
             <!--<p ng-show="showDiv"><p>{{messageTwo}}</p>-->
             <p>You have selected: {{departmentModel}}</p>
             <p>You have selected: {{creditHourModel}}</p>
             <p>You have selected: {{coreModel}}</p>
 
+            <button type="button" class="btn btn-default" ng-click='populateClasses()'>Populate Classes</button>
+            </div>
         </form>
         <table st-safe-src="rowCollection" st-table="displayed" class="table table-bordered table-striped" ng-show="showDiv">
             <thead>
