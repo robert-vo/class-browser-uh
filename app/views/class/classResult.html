@@ -1,36 +1,41 @@
 <link href="views/templates/tableStyle.css" rel="stylesheet">
 
+<p></p><p ng-show="showDiv">{{message}}</p>
+<p ng-show="showDiv"><p>{{messageTwo}}</p>
 
-<button type="button" class="btn btn-default" ng-click='goBack()'>Go Back To Class Search</button>
-<p><p>{{messageTwo}}</p>
-<p></p><p>{{message}}</p>
+<p ng-show="showDiv"><p>{{subjectMessage}}</p>
+<p ng-show="showDiv"><p>{{creditHoursMessage}}</p>
+<p ng-show="showDiv"><p>{{coreMessage}}</p>
 
-<h2>Class Search Results</h2>
-    <table st-safe-src="rowCollection"
-           st-table="displayed"
-           class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th>Department Name</th>
-            <th>Department CRN</th>
-            <th>Class Title</th>
-            <th>Credit Hours</th>
-            <th>Class Description</th>
-            <th>Core ID</th>
-        </tr>
-        <tr>
-            <th colspan="6"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
-        </tr>
-        </thead>
+<!--<button ng-click="console.log('hi')" ng-init="count=0">-->
+    <!--Increment-->
+<!--</button>-->
+
+<h2 ng-show="showDiv">Core Search Results</h2>
+<table st-safe-src="rowCollection"
+       st-table="displayed"
+       class="table table-bordered table-striped"
+       ng-show="showDiv">
+    <thead>
+    <tr>
+        <th width="10%" class="sortable" st-sort="department">Subject</th>
+        <th width="10%" class="sortable" st-sort="department_crn">CRN</th>
+        <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
+        <th>Credit Hours</th>
+        <th width="60%">Class Description</th>
+    </tr>
+    <tr>
+        <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
+    </tr>
+    </thead>
     <tbody>
-        <tr ng-repeat="row in displayed">
-            <td>{{row.department}}</td>
-            <td>{{row.department_crn}}</td>
-            <td>{{row.class_title}}</td>
-            <td>{{row.credit_hours}}</td>
-            <td>{{row.class_description}}</td>
-            <td>{{row.core_id}}</td>
-        </tr>
+    <tr ng-repeat="row in displayed">
+        <td>{{row.department}}</td>
+        <td>{{row.department_crn}}</td>
+        <td>{{row.class_title}}</td>
+        <td>{{row.credit_hours}}</td>
+        <td>{{row.class_description}}</td>
+    </tr>
     </tbody>
     <tfoot>
     <tr>
