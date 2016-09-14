@@ -13,6 +13,14 @@ angular.module('classBrowserUHApp', [
     'smart-table',
     'nya.bootstrap.select'
 ]).
+config(function(nyaBsConfigProvider) {
+    var nyaSearchBoxMessages = {
+        defaultNoneSelection: 'Nothing selected',
+        noSearchResult: 'No Search Results Found!',
+        numberItemSelected: '%d item selected'
+    };
+    nyaBsConfigProvider.setLocalizedText('en-us', nyaSearchBoxMessages);
+}).
 config(function(envServiceProvider) {
     envServiceProvider.config({
         domains: {
@@ -32,7 +40,6 @@ config(function(envServiceProvider) {
 }).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
-
     $routeProvider.otherwise({redirectTo: '/home'});
 }]).
 controller('EnvVarCtrl', ['$scope', 'envService', function($scope, envService) {
