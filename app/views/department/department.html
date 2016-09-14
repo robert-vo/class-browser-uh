@@ -8,25 +8,13 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h2>Department Search</h2>
+        <h2 ng-show="!showDiv">Department Search</h2>
+        <h2 ng-show="showDiv">Department Search Results</h2>
         <p ng-show="!showDiv">Click on the button below to view all of the department abbreviations and names.</p>
         <p ng-show="showDiv">Retrieved {{numberOfRows}} departments.</p>
         <button type="button" class="btn btn-default" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
-        <table st-table="rowCollection" class="table table-bordered table-striped" ng-show="showDiv">
-            <thead>
-            <tr>
-                <th>Department Abbreviation</th>
-                <th>Department Name</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="row in resultSet">
-                <td>{{row.departmentName}}</td>
-                <td>{{row.departmentFullName}}</td>
-            </tr>
-            </tbody>
-        </table>
-        </div>
+        <div ng-include="'views/department/departmentResult.html'"></div>
+    </div>
 </div>
 </body>
 
