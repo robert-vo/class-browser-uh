@@ -9,23 +9,22 @@ angular.module('classBrowserUHApp.class', ['ngRoute'])
     });
 }]).
 controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
-
         $scope.rowCollection = [];
+        var url = $scope.apiUrl + '/department';
 
         $scope.departments = {
-            availableOptions: [
-                {departmentAbbreviation: "abc", departmentFullName: "d"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Mathematics"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Life and Physical Sciences"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Language, Philosophy & Culture"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Creative Arts"},
-                {departmentAbbreviation: "q23w", departmentFullName: "American History"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Government/Political Science"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Social & Behavioral Sciences"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Mathematics/Reasoning"},
-                {departmentAbbreviation: "q23w", departmentFullName: "Writing in the Disciplines"}
-            ]
+            availableOptions: []
         };
+
+        $http.get(url)
+            .success(function(data) {
+                console.log("Retrieved " + data.numberOfRows + " departments.");
+                console.log(data);
+                $scope.departments.availableOptions = data.result;
+            })
+            .error(function(data) {
+                alert("Unable to retrieve the data.");
+            });
 
         $scope.creditHours = {
             availableOptions: [
@@ -61,6 +60,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.populateClasses = function(){
 
             var apiUrl = $scope.apiUrl + '/information?';
+            $scope.poop = "wefhuefrhiurefhiu";
 
             // http://localhost:8080/api/information?department=aas&credit_hours=2
             // department - A String that represents the department class(es) belong to.
@@ -71,16 +71,19 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
             // console.log("User selected credit-hours: " + $scope.creditHours);
             // console.log("User selected core: " + $scope.core);
             console.log("Populating Classes...");
+            console.log($scope.departmentModel);
+            console.log($scope.creditHourModel);
+            console.log($scope.coreModel);
 
-            $http
-                .get(apiUrl)
-                .success(function (data) {
-                    $scope.rowCollection = data.result;
-                    $scope.showDiv = true;
-                    console.log(data);
-                })
-                .error(function (data) {
-                    alert("Unable to retrieve the data.");
-                });
+            // $http
+            //     .get(apiUrl)
+            //     .success(function (data) {
+            //         $scope.rowCollection = data.result;
+            //         $scope.showDiv = true;
+            //         console.log(data);
+            //     })
+            //     .error(function (data) {
+            //         alert("Unable to retrieve the data.");
+            //     });
         };
     }]);
