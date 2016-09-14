@@ -5,33 +5,55 @@
     <title>Class</title>
 </head>
 <body>
+
 <div class="container">
     <div class="jumbotron">
         <h2>Class Search</h2>
-        <p>class</p>
-        <form name="coreSearchForm">
-            Select subjects:
-            <select multiple
-                    class="form-control"
-                    ng-options="option.departmentFullName for option in departments.availableOptions track by option.departmentAbbreviation"
-                    ng-model="departmentModel">
+
+        <form class="form-inline">
+            <ol class="nya-bs-select" ng-model="model" data-live-search="true">
+                <li nya-bs-option="option in options">
+                    <!-- the text content of anchor element will be used for search -->
+                    <a>
+                        {{ option }}
+                        <span class="glyphicon glyphicon-ok check-mark"></span>
+                    </a>
+                </li>
+            </ol>
+        </form>
+
+        <form name="coreSearchForm" ng-submit="populateClasses()" ng-controller="ClassCtrl">
+
+            <p class="alert-info">Single Selection, model is <span>{{model}}</span></p>
+
+            <p>Select subjects:</p>
+                <select class="" ng-model="departmentModel" material-select multiple watch>
+                    <option ng-repeat="value in departments.availableOptions">{{value.departmentFullName}}</option>
+                </select>
+
+            <p>Select number of credit hours:</p>
+            <select class="" ng-model="creditHourModel" material-select multiple watch>
+                <option ng-repeat="value in creditHours.availableOptions">{{value.creditHours}}</option>
             </select>
 
-            Select number of credit hours:
-            <select multiple
-                    class="form-control"
-                    ng-options="option.creditHours for option in creditHours.availableOptions track by option.creditHours"
-                    ng-model="creditHourModel">
+            <p>Select core requirement:</p>
+            <select class="" ng-model="coreModel" material-select multiple watch>
+                <option ng-repeat="value in coreCategories.availableOptions">{{value.categoryName}}</option>
             </select>
 
-            Select core requirement:
-            <select multiple
-                    class="form-control"
-                    ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"
-                    ng-model="coreModel">
-            </select>
+            <!--<select multiple-->
+                    <!--class="form-control"-->
+                    <!--ng-options="option.categoryName for option in coreCategories.availableOptions track by option.categoryNumber"-->
+                    <!--ng-model="coreModel">-->
+            <!--</select>-->
+
+            <input type="submit" id="submit" value="Submit" />
             <!--<p></p><p ng-show="showDiv">{{message}}</p>-->
             <!--<p ng-show="showDiv"><p>{{messageTwo}}</p>-->
+            <p>You have selected: {{departmentModel}}</p>
+            <p>You have selected: {{creditHourModel}}</p>
+            <p>You have selected: {{coreModel}}</p>
+
         </form>
         <table st-safe-src="rowCollection" st-table="displayed" class="table table-bordered table-striped" ng-show="showDiv">
             <thead>
@@ -61,6 +83,7 @@
             </tfoot>
         </table>
     </div>
+
 </div>
 </body>
 </html>
