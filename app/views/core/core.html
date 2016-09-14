@@ -9,12 +9,13 @@
     <div class="container">
         <div class="jumbotron">
             <h2>Core Class Search</h2>
-            <p>Please select a core category below to view classes that fulfills a certain core category.</p>
+            <p>Select a core category below to view classes that fulfills a certain core category.</p>
             <form name="coreSearchForm">
-                <ol class="nya-bs-select"
+                <ol class="nya-bs-select col-lg-10"
                     ng-model="coreCategory"
                     data-live-search="true"
-                    ng-change="populateCoreClasses()">
+                    ng-change="populateCoreClasses()"
+                    title="Select a core category here.">
                     <li nya-bs-option="option in coreCategories.availableOptions">
                         <a>
                             {{ option.categoryName }}
