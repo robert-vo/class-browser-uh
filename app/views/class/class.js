@@ -117,24 +117,13 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         Array.prototype.allParametersUndefinedOrNull = function() {
             for(var i = 0; i < this.length; i++) {
                 if(!isArrayIsUndefinedOrNull(this[i])) {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         };
 
-        console.log(allParametersFromScope.allParametersUndefinedOrNull());
-
-        if(allParametersFromScope.forEach(function(e) {
-            return isArrayIsUndefinedOrNull(e);
-            })) {
-            console.log("eragiuhdf");
-        }
-
-
-        if (isArrayIsUndefinedOrNull(department) &&
-            isArrayIsUndefinedOrNull(creditHour) &&
-            isArrayIsUndefinedOrNull(core)) {
+        if(allParametersFromScope.allParametersUndefinedOrNull()) {
             console.log("All parameters are empty...");
             return [baseUrl];
         }
