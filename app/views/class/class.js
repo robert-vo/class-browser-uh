@@ -106,12 +106,31 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     var isArrayIsUndefinedOrNull = function(arr) {
-        return (arr === undefined || arr === null);
+        return !!(_.isUndefined(arr) || _.isNull(arr) || _.isEmpty(arr));
     };
 
     var buildApiUrlsFromModel = function(department, creditHour, core) {
         console.log("Building API URL...");
         var baseUrl = $scope.apiUrl + '/information?';
+        var allParametersFromScope = [department, creditHour, core];
+
+        Array.prototype.allParametersUndefinedOrNull = function() {
+            for(var i = 0; i < this.length; i++) {
+                if(!isArrayIsUndefinedOrNull(this[i])) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        console.log(allParametersFromScope.allParametersUndefinedOrNull());
+
+        if(allParametersFromScope.forEach(function(e) {
+            return isArrayIsUndefinedOrNull(e);
+            })) {
+            console.log("eragiuhdf");
+        }
+
 
         if (isArrayIsUndefinedOrNull(department) &&
             isArrayIsUndefinedOrNull(creditHour) &&
