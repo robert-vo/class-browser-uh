@@ -62,18 +62,11 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     var runPopulateClasses = function(apiUrl) {
+        console.log("Given URL: " + apiUrl);
         $http
             .get(apiUrl)
             .success(function (data) {
-                $scope.subjectMessage = generateMessage($scope.departmentModel, 'subjects', 'departmentFullName');
-                $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'credit hour', 'creditHours');
-                $scope.coreMessage = generateMessage($scope.coreModel, 'core classes', 'categoryName');
-                $scope.rowCollection = [];
-                $scope.rowCollection = data.result;
-                $scope.showDiv = true;
-                console.log("Show div has value of " + $scope.showDiv);
-                console.log(data);
-                console.log('finished with data ' + data.numberOfRows);
+                $scope.rowCollection.add(data.result);
             })
             .error(function (data) {
                 alert("Unable to retrieve the data.");
@@ -91,17 +84,61 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
     $scope.populateClasses = function(){
-        var apiUrl = $scope.apiUrl + '/information?department=aas&credit_hours=2';
+        $scope.rowCollection = [];
+        var apiUrl = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
+        console.log("Populating Classes...");
+
+        apiUrl.forEach(runPopulateClasses);
+
+        if($scope.rowCollection.length > 0) {
+            $scope.showDiv = true;
+            $scope.subjectMessage = generateMessage($scope.departmentModel, 'subjects', 'departmentFullName');
+            $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'credit hour', 'creditHours');
+            $scope.coreMessage = generateMessage($scope.coreModel, 'core classes', 'categoryName');
+        }
+    };
+
+    var buildApiUrlsFromModel = function(department, creditHour, core) {
+        var baseUrl = $scope.apiUrl + '/information?';
+
+        department = _.pluck(department, 'departmentName');
+        creditHour = _.pluck(creditHour, 'creditHours');
+        core = _.pluck(core, 'categoryNumber');
+
+        console.log("dept " + department);
+        console.log("crh " + creditHour);
+        console.log("core " + core);
+
+        var cartProduct = [];
+
+        var allUrls = [];
+        function cartesianProduct(arr)
+        {
+            return arr.reduce(function(a,b){
+                return a.map(function(x){
+                    return b.map(function(y){
+                        return x.concat(y);
+                    })
+                }).reduce(function(a,b){ return a.concat(b) },[])
+            }, [[]])
+        }
+
+        if(department != undefined) {
+            cartProduct = cartesianProduct(department);
+        }
+
+        //
+        // var a = cartesianProduct([[1, 2,3], [4, 5,6], [7, 8], [9,10]]);
+        // console.log(a);
+        //
+        // console.log(cartesianProduct(allObjects));
 
         // http://localhost:8080/api/information?department=aas&credit_hours=2
         // department - A String that represents the department class(es) belong to.
         // credit-hours - An integer that represents the number of credit hours a class fulfills.
         // core - A String representing the core categories of a class.
-        console.log("User selected department: " + $scope.departmentModel);
-        console.log("User selected credit-hours: " + $scope.creditHourModel);
-        console.log("User selected core: " + $scope.coreModel);
-        console.log("Populating Classes...");
-        runPopulateClasses(apiUrl);
+        return allUrls;
+        //department=aas&credit_hours=2';
     };
 
     $scope.goBack = function() {
