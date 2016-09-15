@@ -15,6 +15,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         availableOptions: []
     };
 
+
     var populateDepartments = function() {
         var url = $scope.apiUrl + '/department';
         $http.get(url)
@@ -63,14 +64,20 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
 
     var runPopulateClasses = function(apiUrl) {
         console.log("Given URL: " + apiUrl);
-        $http
-            .get(apiUrl)
-            .success(function (data) {
-                $scope.rowCollection.add(data.result);
-            })
-            .error(function (data) {
-                alert("Unable to retrieve the data.");
-            });
+
+        var retrieveClassInformationFromURL = function(url) {
+            $http
+                .get(url)
+                .success(function (data) {
+                    $scope.rowCollection.add(data.result);
+                })
+                .error(function (data) {
+                    alert("Unable to retrieve the data.");
+                });
+        };
+
+        // retrieveClassInformationFromURL.apply(apiUrl);
+
     };
 
     var generateMessage = function(model, type, objToPluck) {
@@ -88,7 +95,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         var apiUrl = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
         console.log("Populating Classes...");
 
-        apiUrl.forEach(runPopulateClasses);
+        console.log("Retrieved api URLs: " + apiUrl);
 
         if($scope.rowCollection.length > 0) {
             $scope.showDiv = true;
@@ -98,9 +105,22 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         }
     };
 
+    var isArrayIsUndefinedOrNull = function(arr) {
+        return (arr === undefined || arr === null);
+    };
+
     var buildApiUrlsFromModel = function(department, creditHour, core) {
+        console.log("Building API URL...");
         var baseUrl = $scope.apiUrl + '/information?';
 
+        if (isArrayIsUndefinedOrNull(department) &&
+            isArrayIsUndefinedOrNull(creditHour) &&
+            isArrayIsUndefinedOrNull(core)) {
+            console.log("All parameters are empty...");
+            return [baseUrl];
+        }
+
+        console.log("User has selected some categories. Preparing API URL.");
         department = _.pluck(department, 'departmentName');
         creditHour = _.pluck(creditHour, 'creditHours');
         core = _.pluck(core, 'categoryNumber');
@@ -109,34 +129,61 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         console.log("crh " + creditHour);
         console.log("core " + core);
 
-        var cartProduct = [];
-
         var allUrls = [];
-        function cartesianProduct(arr)
-        {
-            return arr.reduce(function(a,b){
-                return a.map(function(x){
-                    return b.map(function(y){
-                        return x.concat(y);
-                    })
-                }).reduce(function(a,b){ return a.concat(b) },[])
-            }, [[]])
+
+        var expandArrayValues = function(arr, parameter) {
+            arr.forEach(function (part, index, arr) {
+                arr[index] = parameter + "=" + part;
+            });
+        };
+
+        if(isArrayIsUndefinedOrNull(department)) {
+            expandArrayValues(department, 'department');
+        }
+        if(isArrayIsUndefinedOrNull(creditHour)) {
+            expandArrayValues(creditHour, 'credit-hours');
+        }
+        if(isArrayIsUndefinedOrNull(core)) {
+            expandArrayValues(core, 'core');
         }
 
-        if(department != undefined) {
-            cartProduct = cartesianProduct(department);
+        var allParameters = [department,creditHour,core].filter(nonEmpty).reduce(productAdd);
+
+        function nonEmpty(xs) {
+            return xs.length > 0;
         }
 
-        //
-        // var a = cartesianProduct([[1, 2,3], [4, 5,6], [7, 8], [9,10]]);
-        // console.log(a);
-        //
-        // console.log(cartesianProduct(allObjects));
+        function productAdd(xs, ys) {
+            return product(add, xs, ys);
+        }
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        function product(f, xs, ys) {
+            var zs = [];
+
+            var m = xs.length;
+            var n = ys.length;
+
+            for (var i = 0; i < m; i++) {
+                var x = xs[i];
+
+                for (var j = 0; j < n; j++)
+                    zs.push(f(x, ys[j]));
+            }
+
+            return zs;
+        }
+
+        console.log("Retrieved parameters from cartesian product: " + allParameters);
 
         // http://localhost:8080/api/information?department=aas&credit_hours=2
         // department - A String that represents the department class(es) belong to.
         // credit-hours - An integer that represents the number of credit hours a class fulfills.
         // core - A String representing the core categories of a class.
+        console.log(allUrls);
         return allUrls;
         //department=aas&credit_hours=2';
     };
