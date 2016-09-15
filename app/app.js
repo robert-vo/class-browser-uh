@@ -32,7 +32,7 @@ config(function(envServiceProvider) {
                 apiUrl: '//localhost:8080/api'
             },
             production: {
-                apiUrl: '//aws.com'
+                apiUrl: '//classbrowseruh.us-west-2.elasticbeanstalk.com/api'
             }
         }
     });
