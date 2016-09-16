@@ -56,9 +56,15 @@
                 </div>
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
+            </form>
         </div>
+
+        <br>
+        <div class="alert alert-warning" ng-show="hasNoResults">
+            <p><strong>Warning!</strong></p> <p>There are no classes found with the categories you have specified. Please try again.</p>
+        </div>
+
         <div ng-include="'views/class/classResult.html'" ng-show="showDiv"></div>
-        </form>
 
     </div>
 </div>
