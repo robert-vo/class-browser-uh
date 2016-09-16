@@ -62,49 +62,12 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         ]
     };
 
-    var runPopulateClasses = function(apiUrl) {
-        console.log("Given URL: " + apiUrl);
-
-        for(var i = 0; i < apiUrl.length; i++) {
-            console.log("Got URL: " +apiUrl[i]);
-
-            // Simple GET request example:
-            $http({
-                method: 'GET',
-                url: apiUrl[i]
-            }).then(function successCallback(response) {
-                console.log("Response: " + response);
-                // this callback will be called asynchronously
-                // when the response is available
-            }, function errorCallback(response) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
-        }
-
-        // apiUrl.forEach(function (url) {
-        //     console.log(url);
-        //     $http
-        //         .get(url)
-        //         .success(function (data) {
-        //             console.log("Data retrieved is: " + data);
-        //             $scope.rowCollection.push(data.result);
-        //             console.log($scope.rowCollection);
-        //         })
-        //         .error(function (data) {
-        //             alert("Unable to retrieve the data.");
-        //         });
-        // });
-
-        console.log("New rowCollection = " + $scope.rowCollection);
-    };
-
     var generateMessage = function(model, type, objToPluck) {
         if(model == undefined || model.length == 0) {
-            return "You have selected zero " + type + ". Searching for all " + type + ".";
+            return "";
         }
         else {
-            return "You have selected " + _.pluck(model, objToPluck).join(', ') + " as your " + type + ".";
+            return "<b> " + type + "</b>: " + _.pluck(model, objToPluck).join(', ') + "<br>";
         }
     };
 
@@ -116,37 +79,50 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
 
         console.log("Retrieved api URLs: " + apiUrl);
 
+        $scope.numberOfRows = 0;
         for(var i = 0; i < apiUrl.length; i++) {
             console.log("Got URL: " + apiUrl[i]);
             $http
                 .get(apiUrl[i])
                 .success(function (data) {
-                    console.log("Data retrieved is: " + data);
+                    $scope.numberOfRows += data.numberOfRows;
                     $scope.rowCollection = $scope.rowCollection.concat(data.result);
-                    console.log($scope.rowCollection);
                     populateFields();
                 })
                 .error(function (data) {
                     alert("Unable to retrieve the data.");
                 });
         }
-
-        console.log("showdiv = " + $scope.showDiv);
-        // console.log("Result is: " + $scope.rowCollection);
-        console.log("Flattened: " + _.flatten($scope.rowCollection));
-        console.log("Length: " + $scope.rowCollection.length);
-
-
     };
 
     var populateFields = function(){
+        $scope.hasNoResults = false;
         console.log("In populate fields");
         console.log("Row Collection = " + $scope.rowCollection);
         if($scope.rowCollection.length > 0) {
             $scope.showDiv = true;
-            $scope.subjectMessage = generateMessage($scope.departmentModel, 'subjects', 'departmentFullName');
-            $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'credit hour', 'creditHours');
-            $scope.coreMessage = generateMessage($scope.coreModel, 'core classes', 'categoryName');
+            if($scope.numberOfRows == 1) {
+                $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class.";
+            }
+            else {
+                $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " classes.";
+            }
+
+            if([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
+                $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
+            }
+            else {
+                $scope.parametersMessage = "";
+                $scope.subjectMessage = generateMessage($scope.departmentModel, 'Subjects', 'departmentFullName');
+                $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
+                $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
+                $scope.parametersMessage = $scope.subjectMessage +
+                $scope.creditHoursMessage +
+                $scope.coreMessage;
+            }
+        }
+        else {
+            $scope.hasNoResults = true;
         }
     };
 
@@ -154,19 +130,20 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         return !(_.isUndefined(arr) || _.isNull(arr) || _.isEmpty(arr));
     };
 
+    Array.prototype.allParametersUndefinedOrNull = function() {
+        for(var i = 0; i < this.length; i++) {
+            if(isArrayIsUndefinedOrNull(this[i])) {
+                return false;
+            }
+        }
+        return true;
+    };
+
     var buildApiUrlsFromModel = function(department, creditHour, core) {
         console.log("Building API URL...");
         var baseUrl = $scope.apiUrl + '/information?';
         var allParametersFromScope = [department, creditHour, core];
 
-        Array.prototype.allParametersUndefinedOrNull = function() {
-            for(var i = 0; i < this.length; i++) {
-                if(isArrayIsUndefinedOrNull(this[i])) {
-                    return false;
-                }
-            }
-            return true;
-        };
 
         if(allParametersFromScope.allParametersUndefinedOrNull()) {
             console.log("All parameters are empty...");
@@ -248,6 +225,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     $scope.clearForms = function() {
+        $scope.hasNoResults = false;
         console.log('clearing forms...');
         console.log($scope.departmentModel);
         console.log($scope.creditHourModel);
@@ -255,6 +233,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.departmentModel = undefined;
         $scope.creditHourModel = undefined;
         $scope.coreModel = undefined;
+        $scope.parametersMessage = undefined;
     };
 
 }]);
