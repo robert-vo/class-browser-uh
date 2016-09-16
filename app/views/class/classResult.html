@@ -1,24 +1,24 @@
 <link href="views/templates/tableStyle.css" rel="stylesheet">
 
-<p ng-show="showDiv"><p>{{subjectMessage}}</p>
-<p ng-show="showDiv"><p>{{creditHoursMessage}}</p>
-<p ng-show="showDiv"><p>{{coreMessage}}</p>
-
 <button ng-click="goBack()" class="btn btn-default" >
     Back To Class Search
 </button>
 
-<h2 ng-show="showDiv">Core Search Results</h2>
+<h2>Core Search Results</h2>
+<p ng-bind-html="parametersMessage"></p>
+<!--<p><p ng-bind-html="creditHoursMessage"></p>-->
+<!--<p><p ng-bind-html="coreMessage"></p>-->
+<p ng-bind-html="numberOfRowsMessage"></p>
+
 <table st-safe-src="rowCollection"
        st-table="displayed"
-       class="table table-bordered table-striped"
-       ng-show="showDiv">
+       class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th width="10%" class="sortable" st-sort="department">Subject</th>
-        <th width="10%" class="sortable" st-sort="department_crn">CRN</th>
+        <th width="5%" class="sortable" st-sort="department">Subject</th>
+        <th width="5%" class="sortable" st-sort="department_crn">CRN</th>
         <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
-        <th>Credit Hours</th>
+        <th width="17%" class="sortable" st-sort="credit_hours">Credit Hours</th>
         <th width="60%">Class Description</th>
     </tr>
     <tr>
