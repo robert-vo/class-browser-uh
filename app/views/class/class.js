@@ -65,19 +65,38 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     var runPopulateClasses = function(apiUrl) {
         console.log("Given URL: " + apiUrl);
 
-        var retrieveClassInformationFromURL = function(url) {
-            $http
-                .get(url)
-                .success(function (data) {
-                    $scope.rowCollection.add(data.result);
-                })
-                .error(function (data) {
-                    alert("Unable to retrieve the data.");
-                });
-        };
+        for(var i = 0; i < apiUrl.length; i++) {
+            console.log("Got URL: " +apiUrl[i]);
 
-        // retrieveClassInformationFromURL.apply(apiUrl);
+            // Simple GET request example:
+            $http({
+                method: 'GET',
+                url: apiUrl[i]
+            }).then(function successCallback(response) {
+                console.log("Response: " + response);
+                // this callback will be called asynchronously
+                // when the response is available
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+        }
 
+        // apiUrl.forEach(function (url) {
+        //     console.log(url);
+        //     $http
+        //         .get(url)
+        //         .success(function (data) {
+        //             console.log("Data retrieved is: " + data);
+        //             $scope.rowCollection.push(data.result);
+        //             console.log($scope.rowCollection);
+        //         })
+        //         .error(function (data) {
+        //             alert("Unable to retrieve the data.");
+        //         });
+        // });
+
+        console.log("New rowCollection = " + $scope.rowCollection);
     };
 
     var generateMessage = function(model, type, objToPluck) {
@@ -97,6 +116,32 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
 
         console.log("Retrieved api URLs: " + apiUrl);
 
+        for(var i = 0; i < apiUrl.length; i++) {
+            console.log("Got URL: " + apiUrl[i]);
+            $http
+                .get(apiUrl[i])
+                .success(function (data) {
+                    console.log("Data retrieved is: " + data);
+                    $scope.rowCollection = $scope.rowCollection.concat(data.result);
+                    console.log($scope.rowCollection);
+                    populateFields();
+                })
+                .error(function (data) {
+                    alert("Unable to retrieve the data.");
+                });
+        }
+
+        console.log("showdiv = " + $scope.showDiv);
+        // console.log("Result is: " + $scope.rowCollection);
+        console.log("Flattened: " + _.flatten($scope.rowCollection));
+        console.log("Length: " + $scope.rowCollection.length);
+
+
+    };
+
+    var populateFields = function(){
+        console.log("In populate fields");
+        console.log("Row Collection = " + $scope.rowCollection);
         if($scope.rowCollection.length > 0) {
             $scope.showDiv = true;
             $scope.subjectMessage = generateMessage($scope.departmentModel, 'subjects', 'departmentFullName');
@@ -136,8 +181,6 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         console.log("dept " + department);
         console.log("crh " + creditHour);
         console.log("core " + core);
-
-        var allUrls = [];
 
         var expandArrayValues = function(arr, parameter) {
             arr.forEach(function (part, index, arr) {
@@ -196,8 +239,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         }
 
         console.log("Retrieved parameters from cartesian product: " + allParameters);
-        console.log(allUrls);
-        return allUrls;
+        return allParameters;
     };
 
     $scope.goBack = function() {
