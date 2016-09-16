@@ -106,7 +106,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     var isArrayIsUndefinedOrNull = function(arr) {
-        return !!(_.isUndefined(arr) || _.isNull(arr) || _.isEmpty(arr));
+        return !(_.isUndefined(arr) || _.isNull(arr) || _.isEmpty(arr));
     };
 
     var buildApiUrlsFromModel = function(department, creditHour, core) {
@@ -116,7 +116,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
 
         Array.prototype.allParametersUndefinedOrNull = function() {
             for(var i = 0; i < this.length; i++) {
-                if(!isArrayIsUndefinedOrNull(this[i])) {
+                if(isArrayIsUndefinedOrNull(this[i])) {
                     return false;
                 }
             }
@@ -155,7 +155,17 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
             expandArrayValues(core, 'core');
         }
 
+
+        var appendApiUrl = function(arr) {
+            arr.forEach(function (part, index, arr) {
+                arr[index] = baseUrl + part;
+            });
+        };
+
+
         var allParameters = [department,creditHour,core].filter(nonEmpty).reduce(productAdd);
+
+        appendApiUrl(allParameters);
 
         function nonEmpty(xs) {
             return xs.length > 0;
@@ -166,7 +176,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         }
 
         function add(a, b) {
-            return a + b;
+            return a + "&" + b;
         }
 
         function product(f, xs, ys) {
@@ -186,14 +196,8 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         }
 
         console.log("Retrieved parameters from cartesian product: " + allParameters);
-
-        // http://localhost:8080/api/information?department=aas&credit_hours=2
-        // department - A String that represents the department class(es) belong to.
-        // credit-hours - An integer that represents the number of credit hours a class fulfills.
-        // core - A String representing the core categories of a class.
         console.log(allUrls);
         return allUrls;
-        //department=aas&credit_hours=2';
     };
 
     $scope.goBack = function() {
