@@ -11,7 +11,8 @@ angular.module('classBrowserUHApp', [
     'classBrowserUHApp.navbar',
     'environment',
     'smart-table',
-    'nya.bootstrap.select'
+    'nya.bootstrap.select',
+    'ngSanitize'
 ]).
 config(function(nyaBsConfigProvider) {
     var nyaSearchBoxMessages = {
