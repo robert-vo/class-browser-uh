@@ -101,12 +101,9 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         console.log("Row Collection = " + $scope.rowCollection);
         if($scope.rowCollection.length > 0) {
             $scope.showDiv = true;
-            if($scope.numberOfRows == 1) {
-                $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class.";
-            }
-            else {
-                $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " classes.";
-            }
+
+            $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class";
+            $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? " ." : "es.";
 
             if([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
                 $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
@@ -234,6 +231,7 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.creditHourModel = undefined;
         $scope.coreModel = undefined;
         $scope.parametersMessage = undefined;
+        $scope.rowCollection = undefined;
     };
 
 }]);
