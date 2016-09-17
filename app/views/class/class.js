@@ -17,12 +17,10 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
     var populateDepartments = function() {
-        var url = $scope.apiUrl + '/department';
-        $http.get(url)
+        $http.get('resources/subjects.json')
             .success(function (data) {
                 console.log("Retrieved " + data.numberOfRows + " departments.");
-                console.log(data);
-                $scope.departments.availableOptions = data.result;
+                $scope.departments.availableOptions = data.departments;
             })
             .error(function (data) {
                 alert("Unable to retrieve the data.");
@@ -77,8 +75,6 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         var apiUrl = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
         console.log("Populating Classes...");
 
-        console.log("Retrieved api URLs: " + apiUrl);
-
         $scope.numberOfRows = 0;
         for(var i = 0; i < apiUrl.length; i++) {
             console.log("Got URL: " + apiUrl[i]);
@@ -114,8 +110,8 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
                 $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
                 $scope.parametersMessage = $scope.subjectMessage +
-                $scope.creditHoursMessage +
-                $scope.coreMessage;
+                    $scope.creditHoursMessage +
+                    $scope.coreMessage;
             }
         }
         else {
@@ -141,13 +137,12 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         var baseUrl = $scope.apiUrl + '/information?';
         var allParametersFromScope = [department, creditHour, core];
 
-
         if(allParametersFromScope.allParametersUndefinedOrNull()) {
             console.log("All parameters are empty...");
             return [baseUrl];
         }
 
-        console.log("User has selected some categories. Preparing API URL.");
+        console.log("User has selected some categories. Preparing API URL(s).");
         department = _.pluck(department, 'departmentName');
         creditHour = _.pluck(creditHour, 'creditHours');
         core = _.pluck(core, 'categoryNumber');
@@ -217,13 +212,13 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
     };
 
     $scope.goBack = function() {
-        console.log('going back');
+        console.log('Going back to class search page.');
         $scope.showDiv = false;
     };
 
     $scope.clearForms = function() {
         $scope.hasNoResults = false;
-        console.log('clearing forms...');
+        console.log('Clearing forms and fields.');
         console.log($scope.departmentModel);
         console.log($scope.creditHourModel);
         console.log($scope.coreModel);
