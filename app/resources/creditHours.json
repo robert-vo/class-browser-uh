@@ -1,0 +1,15 @@
+{
+  "availableOptions": [
+    {"creditHours": 1},
+    {"creditHours": 1.5},
+    {"creditHours": 2},
+    {"creditHours": 3},
+    {"creditHours": 4},
+    {"creditHours": 5},
+    {"creditHours": 6},
+    {"creditHours": 7},
+    {"creditHours": 8},
+    {"creditHours": 9},
+    {"creditHours": 10}
+  ]
+}
