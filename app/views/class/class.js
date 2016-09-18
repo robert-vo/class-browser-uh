@@ -7,7 +7,7 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'ClassCtrl'
     });
 }]).
-controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
+controller('ClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
     $scope.selectedCountLimit = 'count > 3';
     $scope.rowCollection = [];
 
@@ -15,50 +15,32 @@ controller('ClassCtrl', ['$scope', '$http', function ($scope, $http) {
         availableOptions: []
     };
 
+    $scope.departments = $http.get('resources/subjects.json')
+        .success(function (data) {
+            return $scope.departments = data;
+        })
+        .error(function (data) {
+            alert("Unable to find subjects.json.");
+        });
 
-    var populateDepartments = function() {
-        $http.get('resources/subjects.json')
+
+    $scope.creditHours =
+        $http.get('resources/creditHours.json')
             .success(function (data) {
-                console.log("Retrieved " + data.numberOfRows + " departments.");
-                $scope.departments.availableOptions = data.departments;
+                $scope.creditHours = data;
             })
             .error(function (data) {
-                alert("Unable to retrieve the data.");
+                alert("Unable to find creditHours.json.");
+            });
+
+    $scope.coreCategories =
+        $http.get('resources/coreCategories.json')
+            .success(function (data) {
+                $scope.coreCategories = data;
             })
-    };
-
-    populateDepartments();
-
-    $scope.creditHours = {
-        availableOptions: [
-            {creditHours: 1},
-            {creditHours: 1.5},
-            {creditHours: 2},
-            {creditHours: 3},
-            {creditHours: 4},
-            {creditHours: 5},
-            {creditHours: 6},
-            {creditHours: 7},
-            {creditHours: 8},
-            {creditHours: 9},
-            {creditHours: 10}
-        ]
-    };
-
-    $scope.coreCategories = {
-        availableOptions: [
-            {categoryNumber: 1, categoryName: "Communication"},
-            {categoryNumber: 2, categoryName : "Mathematics"},
-            {categoryNumber: 3, categoryName : "Life and Physical Sciences"},
-            {categoryNumber: 4, categoryName : "Language, Philosophy & Culture"},
-            {categoryNumber: 5, categoryName : "Creative Arts"},
-            {categoryNumber: 6, categoryName : "American History"},
-            {categoryNumber: 7, categoryName : "Government/Political Science"},
-            {categoryNumber: 8, categoryName : "Social & Behavioral Sciences"},
-            {categoryNumber: 9, categoryName : "Mathematics/Reasoning"},
-            {categoryNumber: 10, categoryName : "Writing in the Disciplines"}
-        ]
-    };
+            .error(function (data) {
+                alert("Unable to find coreCategories.json.");
+            });
 
     var generateMessage = function(model, type, objToPluck) {
         if(model == undefined || model.length == 0) {
