@@ -75,8 +75,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
 
     var populateFields = function(){
         $scope.hasNoResults = false;
-        console.log("In populate fields");
-        console.log("Row Collection = " + $scope.rowCollection);
+
         if($scope.rowCollection.length > 0) {
             $scope.showDiv = true;
 
@@ -189,7 +188,6 @@ controller('ClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
             return zs;
         }
 
-        console.log("Retrieved parameters from cartesian product: " + allParameters);
         return allParameters;
     };
 
