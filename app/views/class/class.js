@@ -7,7 +7,7 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'ClassCtrl'
     });
 }]).
-controller('ClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
+controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope, $http, $q, $rootScope) {
     $scope.selectedCountLimit = 'count > 3';
     $scope.rowCollection = [];
 
@@ -132,61 +132,22 @@ controller('ClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
         console.log("crh " + creditHour);
         console.log("core " + core);
 
-        var expandArrayValues = function(arr, parameter) {
-            arr.forEach(function (part, index, arr) {
-                arr[index] = parameter + "=" + part;
-            });
-        };
 
         if(isArrayIsUndefinedOrNull(department)) {
-            expandArrayValues(department, 'department');
+            $rootScope.apiURLService.expandArrayValues(department, 'department');
         }
         if(isArrayIsUndefinedOrNull(creditHour)) {
-            expandArrayValues(creditHour, 'credit-hours');
+            $rootScope.apiURLService.expandArrayValues(creditHour, 'credit-hours');
         }
         if(isArrayIsUndefinedOrNull(core)) {
-            expandArrayValues(core, 'core');
+            $rootScope.apiURLService.expandArrayValues(core, 'core');
         }
 
+        var allParameters = [department,creditHour,core]
+            .filter($rootScope.cartesianProductService.nonEmpty)
+            .reduce($rootScope.cartesianProductService.productAdd);
 
-        var appendApiUrl = function(arr) {
-            arr.forEach(function (part, index, arr) {
-                arr[index] = baseUrl + part;
-            });
-        };
-
-
-        var allParameters = [department,creditHour,core].filter(nonEmpty).reduce(productAdd);
-
-        appendApiUrl(allParameters);
-
-        function nonEmpty(xs) {
-            return xs.length > 0;
-        }
-
-        function productAdd(xs, ys) {
-            return product(add, xs, ys);
-        }
-
-        function add(a, b) {
-            return a + "&" + b;
-        }
-
-        function product(f, xs, ys) {
-            var zs = [];
-
-            var m = xs.length;
-            var n = ys.length;
-
-            for (var i = 0; i < m; i++) {
-                var x = xs[i];
-
-                for (var j = 0; j < n; j++)
-                    zs.push(f(x, ys[j]));
-            }
-
-            return zs;
-        }
+        $rootScope.apiURLService.appendToApiUrl(allParameters, baseUrl);
 
         return allParameters;
     };
