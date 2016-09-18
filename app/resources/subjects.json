@@ -1,6 +1,5 @@
 {
-  "numberOfRows" : 153,
-  "departments" : [ {
+  "availableOptions" : [ {
     "departmentName" : "AAS",
     "departmentFullName" : "African American Studies"
   }, {
