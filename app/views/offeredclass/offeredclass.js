@@ -9,38 +9,29 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
     });
 }])
 
-.controller('OfferedClassCtrl', ['$scope', '$http', function ($scope, $http) {
+.controller('OfferedClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
+    var getData = function(filePath) {
+        var defer = $q.defer();
+        $http
+            .get(filePath)
+            .success(function(data){
+                defer.resolve(data);
+            })
+            .error(function() {
+                alert("Unable to populate fields.");
+            });
+        return defer.promise;
+    };
+
     $scope.format = [
         'Online',
         'Face to Face',
         'Hybrid'
     ];
 
-    $scope.options = [
-        'Alpha',
-        'Bravo',
-        'Charlie',
-        'Delta',
-        'Echo',
-        'Fox',
-        'Golf'
-    ];
-
-    //validate
-    $scope.terms = {
-        availableOptions: [
-            {
-                termID: 1970,
-                year: 2015,
-                semester: "Fall"
-            },
-            {
-                termID: 1980,
-                year: 2016,
-                semester: "Springeruhgfd"
-            }
-        ]
-    }
+    getData('resources/terms.json').then(function(result) {
+        $scope.terms = result;
+    });
 
 
 }]);
