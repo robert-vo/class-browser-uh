@@ -22,18 +22,17 @@
     <div class="jumbotron">
         <div id="classSearch" ng-show="!showDiv">
             <h2>Offered Class Search</h2>
-
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
-                <label class="control-label" for="subject"><p>Select Terms: </p></label>
+                <label class="control-label" for="subject"><p>Select a Term: </p></label>
                 <div class="form-group">
                     <div>
                         <ol name="selectTerm"
                             class="nya-bs-select"
                             ng-model="termModel"
                             id="subject" required>
-                            <li nya-bs-option="option in options">
+                            <li nya-bs-option="option in terms.availableOptions">
                                 <a>
-                                    {{option}}
+                                    {{option.semester}} {{option.year}}
                                     <span class="glyphicon glyphicon-ok check-mark"></span>
                                 </a>
                             </li>
@@ -41,19 +40,6 @@
                         <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
                     </div>
                 </div>
-
-                <!--<label class="control-label" for="term"><p>Term: </p></label>-->
-                <!--<ol class="nya-bs-select"-->
-                    <!--name="select1"-->
-                    <!--ng-model="creditHourModel"-->
-                    <!--data-selected-text-format={{selectedCountLimit}}-->
-                    <!--id="term"-->
-                    <!--required>-->
-                    <!--<li nya-bs-option="option in options">-->
-                        <!--<a>{{ option }}<span class="glyphicon glyphicon-ok check-mark"></span></a>-->
-                    <!--</li>-->
-                <!--</ol>-->
-
                 <label for="creditHours"><p>Select class format: </p></label>
                 <ol class="nya-bs-select"
                     ng-model="formatModel"
