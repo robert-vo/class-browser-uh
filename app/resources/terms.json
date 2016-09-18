@@ -1,0 +1,14 @@
+{
+  "availableOptions": [
+    {"term": 1980, "year": 2016, "semester": "Spring"},
+    {"term": 1990, "year": 2016, "semester": "Summer"},
+    {"term": 2000, "year": 2016, "semester": "Fall"},
+    {"term": 2010, "year": 2017, "semester": "Spring"},
+    {"term": 2020, "year": 2017, "semester": "Summer"},
+    {"term": 2030, "year": 2017, "semester": "Fall"},
+    {"term": 2040, "year": 2018, "semester": "Spring"},
+    {"term": 2050, "year": 2018, "semester": "Summer"},
+    {"term": 2060, "year": 2018, "semester": "Fall"},
+    {"term": 2070, "year": 2019, "semester": "Spring"}
+  ]
+}
