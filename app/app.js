@@ -58,4 +58,53 @@ directive('pageSelect', function() {
             });
         }
     }
+}).
+factory('cartesianProductService', function() {
+    var allFunctions = {
+        nonEmpty: function(arr) {
+            return arr.length > 0;
+        },
+        productAdd: function(xs, ys) {
+            return allFunctions.product(allFunctions.add, xs, ys);
+        },
+        add: function(a, b) {
+            return a + "&" + b;
+        },
+        product: function(f, xs, ys) {
+            var zs = [];
+
+            var m = xs.length;
+            var n = ys.length;
+
+            for (var i = 0; i < m; i++) {
+                var x = xs[i];
+
+                for (var j = 0; j < n; j++)
+                    zs.push(f(x, ys[j]));
+            }
+
+            return zs;
+        }
+    };
+    return allFunctions;
+}).
+factory('apiURLService', function() {
+    var allFunctions = {
+        expandArrayValues: function(arr, parameter) {
+            arr.forEach(function (part, index, arr) {
+                arr[index] = parameter + "=" + part;
+            });
+        },
+        appendToApiUrl: function(arr, baseURL) {
+            arr.forEach(function (part, index, arr) {
+                arr[index] = baseURL + part;
+            });
+        }
+    };
+    return allFunctions;
+})
+.
+run(function($rootScope, cartesianProductService, apiURLService) {
+    $rootScope.cartesianProductService = cartesianProductService;
+    $rootScope.apiURLService = apiURLService
 });
