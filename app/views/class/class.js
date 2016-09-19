@@ -147,7 +147,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope
             .filter($rootScope.cartesianProductService.nonEmpty)
             .reduce($rootScope.cartesianProductService.productAdd);
 
-        $rootScope.apiURLService.appendToApiUrl(allParameters, baseUrl);
+        $rootScope.apiURLService.appendParametersToAPIUrl(allParameters, baseUrl);
 
         return allParameters;
     };

@@ -95,7 +95,7 @@ factory('apiURLService', function() {
                 arr[index] = parameter + "=" + part;
             });
         },
-        appendToApiUrl: function(arr, baseURL) {
+        appendParametersToAPIUrl: function(arr, baseURL) {
             arr.forEach(function (part, index, arr) {
                 arr[index] = baseURL + part;
             });
