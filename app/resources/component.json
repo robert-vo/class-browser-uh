@@ -1,0 +1,84 @@
+{
+  "availableOptions" : [
+    {
+      "component": "ALT",
+      "componentName": "Alternate Learning"
+    },
+    {
+      "component": "CLN",
+      "componentName": "Clinical"
+    },
+    {
+      "component": "CON",
+      "componentName": "Continuance"
+    },
+    {
+      "component": "DIS",
+      "componentName": "Discussion"
+    },
+    {
+      "component": "DST",
+      "componentName": "Dissertation"
+    },
+    {
+      "component": "FLD",
+      "componentName": "Field Studies"
+    },
+    {
+      "component": "IND",
+      "componentName": "Independent Study"
+    },
+    {
+      "component": "INV",
+      "componentName": "Individualized"
+    },
+    {
+      "component": "LAB",
+      "componentName": "Laboratory"
+    },
+    {
+      "component": "LEC",
+      "componentName": "Lecture"
+    },
+    {
+      "component": "LLB",
+      "componentName": "Lecture/Lab"
+    },
+    {
+      "component": "PCO",
+      "componentName": "Practicum, COOP"
+    },
+    {
+      "component": "PLS",
+      "componentName": "Private Lesson"
+    },
+    {
+      "component": "PRA",
+      "componentName": "Practicum"
+    },
+    {
+      "component": "PRC",
+      "componentName": "Practicum, Student Teaching"
+    },
+    {
+      "component": "RSC",
+      "componentName": "Research"
+    },
+    {
+      "component": "SEM",
+      "componentName": "Seminar"
+    },
+    {
+      "component": "SUP",
+      "componentName": "Supervision"
+    },
+    {
+      "component": "THE",
+      "componentName": "Thesis Research"
+    },
+    {
+      "component": "TUT",
+      "componentName": "Tutorial"
+    }
+  ]
+}
