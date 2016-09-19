@@ -130,6 +130,7 @@ run(function($rootScope, cartesianProductService, apiURLService, arrayService, h
     $rootScope.apiURLService = apiURLService;
     $rootScope.arrayService = arrayService;
     $rootScope.httpService = httpService;
+    $rootScope.selectedCountLimit = 'count > 3';
 
     Array.prototype.allParametersUndefinedOrNull = function() {
         for(var i = 0; i < this.length; i++) {
