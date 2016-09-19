@@ -26,4 +26,8 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
     $rootScope.httpService.getData('resources/session.json').then(function(result) {
         $scope.session = result;
     });
+
+    $rootScope.httpService.getData('resources/subjects.json').then(function(result) {
+        $scope.departments = result;
+    });
 }]);
