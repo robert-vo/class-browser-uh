@@ -86,6 +86,19 @@
                     </li>
                 </ol>
 
+                <label for = "locations"><p>Select locations: </p></label>
+                <ol id = "locations"
+                    class = "nya-bs-select"
+                    ng-model = "locationModel"
+                    data-live-search="true"
+                    data-selected-text-format={{selectedCountLimit}}
+                    multiple>
+                    <li nya-bs-option="option in locations.availableOptions">
+                        <a>{{option.location}}
+                            <span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
                  <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
@@ -94,20 +107,11 @@
 
             <br>
             department-crn - The 4 digit number that represents the class in a given department.
-            location - Where the class takes place. Examples include:
-            "UH" - University of Houston
-            "UH-Northwest Campus" - University of Houston's Northwest Campus
-            "Rice University"
-            "UH-Sugar Land" - University of Houston's Sugar Land Campus
             component - A String that represents what component a class falls under. Example values include:
             "IND" - Independent Studies
             "LEC" - Lecture
             "LAB" - Lab
             "TUT" - Tutorial
-            building - The building abbreviation where a class takes place. Example values include:
-            "SEC" - Science and Engineering Complex
-            "HBS" - Health and Biomedical Sciences
-            "AAA" - Agnes Arnold Auditorium
             credit-hours - An integer between 1 and 5, inclusive, to retrieve classes with a certain amount of hours fulfilled.
             is-core - Use one of the True Values to indicate if a class fulfills a core requirement. False Values to indicate otherwise.
             weekendU - Use one of the True Values to indicate if a class is a weekendU class. False Values to indicate otherwise.

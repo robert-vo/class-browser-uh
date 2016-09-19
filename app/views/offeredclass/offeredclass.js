@@ -33,5 +33,9 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
 
     $rootScope.httpService.getData('resources/buildings.json').then(function(result) {
         $scope.buildings = result;
-    })
+    });
+
+    $rootScope.httpService.getData('resources/locations.json').then(function(result) {
+        $scope.locations = result;
+    });
 }]);
