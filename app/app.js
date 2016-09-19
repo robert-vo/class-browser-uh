@@ -89,22 +89,55 @@ factory('cartesianProductService', function() {
     return allFunctions;
 }).
 factory('apiURLService', function() {
-    var allFunctions = {
-        expandArrayValues: function(arr, parameter) {
+    return {
+        expandArrayValuesInPlace: function (arr, parameter) {
             arr.forEach(function (part, index, arr) {
                 arr[index] = parameter + "=" + part;
             });
         },
-        appendParametersToAPIUrl: function(arr, baseURL) {
+        appendParametersToAPIUrl: function (arr, baseURL) {
             arr.forEach(function (part, index, arr) {
                 arr[index] = baseURL + part;
             });
         }
     };
-    return allFunctions;
-})
-.
-run(function($rootScope, cartesianProductService, apiURLService) {
+}).
+factory('arrayService', function() {
+    return {
+        isArrayIsUndefinedOrNull: function(array) {
+            return !(_.isUndefined(array) || _.isNull(array) || _.isEmpty(array));
+        }
+    }
+}).
+factory('httpService', function($http, $q) {
+    return {
+        getData: function(filePath) {
+            var defer = $q.defer();
+            $http
+                .get(filePath)
+                .success(function(data){
+                    defer.resolve(data);
+                })
+                .error(function() {
+                    alert("Unable to populate fields.");
+                });
+            return defer.promise;
+        }
+    }
+}).
+run(function($rootScope, cartesianProductService, apiURLService, arrayService, httpService) {
     $rootScope.cartesianProductService = cartesianProductService;
-    $rootScope.apiURLService = apiURLService
+    $rootScope.apiURLService = apiURLService;
+    $rootScope.arrayService = arrayService;
+    $rootScope.httpService = httpService;
+
+    Array.prototype.allParametersUndefinedOrNull = function() {
+        for(var i = 0; i < this.length; i++) {
+            if($rootScope.arrayService.isArrayIsUndefinedOrNull(this[i])) {
+                return false;
+            }
+        }
+        return true;
+    };
+
 });
