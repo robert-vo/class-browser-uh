@@ -1,8 +1,8 @@
 {
   "availableOptions": [
     {
-      "session": 1,
-      "sessionTitle": "Regular Academic Session"
+      "session": "Regular Academic Session",
+      "sessionTitle": "Session 1 / Regular Academic Session"
     },
     {
       "session": 2,
