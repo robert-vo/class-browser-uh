@@ -38,4 +38,16 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
     $rootScope.httpService.getData('resources/locations.json').then(function(result) {
         $scope.locations = result;
     });
+
+    $rootScope.httpService.getData('resources/component.json').then(function(result) {
+        $scope.component = result;
+    });
+
+    $rootScope.httpService.getData('resources/creditHours.json').then(function(result) {
+        $scope.creditHours = result;
+    });
+
+    $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
+        $scope.coreCategories = result;
+    });
 }]);
