@@ -9,29 +9,15 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
     });
 }])
 
-.controller('OfferedClassCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
-    var getData = function(filePath) {
-        var defer = $q.defer();
-        $http
-            .get(filePath)
-            .success(function(data){
-                defer.resolve(data);
-            })
-            .error(function() {
-                alert("Unable to populate fields.");
-            });
-        return defer.promise;
-    };
-
+.controller('OfferedClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope, $http, $q, $rootScope) {
     $scope.format = [
         'Online',
         'Face to Face',
         'Hybrid'
     ];
 
-    getData('resources/terms.json').then(function(result) {
+    $rootScope.httpService.getData('resources/terms.json').then(function(result) {
         $scope.terms = result;
     });
-
 
 }]);
