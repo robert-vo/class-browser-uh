@@ -81,8 +81,7 @@
                     data-selected-text-format={{selectedCountLimit}}
                     multiple>
                     <li nya-bs-option="option in buildings.availableOptions">
-                        <a>{{option.buildingID != 0 ? option.buildingAbbreviation + " : " + option.buildingName : "No Building"}}
-                            <span class="glyphicon glyphicon-ok check-mark"></span></a>
+                        <a>{{option.buildingID != 0 ? option.buildingAbbreviation + " : " + option.buildingName : "No Building"}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
 
@@ -94,8 +93,42 @@
                     data-selected-text-format={{selectedCountLimit}}
                     multiple>
                     <li nya-bs-option="option in locations.availableOptions">
-                        <a>{{option.location}}
-                            <span class="glyphicon glyphicon-ok check-mark"></span></a>
+                        <a>{{option.location}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+
+                <label for = "component"><p>Select class components: </p></label>
+                <ol id = "component"
+                    class = "nya-bs-select"
+                    ng-model = "componentModel"
+                    data-live-search="true"
+                    data-selected-text-format={{selectedCountLimit}}
+                    multiple>
+                    <li nya-bs-option="option in component.availableOptions">
+                        <a>{{option.component}} : {{option.componentName}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+
+                <label for="creditHours"><p>Select number of credit hours: </p></label>
+                <ol class="nya-bs-select"
+                    ng-model="creditHourModel"
+                    data-selected-text-format={{selectedCountLimit}}
+                    multiple
+                    id="creditHours">
+                    <li nya-bs-option="option in creditHours.availableOptions">
+                        <a>{{ option.creditHours }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+                <p></p>
+                <label for="core"><p>Select core requirement: </p></label>
+                <ol class="nya-bs-select"
+                    ng-model="coreModel"
+                    data-live-search="true"
+                    data-selected-text-format={{selectedCountLimit}}
+                    multiple
+                    id="core">
+                    <li nya-bs-option="option in coreCategories.availableOptions">
+                        <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
 
@@ -107,25 +140,8 @@
 
             <br>
             department-crn - The 4 digit number that represents the class in a given department.
-            component - A String that represents what component a class falls under. Example values include:
-            "IND" - Independent Studies
-            "LEC" - Lecture
-            "LAB" - Lab
-            "TUT" - Tutorial
-            credit-hours - An integer between 1 and 5, inclusive, to retrieve classes with a certain amount of hours fulfilled.
             is-core - Use one of the True Values to indicate if a class fulfills a core requirement. False Values to indicate otherwise.
             weekendU - Use one of the True Values to indicate if a class is a weekendU class. False Values to indicate otherwise.
-            core-id or core - An integer between 1 and 10, inclusive. The list below indicates what each number corresponds to.
-            1: Communication
-            2: Mathematics
-            3: Life and Physical Sciences
-            4: Language, Philosophy & Culture
-            5: Creative Arts
-            6: American History
-            7: Government/Political Science
-            8: Social & Behavorial Sciences
-            9: Mathematics/Reasoning
-            10: Writing in the Disciplines
             monday - Use one of the True Values to indicate that the class meets on Monday. Using a False Value indicates otherwise.
             tuesday - Use one of the True Values to indicate that the class meets on Tuesday. Using a False Value indicates otherwise.
             wednesday - Use one of the True Values to indicate that the class meets on Wednesday. Using a False Value indicates otherwise.
