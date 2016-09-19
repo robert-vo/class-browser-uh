@@ -47,10 +47,11 @@
                         class="nya-bs-select"
                         ng-model="formatModel"
                         data-selected-text-format={{selectedCountLimit}}
-                        multiple>
+                        multiple
+                        >
                         <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
                             <span class="dropdown-header">{{$group}}</span>
-                            <a>{{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                         </li>
                     </ol>
                 </div>
