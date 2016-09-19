@@ -1,6 +1,14 @@
 {
   "availableOptions" : [
     {
+      "component": "LAB",
+      "componentName": "Laboratory"
+    },
+    {
+      "component": "LEC",
+      "componentName": "Lecture"
+    },
+    {
       "component": "ALT",
       "componentName": "Alternate Learning"
     },
@@ -31,14 +39,6 @@
     {
       "component": "INV",
       "componentName": "Individualized"
-    },
-    {
-      "component": "LAB",
-      "componentName": "Laboratory"
-    },
-    {
-      "component": "LEC",
-      "componentName": "Lecture"
     },
     {
       "component": "LLB",
