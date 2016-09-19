@@ -40,38 +40,28 @@
                         <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
                     </div>
                 </div>
-                <label for="creditHours"><p>Select class format: </p></label>
-                <ol class="nya-bs-select"
-                    ng-model="formatModel"
-                    data-selected-text-format={{selectedCountLimit}}
-                    id="creditHours"
-                    multiple
-                    >
-                    <li nya-bs-option="option in format">
-                        <a>{{ option }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
 
-                <label for="formatSelection"><p>Online:</p></label>
-                <span id="formatSelection">
-
-                <label class="radio-inline"><input type="radio" name="optradio">Online</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Not Online</label>
-                <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Ignore</label>
-                </span>
-
+                <div class="form-group">
+                    <label for="creditHours"><p>Select class format: </p></label>
+                    <ol id="creditHours"
+                        class="nya-bs-select"
+                        ng-model="formatModel"
+                        data-selected-text-format={{selectedCountLimit}}
+                        multiple>
+                        <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
+                            <span class="dropdown-header">{{$group}}</span>
+                            <a>{{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                        </li>
+                    </ol>
+                </div>
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
-
             </form>
 
                 <!-- use to validate form -> myForm.$valid: {{!!myForm.$valid}} {{!!myForm.$invalid}}-->
             <br>term - A String that specifies the semester and year of the offered classes. The list below indicates the acceptable values for term.
 
-            online - Use one of the True Values to indicate an online class, False Values for classes that are not online.
-            hybrid - Use one of the True Values to indicate a hybrid class, False Values for classes that are not hybrid.
-            face-to-face - Use one of the True Values to indicate a face to face class, False Values for classes that are not face to face.
             status - Use one of the True Values, or "Open", to indicate an open class. False Values, or "Closed", indicates a closed class.
             session - Represents the session in which a class is under. Values include:
             MIN - Mini Academic Session
