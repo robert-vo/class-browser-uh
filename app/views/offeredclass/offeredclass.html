@@ -23,51 +23,60 @@
         <div id="classSearch" ng-show="!showDiv">
             <h2>Offered Class Search</h2>
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
-                <label class="control-label" for="subject"><p>Select a Term: </p></label>
-                <div class="form-group">
-                    <div>
-                        <ol name="selectTerm"
-                            class="nya-bs-select"
-                            ng-model="termModel"
-                            id="subject" required>
-                            <li nya-bs-option="option in terms.availableOptions">
-                                <a>
-                                    {{option.semester}} {{option.year}}
-                                    <span class="glyphicon glyphicon-ok check-mark"></span>
-                                </a>
-                            </li>
-                        </ol>
-                        <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="creditHours"><p>Select class format: </p></label>
-                    <ol id="creditHours"
+                <label class="control-label" for="terms"><p>Select a Term: </p></label>
+                    <ol name="selectTerm"
                         class="nya-bs-select"
-                        ng-model="formatModel"
-                        data-selected-text-format={{selectedCountLimit}}
-                        multiple
-                        >
-                        <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
-                            <span class="dropdown-header">{{$group}}</span>
-                            <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                        ng-model="termModel"
+                        id="terms"
+                        required>
+                        <li nya-bs-option="option in terms.availableOptions">
+                            <a>
+                                {{option.semester}} {{option.year}}
+                                <span class="glyphicon glyphicon-ok check-mark"></span>
+                            </a>
                         </li>
                     </ol>
-                </div>
+                    <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
+
+                <label for="classFormat"><p>Select class format: </p></label>
+                <ol id="classFormat"
+                    class="nya-bs-select"
+                    ng-model="formatModel"
+                    data-selected-text-format={{selectedCountLimit}}
+                    multiple
+                    >
+                    <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
+                        <span class="dropdown-header">{{$group}}</span>
+                        <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+
+                <label for = "classStatus"><p>Select class status: </p></label>
+                <ol id = "classStatus"
+                    class = "nya-bs-select"
+                    ng-model = "statusModel"
+                    multiple>
+                    <li nya-bs-option="option in status.availableOptions">
+                        <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+
+                <label for = "classSession"><p>Select class session: </p></label>
+                <ol id = "classSession"
+                    class = "nya-bs-select"
+                    ng-model = "sessionModel"
+                    multiple>
+                    <li nya-bs-option="option in session.availableOptions">
+                        <a>{{ option.sessionTitle }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
             </form>
 
                 <!-- use to validate form -> myForm.$valid: {{!!myForm.$valid}} {{!!myForm.$invalid}}-->
-            <br>term - A String that specifies the semester and year of the offered classes. The list below indicates the acceptable values for term.
-
-            status - Use one of the True Values, or "Open", to indicate an open class. False Values, or "Closed", indicates a closed class.
-            session - Represents the session in which a class is under. Values include:
-            MIN - Mini Academic Session
-            1 - Regular Academic Session
-            2, 3, 4, 5, 6 - Sections of a Regular Academic Session
+            <br>
             department or subject - A String that represents the department or subject the class(es) belong to.
             department-crn - The 4 digit number that represents the class in a given department.
             location - Where the class takes place. Examples include:
