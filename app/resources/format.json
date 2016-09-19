@@ -1,0 +1,10 @@
+{
+  "availableOptions": [
+    {"formatType": "Online", "isOrNot": "Is"},
+    {"formatType": "Online", "isOrNot": "Not"},
+    {"formatType": "Face to Face", "isOrNot": "Not"},
+    {"formatType": "Face to Face", "isOrNot": "Is"},
+    {"formatType": "Hybrid", "isOrNot": "Not"},
+    {"formatType": "Hybrid", "isOrNot": "Is"}
+  ]
+}
