@@ -8,7 +8,6 @@ config(['$routeProvider', function($routeProvider) {
     });
 }]).
 controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope, $http, $q, $rootScope) {
-    $scope.selectedCountLimit = 'count > 3';
     $scope.rowCollection = [];
 
     $rootScope.httpService.getData('resources/subjects.json').then(function(result) {
