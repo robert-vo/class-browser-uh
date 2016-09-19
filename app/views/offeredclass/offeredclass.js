@@ -19,47 +19,11 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
         $scope.terms = result;
     });
 
-    $scope.status = {
-        availableOptions: [
-            {
-                status: "Open"
-            },
-            {
-                status: "Closed"
-            }
-        ]
-    };
+    $rootScope.httpService.getData('resources/status.json').then(function(result) {
+        $scope.status = result;
+    });
 
-    $scope.session = {
-        availableOptions: [
-            {
-                session: 1,
-                sessionTitle: "Regular Academic Session"
-            },
-            {
-                session: 2,
-                sessionTitle: "Session 2"
-            },
-            {
-                session: 3,
-                sessionTitle: "Session 3"
-            },
-            {
-                session: 4,
-                sessionTitle: "Session 4"
-            },
-            {
-                session: 5,
-                sessionTitle: "Session 5"
-            },
-            {
-                session: 6,
-                sessionTitle: "Session 6"
-            },
-            {
-                session: "MIN",
-                sessionTitle: "Mini Session"
-            }
-        ]
-    }
+    $rootScope.httpService.getData('resources/session.json').then(function(result) {
+        $scope.session = result;
+    });
 }]);
