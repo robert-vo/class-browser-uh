@@ -1,0 +1,930 @@
+{
+  "availableOptions": [
+    {
+      "buildingID" : 0,
+      "buildingAbbreviation": "",
+      "buildingName": "No Building"
+    },
+    {
+      "buildingID" : 517,
+      "buildingAbbreviation": "A",
+      "buildingName": "Cullen Performance Hall"
+    },
+    {
+      "buildingID" : 494,
+      "buildingAbbreviation": "AAA",
+      "buildingName": "Agnes Arnold Auditorium"
+    },
+    {
+      "buildingID" : 702,
+      "buildingAbbreviation": "ABC",
+      "buildingName": "KUHF Transmitter Tower - ABC"
+    },
+    {
+      "buildingID" : 116,
+      "buildingAbbreviation": "ACT",
+      "buildingName": "Safety, Human Factors & Ergonomic Laboratory"
+    },
+    {
+      "buildingID" : 119,
+      "buildingAbbreviation": "ACTA",
+      "buildingName": "Texas Manufacturing Assistance Center"
+    },
+    {
+      "buildingID" : 562,
+      "buildingAbbreviation": "ADB",
+      "buildingName": "A. D. Bruce Religion Center"
+    },
+    {
+      "buildingID" : 523,
+      "buildingAbbreviation": "AGL",
+      "buildingName": "Science & Engineering Annex"
+    },
+    {
+      "buildingID" : 578,
+      "buildingAbbreviation": "AH",
+      "buildingName": "Agnes Arnold Hall"
+    },
+    {
+      "buildingID" : 573,
+      "buildingAbbreviation": "ALUM",
+      "buildingName": "Alumni Center"
+    },
+    {
+      "buildingID" : 548,
+      "buildingAbbreviation": "AMB",
+      "buildingName": "Athletics MaINTenance BUILDING"
+    },
+    {
+      "buildingID" : 543,
+      "buildingAbbreviation": "ARC",
+      "buildingName": "Gerald D. Hines College of Architecture"
+    },
+    {
+      "buildingID" : 574,
+      "buildingAbbreviation": "ATH2",
+      "buildingName": "Athletic Center"
+    },
+    {
+      "buildingID" : 486,
+      "buildingAbbreviation": "ATL",
+      "buildingName": "Atmospheric Testing Laboratory"
+    },
+    {
+      "buildingID" : 570,
+      "buildingAbbreviation": "BATC",
+      "buildingName": "Athletics Batting Cage"
+    },
+    {
+      "buildingID" : 582,
+      "buildingAbbreviation": "BF",
+      "buildingName": "Cougar Baseball Field"
+    },
+    {
+      "buildingID" : 583,
+      "buildingAbbreviation": "BFT",
+      "buildingName": "Cougar Baseball Field Ticket Booth"
+    },
+    {
+      "buildingID" : 557,
+      "buildingAbbreviation": "BH",
+      "buildingName": "Bates Residence Hall"
+    },
+    {
+      "buildingID" : 552,
+      "buildingAbbreviation": "BKD",
+      "buildingName": "Burdette Keeland Jr. Design & Exploration Center"
+    },
+    {
+      "buildingID" : 537,
+      "buildingAbbreviation": "BL",
+      "buildingName": "Bates Law"
+    },
+    {
+      "buildingID" : 803,
+      "buildingAbbreviation": "BMG",
+      "buildingName": "Dr. Barnett Memorial Garden"
+    },
+    {
+      "buildingID" : 500,
+      "buildingAbbreviation": "BOA",
+      "buildingName": "Bayou Oaks Apartments"
+    },
+    {
+      "buildingID" : 482,
+      "buildingAbbreviation": "BPF",
+      "buildingName": "New Basketball Practice Facility"
+    },
+    {
+      "buildingID" : 709,
+      "buildingAbbreviation": "BV",
+      "buildingName": "Small Business Development Center - Bryan"
+    },
+    {
+      "buildingID" : 501,
+      "buildingAbbreviation": "C",
+      "buildingName": "Roy G. Cullen"
+    },
+    {
+      "buildingID" : 586,
+      "buildingAbbreviation": "CAM",
+      "buildingName": "Isabel C. Cameron"
+    },
+    {
+      "buildingID" : 499,
+      "buildingAbbreviation": "CBB",
+      "buildingName": "Classroom and Business BUILDING"
+    },
+    {
+      "buildingID" : 596,
+      "buildingAbbreviation": "CC",
+      "buildingName": "Computing Center"
+    },
+    {
+      "buildingID" : 504,
+      "buildingAbbreviation": "CCC",
+      "buildingName": "Child Care Center"
+    },
+    {
+      "buildingID" : 804,
+      "buildingAbbreviation": "CCG",
+      "buildingName": "The Cougar Community Garden"
+    },
+    {
+      "buildingID" : 544,
+      "buildingAbbreviation": "CEMO",
+      "buildingName": "Michael J. Cemo Hall"
+    },
+    {
+      "buildingID" : 802,
+      "buildingAbbreviation": "CFP",
+      "buildingName": "Cullen Family Plaza"
+    },
+    {
+      "buildingID" : 760,
+      "buildingAbbreviation": "CGRS",
+      "buildingName": "Coastal Center Greenhouse Service"
+    },
+    {
+      "buildingID" : 590,
+      "buildingAbbreviation": "CHC",
+      "buildingName": "Conrad Hilton College of Hotel & Restaurant Management"
+    },
+    {
+      "buildingID" : 518,
+      "buildingAbbreviation": "CLA",
+      "buildingName": "Calhoun Lofts Apartments"
+    },
+    {
+      "buildingID" : 599,
+      "buildingAbbreviation": "CLTF",
+      "buildingName": "Carl Lewis INTernational Track & Field Complex"
+    },
+    {
+      "buildingID" : 575,
+      "buildingAbbreviation": "CO",
+      "buildingName": "Cambridge Oaks Apartments"
+    },
+    {
+      "buildingID" : 750,
+      "buildingAbbreviation": "COCM",
+      "buildingName": "Coastal Center Caretaker Mobile Home"
+    },
+    {
+      "buildingID" : 751,
+      "buildingAbbreviation": "COEL",
+      "buildingName": "Coastal Center Environmental Laboratory"
+    },
+    {
+      "buildingID" : 753,
+      "buildingAbbreviation": "COES",
+      "buildingName": "Coastal Center Equipment Storage"
+    },
+    {
+      "buildingID" : 756,
+      "buildingAbbreviation": "COIT",
+      "buildingName": "Coastal Center Residential IT Equipment"
+    },
+    {
+      "buildingID" : 506,
+      "buildingAbbreviation": "COM",
+      "buildingName": "Jack J. Valenti School of Communication"
+    },
+    {
+      "buildingID" : 752,
+      "buildingAbbreviation": "CORL",
+      "buildingName": "Coastal Center Research Laboratory"
+    },
+    {
+      "buildingID" : 713,
+      "buildingAbbreviation": "CP1",
+      "buildingName": "Small Business Development Center - Bay City"
+    },
+    {
+      "buildingID" : 536,
+      "buildingAbbreviation": "CPB",
+      "buildingName": "LeRoy & Lucile Melcher Center for Public Broadcasting"
+    },
+    {
+      "buildingID" : 495,
+      "buildingAbbreviation": "CPH",
+      "buildingName": "Cougar Place"
+    },
+    {
+      "buildingID" : 758,
+      "buildingAbbreviation": "CROK",
+      "buildingName": "Coastal Center Rock Saw Facility"
+    },
+    {
+      "buildingID" : 598,
+      "buildingAbbreviation": "CRS",
+      "buildingName": "Clinical Research Services Center"
+    },
+    {
+      "buildingID" : 199,
+      "buildingAbbreviation": "CRSA",
+      "buildingName": "Clinical Research Services Annex"
+    },
+    {
+      "buildingID" : 759,
+      "buildingAbbreviation": "CRST",
+      "buildingName": "Coastal Center Rock Storage"
+    },
+    {
+      "buildingID" : 101,
+      "buildingAbbreviation": "CRW",
+      "buildingName": "Chancellor's Residence Wortham House"
+    },
+    {
+      "buildingID" : 561,
+      "buildingAbbreviation": "CRWA",
+      "buildingName": "CRWC Annex"
+    },
+    {
+      "buildingID" : 522,
+      "buildingAbbreviation": "CRWC",
+      "buildingName": "Campus Recreation & Wellness Center"
+    },
+    {
+      "buildingID" : 568,
+      "buildingAbbreviation": "CSD",
+      "buildingName": "Justin Dart Jr. Center for Students with DisABILITIES"
+    },
+    {
+      "buildingID" : 400,
+      "buildingAbbreviation": "CSS",
+      "buildingName": "Cougar Sub-Station"
+    },
+    {
+      "buildingID" : 569,
+      "buildingAbbreviation": "CULLO",
+      "buildingName": "Cullen Oaks Apartments"
+    },
+    {
+      "buildingID" : 563,
+      "buildingAbbreviation": "CV",
+      "buildingName": "Cougar Village"
+    },
+    {
+      "buildingID" : 496,
+      "buildingAbbreviation": "CV2",
+      "buildingName": "Cougar Village 2"
+    },
+    {
+      "buildingID" : 800,
+      "buildingAbbreviation": "CW",
+      "buildingName": "Campus Wide"
+    },
+    {
+      "buildingID" : 579,
+      "buildingAbbreviation": "D",
+      "buildingName": "Cullen College of Engineering 1"
+    },
+    {
+      "buildingID" : 580,
+      "buildingAbbreviation": "D2",
+      "buildingName": "Engineering Lecture Hall"
+    },
+    {
+      "buildingID" : 581,
+      "buildingAbbreviation": "D3",
+      "buildingName": "Cullen College of Engineering 2"
+    },
+    {
+      "buildingID" : 498,
+      "buildingAbbreviation": "DTF",
+      "buildingName": "Bulk Fueling Diesel Tank Farm"
+    },
+    {
+      "buildingID" : 111,
+      "buildingAbbreviation": "DYN",
+      "buildingName": "Dynamometer Test Laboratory"
+    },
+    {
+      "buildingID" : 516,
+      "buildingAbbreviation": "E",
+      "buildingName": "Ezekiel W. Cullen"
+    },
+    {
+      "buildingID" : 594,
+      "buildingAbbreviation": "EERC",
+      "buildingName": "Engineering Education Resource Center"
+    },
+    {
+      "buildingID" : 546,
+      "buildingAbbreviation": "EPG",
+      "buildingName": "East Parking Garage"
+    },
+    {
+      "buildingID" : 535,
+      "buildingAbbreviation": "EPS1",
+      "buildingName": "EHRM2"
+    },
+    {
+      "buildingID" : 514,
+      "buildingAbbreviation": "EPS2",
+      "buildingName": "Fire & Life Safety - Storage"
+    },
+    {
+      "buildingID" : 527,
+      "buildingAbbreviation": "EPS3",
+      "buildingName": "EHRM1"
+    },
+    {
+      "buildingID" : 401,
+      "buildingAbbreviation": "ERP1",
+      "buildingName": "Energy Research Park 01"
+    },
+    {
+      "buildingID" : 410,
+      "buildingAbbreviation": "ERP10",
+      "buildingName": "Energy Research Park 10"
+    },
+    {
+      "buildingID" : 411,
+      "buildingAbbreviation": "ERP11",
+      "buildingName": "Energy Research Park 11"
+    },
+    {
+      "buildingID" : 413,
+      "buildingAbbreviation": "ERP13",
+      "buildingName": "Energy Research Park 13"
+    },
+    {
+      "buildingID" : 414,
+      "buildingAbbreviation": "ERP14",
+      "buildingName": "Energy Research Park 14"
+    },
+    {
+      "buildingID" : 415,
+      "buildingAbbreviation": "ERP15",
+      "buildingName": "Energy Device Fabrication Laboratory"
+    },
+    {
+      "buildingID" : 402,
+      "buildingAbbreviation": "ERP2",
+      "buildingName": "Energy Research Park 02"
+    },
+    {
+      "buildingID" : 420,
+      "buildingAbbreviation": "ERP20",
+      "buildingName": "Energy Research Park Storage"
+    },
+    {
+      "buildingID" : 403,
+      "buildingAbbreviation": "ERP3",
+      "buildingName": "Energy Research Park 03"
+    },
+    {
+      "buildingID" : 404,
+      "buildingAbbreviation": "ERP4",
+      "buildingName": "Conference & Research BUILDING"
+    },
+    {
+      "buildingID" : 405,
+      "buildingAbbreviation": "ERP5",
+      "buildingName": "Energy Research Park 05"
+    },
+    {
+      "buildingID" : 406,
+      "buildingAbbreviation": "ERP6",
+      "buildingName": "Energy Research Park 06"
+    },
+    {
+      "buildingID" : 407,
+      "buildingAbbreviation": "ERP7",
+      "buildingName": "Energy Research Park 07"
+    },
+    {
+      "buildingID" : 408,
+      "buildingAbbreviation": "ERP8",
+      "buildingName": "Energy Research Park 08"
+    },
+    {
+      "buildingID" : 409,
+      "buildingAbbreviation": "ERP9",
+      "buildingName": "ConocoPhillips Petroleum Engineering BUILDING"
+    },
+    {
+      "buildingID" : 419,
+      "buildingAbbreviation": "ERPA",
+      "buildingName": "Energy Research Park Annex"
+    },
+    {
+      "buildingID" : 564,
+      "buildingAbbreviation": "F",
+      "buildingName": "Lamar Fleming, Jr."
+    },
+    {
+      "buildingID" : 589,
+      "buildingAbbreviation": "FA",
+      "buildingName": "Fine Arts BUILDING"
+    },
+    {
+      "buildingID" : 706,
+      "buildingAbbreviation": "FB1",
+      "buildingName": "Small Business Development Center - Rosenberg"
+    },
+    {
+      "buildingID" : 707,
+      "buildingAbbreviation": "FB2",
+      "buildingName": "Small Business Development Center - Missouri City"
+    },
+    {
+      "buildingID" : 708,
+      "buildingAbbreviation": "FB3",
+      "buildingName": "Small Business Development Center - Katy"
+    },
+    {
+      "buildingID" : 121,
+      "buildingAbbreviation": "FBA2",
+      "buildingName": "Brazos Hall"
+    },
+    {
+      "buildingID" : 587,
+      "buildingAbbreviation": "FH",
+      "buildingName": "Stephen Power Farish Hall"
+    },
+    {
+      "buildingID" : 532,
+      "buildingAbbreviation": "GAR",
+      "buildingName": "Susanna Garrison Gymnasium"
+    },
+    {
+      "buildingID" : 585,
+      "buildingAbbreviation": "GEN",
+      "buildingName": "General Services BUILDING"
+    },
+    {
+      "buildingID" : 757,
+      "buildingAbbreviation": "GEOC",
+      "buildingName": "Geosciences Coastal Center IT Equipment"
+    },
+    {
+      "buildingID" : 521,
+      "buildingAbbreviation": "GS",
+      "buildingName": "Grounds Storage BUILDING"
+    },
+    {
+      "buildingID" : 572,
+      "buildingAbbreviation": "GSS",
+      "buildingName": "General Services Storage BUILDING"
+    },
+    {
+      "buildingID" : 534,
+      "buildingAbbreviation": "H",
+      "buildingName": "Fred J. Heyne"
+    },
+    {
+      "buildingID" : 592,
+      "buildingAbbreviation": "HBS",
+      "buildingName": "Health and Biomedical Sciences Center"
+    },
+    {
+      "buildingID" : 483,
+      "buildingAbbreviation": "HBS2",
+      "buildingName": "Health and Biomedical Sciences Center 2"
+    },
+    {
+      "buildingID" : 525,
+      "buildingAbbreviation": "HC",
+      "buildingName": "Health Center"
+    },
+    {
+      "buildingID" : 531,
+      "buildingAbbreviation": "HP",
+      "buildingName": "Hofheinz Pavilion"
+    },
+    {
+      "buildingID" : 593,
+      "buildingAbbreviation": "HSC",
+      "buildingName": "University of Houston Science Center"
+    },
+    {
+      "buildingID" : 591,
+      "buildingAbbreviation": "INF",
+      "buildingName": "Visitor Information Booth 1"
+    },
+    {
+      "buildingID" : 513,
+      "buildingAbbreviation": "INF2",
+      "buildingName": "Visitor Information Booth 2"
+    },
+    {
+      "buildingID" : 505,
+      "buildingAbbreviation": "JDA",
+      "buildingName": "J. Davis Armistead"
+    },
+    {
+      "buildingID" : 539,
+      "buildingAbbreviation": "KH",
+      "buildingName": "Max Krost Hall"
+    },
+    {
+      "buildingID" : 703,
+      "buildingAbbreviation": "KMJQ",
+      "buildingName": "KMJQ/KUHT Transmitter BUILDING"
+    },
+    {
+      "buildingID" : 491,
+      "buildingAbbreviation": "KUHA",
+      "buildingName": "KUHA - Transmitter BUILDING"
+    },
+    {
+      "buildingID" : 489,
+      "buildingAbbreviation": "KUHA2",
+      "buildingName": "KUHA - Renters BUILDING"
+    },
+    {
+      "buildingID" : 509,
+      "buildingAbbreviation": "L",
+      "buildingName": "M. D. Anderson Library"
+    },
+    {
+      "buildingID" : 806,
+      "buildingAbbreviation": "LAG",
+      "buildingName": "Dena and Guy V. Lewis Azalea Garden"
+    },
+    {
+      "buildingID" : 801,
+      "buildingAbbreviation": "LEP",
+      "buildingName": "Lynn Eusan Park"
+    },
+    {
+      "buildingID" : 555,
+      "buildingAbbreviation": "LH",
+      "buildingName": "Law Residence Hall"
+    },
+    {
+      "buildingID" : 540,
+      "buildingAbbreviation": "LL",
+      "buildingName": "John M. O'Quinn Law Library"
+    },
+    {
+      "buildingID" : 588,
+      "buildingAbbreviation": "M",
+      "buildingName": "Charles F. McElhinney Hall"
+    },
+    {
+      "buildingID" : 533,
+      "buildingAbbreviation": "MEL",
+      "buildingName": "Melcher Gymnasium/Charter School"
+    },
+    {
+      "buildingID" : 528,
+      "buildingAbbreviation": "MH",
+      "buildingName": "LeRoy & Lucile Melcher Hall"
+    },
+    {
+      "buildingID" : 805,
+      "buildingAbbreviation": "MP",
+      "buildingName": "Meditation Pond"
+    },
+    {
+      "buildingID" : 584,
+      "buildingAbbreviation": "MR",
+      "buildingName": "Moody Towers Residence Halls"
+    },
+    {
+      "buildingID" : 484,
+      "buildingAbbreviation": "MREB",
+      "buildingName": "Multidisciplinary Research and Engineering BUILDING"
+    },
+    {
+      "buildingID" : 520,
+      "buildingAbbreviation": "MSM",
+      "buildingName": "Rebecca & John J. Moores School of Music"
+    },
+    {
+      "buildingID" : 705,
+      "buildingAbbreviation": "NWC",
+      "buildingName": "Northwest Campus"
+    },
+    {
+      "buildingID" : 715,
+      "buildingAbbreviation": "NWC10",
+      "buildingName": "Northwest Campus 10"
+    },
+    {
+      "buildingID" : 559,
+      "buildingAbbreviation": "OB",
+      "buildingName": "E. E. Oberholtzer Residence Hall"
+    },
+    {
+      "buildingID" : 115,
+      "buildingAbbreviation": "OFGR",
+      "buildingName": "Office of Governmental Relations"
+    },
+    {
+      "buildingID" : 108,
+      "buildingAbbreviation": "P1",
+      "buildingName": "Cullen Annex Laboratory"
+    },
+    {
+      "buildingID" : 104,
+      "buildingAbbreviation": "P2",
+      "buildingName": "KUHT Fiber Optics BUILDING"
+    },
+    {
+      "buildingID" : 547,
+      "buildingAbbreviation": "PGH",
+      "buildingName": "Philip Guthrie Hoffman Hall"
+    },
+    {
+      "buildingID" : 701,
+      "buildingAbbreviation": "PHA",
+      "buildingName": "College of Pharmacy Texas Medical Center"
+    },
+    {
+      "buildingID" : 515,
+      "buildingAbbreviation": "PP",
+      "buildingName": "Central Power Plant"
+    },
+    {
+      "buildingID" : 595,
+      "buildingAbbreviation": "RES",
+      "buildingName": "Chinese Star Restaurant"
+    },
+    {
+      "buildingID" : 711,
+      "buildingAbbreviation": "ROCK",
+      "buildingName": "4520 Rockwood - University Oak"
+    },
+    {
+      "buildingID" : 502,
+      "buildingAbbreviation": "S",
+      "buildingName": "Science BUILDING"
+    },
+    {
+      "buildingID" : 126,
+      "buildingAbbreviation": "SA1",
+      "buildingName": "Sugar Land Annex 1"
+    },
+    {
+      "buildingID" : 127,
+      "buildingAbbreviation": "SA2",
+      "buildingName": "Sugar Land Annex 2"
+    },
+    {
+      "buildingID" : 128,
+      "buildingAbbreviation": "SA3",
+      "buildingName": "Sugar Land Annex 3"
+    },
+    {
+      "buildingID" : 710,
+      "buildingAbbreviation": "SBD",
+      "buildingName": "Small Business Development Center"
+    },
+    {
+      "buildingID" : 488,
+      "buildingAbbreviation": "SCP1",
+      "buildingName": "Central Plant Satellite"
+    },
+    {
+      "buildingID" : 529,
+      "buildingAbbreviation": "SEC",
+      "buildingName": "Science & Engineering Classroom BUILDING"
+    },
+    {
+      "buildingID" : 545,
+      "buildingAbbreviation": "SERC",
+      "buildingName": "Science & Engineering Research Center"
+    },
+    {
+      "buildingID" : 809,
+      "buildingAbbreviation": "SF",
+      "buildingName": "Soccer Field"
+    },
+    {
+      "buildingID" : 556,
+      "buildingAbbreviation": "SH",
+      "buildingName": "Settegast Residence Hall"
+    },
+    {
+      "buildingID" : 822,
+      "buildingAbbreviation": "SK12A",
+      "buildingName": "Security Kiosk Lot 12A"
+    },
+    {
+      "buildingID" : 823,
+      "buildingAbbreviation": "SK41",
+      "buildingName": "Security Kiosk Lot 41 (ERP)"
+    },
+    {
+      "buildingID" : 824,
+      "buildingAbbreviation": "SK42",
+      "buildingName": "Security Kiosk Lot 42 (ERP)"
+    },
+    {
+      "buildingID" : 820,
+      "buildingAbbreviation": "SK4A",
+      "buildingName": "Security Kiosk Lot 4A"
+    },
+    {
+      "buildingID" : 821,
+      "buildingAbbreviation": "SK9C",
+      "buildingName": "Security Kiosk Lot 9C"
+    },
+    {
+      "buildingID" : 542,
+      "buildingAbbreviation": "SPA",
+      "buildingName": "South Park Annex"
+    },
+    {
+      "buildingID" : 597,
+      "buildingAbbreviation": "SPG",
+      "buildingName": "Stadium Parking Garage"
+    },
+    {
+      "buildingID" : 550,
+      "buildingAbbreviation": "SR",
+      "buildingName": "Science and Research 1"
+    },
+    {
+      "buildingID" : 551,
+      "buildingAbbreviation": "SR2",
+      "buildingName": "Science and Research 2"
+    },
+    {
+      "buildingID" : 807,
+      "buildingAbbreviation": "SRG",
+      "buildingName": "Margaret Sharpe Antique Rose Garden"
+    },
+    {
+      "buildingID" : 493,
+      "buildingAbbreviation": "SS",
+      "buildingName": "Cougar Softball Stadium"
+    },
+    {
+      "buildingID" : 526,
+      "buildingAbbreviation": "SS2",
+      "buildingName": "Student Service Center 2"
+    },
+    {
+      "buildingID" : 524,
+      "buildingAbbreviation": "SSC",
+      "buildingName": "Student Service Center 1"
+    },
+    {
+      "buildingID" : 492,
+      "buildingAbbreviation": "SST",
+      "buildingName": "Cougar Softball Stadium Ticket Booth"
+    },
+    {
+      "buildingID" : 485,
+      "buildingAbbreviation": "STAD",
+      "buildingName": "TDECU Stadium"
+    },
+    {
+      "buildingID" : 576,
+      "buildingAbbreviation": "STL",
+      "buildingName": "Science Teaching Laboratory BUILDING"
+    },
+    {
+      "buildingID" : 549,
+      "buildingAbbreviation": "SW",
+      "buildingName": "Graduate College of Social Work"
+    },
+    {
+      "buildingID" : 503,
+      "buildingAbbreviation": "T",
+      "buildingName": "Technology Annex"
+    },
+    {
+      "buildingID" : 508,
+      "buildingAbbreviation": "T2",
+      "buildingName": "College of Technology BUILDING"
+    },
+    {
+      "buildingID" : 808,
+      "buildingAbbreviation": "TEN",
+      "buildingName": "Tennis Courts"
+    },
+    {
+      "buildingID" : 558,
+      "buildingAbbreviation": "TH",
+      "buildingName": "Taub Residence Hall"
+    },
+    {
+      "buildingID" : 704,
+      "buildingAbbreviation": "TMC",
+      "buildingName": "Texas Medical Center - 2151 Holcomb"
+    },
+    {
+      "buildingID" : 714,
+      "buildingAbbreviation": "TMC2",
+      "buildingName": "Texas Medical Center 2"
+    },
+    {
+      "buildingID" : 538,
+      "buildingAbbreviation": "TU2",
+      "buildingName": "Teaching Unit 2 BUILDING"
+    },
+    {
+      "buildingID" : 106,
+      "buildingAbbreviation": "TV",
+      "buildingName": "Texas Learning & Computational Center Annex"
+    },
+    {
+      "buildingID" : 117,
+      "buildingAbbreviation": "TVFB",
+      "buildingName": "KUHT TV at Fort Bend - Tower"
+    },
+    {
+      "buildingID" : 105,
+      "buildingAbbreviation": "TVTE",
+      "buildingName": "KUHT Telephone Equipment"
+    },
+    {
+      "buildingID" : 122,
+      "buildingAbbreviation": "UBL",
+      "buildingName": "University Branch Library (UHS-Sugar Land)"
+    },
+    {
+      "buildingID" : 565,
+      "buildingAbbreviation": "UC",
+      "buildingName": "Student Center South"
+    },
+    {
+      "buildingID" : 487,
+      "buildingAbbreviation": "UCN",
+      "buildingName": "Student Center North"
+    },
+    {
+      "buildingID" : 567,
+      "buildingAbbreviation": "UCS",
+      "buildingName": "Student Center Satellite"
+    },
+    {
+      "buildingID" : 120,
+      "buildingAbbreviation": "UHFB",
+      "buildingName": "Albert and Mamie George BUILDING"
+    },
+    {
+      "buildingID" : 519,
+      "buildingAbbreviation": "UHPD",
+      "buildingName": "DEPARTMENT of Public Safety - UH Police"
+    },
+    {
+      "buildingID" : 560,
+      "buildingAbbreviation": "UPD",
+      "buildingName": "UH-DPS Parking Enforcement"
+    },
+    {
+      "buildingID" : 541,
+      "buildingAbbreviation": "UTS",
+      "buildingName": "Utility Tunnel System"
+    },
+    {
+      "buildingID" : 553,
+      "buildingAbbreviation": "WC",
+      "buildingName": "Welcome Center & Parking Garage"
+    },
+    {
+      "buildingID" : 490,
+      "buildingAbbreviation": "WCSG",
+      "buildingName": "Welcome Center Student Garage"
+    },
+    {
+      "buildingID" : 762,
+      "buildingAbbreviation": "WHI",
+      "buildingName": "West Houston Institute (UHS-Cinco Ranch)"
+    },
+    {
+      "buildingID" : 125,
+      "buildingAbbreviation": "WHS",
+      "buildingName": "Wortham House Storage"
+    },
+    {
+      "buildingID" : 118,
+      "buildingAbbreviation": "WRCH",
+      "buildingName": "Wortham Residence Coach House"
+    },
+    {
+      "buildingID" : 507,
+      "buildingAbbreviation": "WT",
+      "buildingName": "Cynthia Woods Mitchell Center for the Arts/Wortham Theatre"
+    }
+  ]
+}
+
