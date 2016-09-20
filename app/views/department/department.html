@@ -8,8 +8,8 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h2 ng-show="!showDiv">Department Search</h2>
-        <h2 ng-show="showDiv">Department Search Results</h2>
+        <h2 ng-show="!showDiv">Department Information</h2>
+        <h2 ng-show="showDiv">Department Information Results</h2>
         <p ng-show="!showDiv">Click on the button below to view all of the department abbreviations and names.</p>
         <p ng-show="showDiv">Retrieved {{numberOfRows}} departments.</p>
         <button type="button" class="btn btn-primary btn-lg btn-block" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
