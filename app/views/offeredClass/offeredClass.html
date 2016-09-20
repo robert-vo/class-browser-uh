@@ -25,7 +25,6 @@
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label class="control-label" for="terms"><p>Select a Term: </p></label>
                     </div>
-
                     <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol name="selectTerm"
                             class="nya-bs-select"
@@ -64,7 +63,7 @@
                             multiple>
                             <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
                                 <span class="dropdown-header">{{$group}}</span>
-                                <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span
+                                <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.format }}<span
                                         class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
                         </ol>
@@ -83,8 +82,7 @@
 
                         <ol id="classStatus"
                             class="nya-bs-select"
-                            ng-model="statusModel"
-                            multiple>
+                            ng-model="statusModel">
                             <li nya-bs-option="option in status.availableOptions">
                                 <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
@@ -361,16 +359,30 @@
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
                         <button class="btn btn-danger" type="reset" ng-click="deleteModel('classDaysModel')">Clear Class
-                            Format
+                            Days
                         </button>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search For Classes" ng-click="findClasses()">
-                <input type="button" class="btn btn-danger btn-lg btn-block" value="Clear All Fields" ng-click="clearForms()">
-                <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
+                <input
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block"
+                    value="Search For Classes"
+                    ng-click="findClasses(!!offeredClassSearchForm.$valid)">
+                <input
+                    type="button"
+                    class="btn btn-danger btn-lg btn-block"
+                    value="Clear All Fields"
+                    ng-click="clearForms()">
             </form>
-            <br>
         </div>
+
+        <br>
+        <div class="alert alert-warning" ng-show="hasNoResults">
+            <p><strong>Warning!</strong></p> <p>There are no classes found with the categories you have specified. Please try again.</p>
+        </div>
+
+        <div ng-include="'views/offeredClass/offeredClassResult.html'" ng-show="showDiv"></div>
+
     </div>
 </div>
 </body>
