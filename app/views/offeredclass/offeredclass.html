@@ -145,7 +145,7 @@
                     ng-model="weekendUModel"
                     id="weekendU">
                     <li nya-bs-option="option in weekendU.availableOptions">
-                        <a>{{ option }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                        <a>{{ option.weekendU }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
 
@@ -153,6 +153,7 @@
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
                  <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
 
+                {{weekendUModel}}
             </form>
 
             <br>
