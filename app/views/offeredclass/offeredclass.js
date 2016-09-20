@@ -111,4 +111,8 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
         });
     };
 
+    $scope.findClasses = function() {
+        console.log("Finding classes...");
+    }
+
 }]);
