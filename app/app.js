@@ -7,7 +7,7 @@ angular.module('classBrowserUHApp', [
     'classBrowserUHApp.class',
     'classBrowserUHApp.core',
     'classBrowserUHApp.department',
-    'classBrowserUHApp.offeredclass',
+    'classBrowserUHApp.offeredClass',
     'classBrowserUHApp.navbar',
     'environment',
     'smart-table',
@@ -125,23 +125,6 @@ factory('httpService', function($http, $q) {
         }
     }
 }).
-run(function($rootScope, cartesianProductService, apiURLService, arrayService, httpService) {
-    $rootScope.cartesianProductService = cartesianProductService;
-    $rootScope.apiURLService = apiURLService;
-    $rootScope.arrayService = arrayService;
-    $rootScope.httpService = httpService;
-    $rootScope.selectedCountLimit = 'count > 3';
-
-    Array.prototype.allParametersUndefinedOrNull = function() {
-        for(var i = 0; i < this.length; i++) {
-            if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(this[i])) {
-                return false;
-            }
-        }
-        return true;
-    };
-
-}).
 directive('courseNumberValidator', function () {
     return {
         scope: {
@@ -160,4 +143,20 @@ directive('courseNumberValidator', function () {
             });
         }
     }
+}).
+run(function($rootScope, cartesianProductService, apiURLService, arrayService, httpService) {
+    $rootScope.cartesianProductService = cartesianProductService;
+    $rootScope.apiURLService = apiURLService;
+    $rootScope.arrayService = arrayService;
+    $rootScope.httpService = httpService;
+    $rootScope.selectedCountLimit = 'count > 3';
+
+    Array.prototype.allParametersUndefinedOrNull = function() {
+        for(var i = 0; i < this.length; i++) {
+            if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(this[i])) {
+                return false;
+            }
+        }
+        return true;
+    };
 });
