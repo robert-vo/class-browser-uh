@@ -99,7 +99,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope
             $rootScope.apiURLService.expandArrayValuesInPlace(creditHour, 'credit-hours');
         }
         if($rootScope.arrayService.isArrayIsUndefinedOrNull(core)) {
-            $roresultotScope.apiURLService.expandArrayValuesInPlace(core, 'core');
+            $rootScope.apiURLService.expandArrayValuesInPlace(core, 'core');
         }
 
         var allParameters = [department,creditHour,core]
