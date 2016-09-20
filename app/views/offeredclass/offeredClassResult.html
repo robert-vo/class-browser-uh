@@ -1,0 +1,45 @@
+<link href="views/templates/tableStyle.css" rel="stylesheet">
+
+<button ng-click="goBack()" class="btn btn-default" >
+    Back To Offered Class Search
+</button>
+
+<h2>Offered Class Search Results</h2>
+<p ng-bind-html="parametersMessage"></p>
+<p ng-bind-html="numberOfRowsMessage"></p>
+
+<table st-safe-src="rowCollection"
+       st-table="displayed"
+       class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th width="5%" class="sortable" st-sort="department">Subject</th>
+        <th width="5%" class="sortable" st-sort="department_crn">CRN</th>
+        <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
+        <th width="17%" class="sortable" st-sort="credit_hours">Credit Hours</th>
+        <th width="60%">Class Description</th>
+    </tr>
+    <tr>
+        <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in displayed">
+        <td>{{row.department}}</td>
+        <td>{{row.department_crn}}</td>
+        <td>{{row.class_title}}</td>
+        <td>{{row.credit_hours}}</td>
+        <td>{{row.class_description}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5" class="text-center">
+            <div st-items-by-page="10"
+                 st-pagination=""
+                 st-template="views/templates/pagination.custom.html">
+            </div>
+        </td>
+    </tr>
+    </tfoot>
+</table>
