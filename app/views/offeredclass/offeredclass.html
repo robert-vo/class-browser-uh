@@ -49,8 +49,6 @@
                     </li>
                 </ol>
 
-
-
                 <label for = "classStatus"><p>Select class status: </p></label>
                 <ol id = "classStatus"
                     class = "nya-bs-select"
@@ -60,18 +58,6 @@
                         <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
-
-                <div class="we" id="we">
-                <label for = "status"><p>Select class status: </p></label>
-
-                <table id="status" class="poop">
-                    <tr ng-repeat="subscription in entities">
-                        <td>
-                            <label class="checkbox-inline"><input type="checkbox" ng-model="subscription.checked" ng-click="updateSelection($index, entities)" />option</label>
-                        </td>
-                    </tr>
-                </table>
-                </div>
 
                 <label for = "classSession"><p>Select class sessions: </p></label>
                 <ol id = "classSession"
@@ -141,7 +127,7 @@
                         <a>{{ option.creditHours }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
-                <p></p>
+
                 <label for="core"><p>Select core requirement: </p></label>
                 <ol class="nya-bs-select"
                     ng-model="coreModel"
@@ -151,6 +137,15 @@
                     id="core">
                     <li nya-bs-option="option in coreCategories.availableOptions">
                         <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                    </li>
+                </ol>
+
+                <label for="weekendU"><p>Is WeekendU Class: </p></label>
+                <ol class="nya-bs-select"
+                    ng-model="weekendUModel"
+                    id="weekendU">
+                    <li nya-bs-option="option in weekendU.availableOptions">
+                        <a>{{ option }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
 
