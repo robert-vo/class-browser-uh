@@ -13,20 +13,28 @@
         <div id="classSearch" ng-show="!showDiv">
             <h2>Offered Class Search</h2>
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
-                <label class="control-label" for="terms"><p>Select a Term: </p></label>
-                    <ol name="selectTerm"
-                        class="nya-bs-select"
-                        ng-model="termModel"
-                        id="terms"
-                        required>
-                        <li nya-bs-option="option in terms.availableOptions">
-                            <a>
-                                {{option.semester}} {{option.year}}
-                                <span class="glyphicon glyphicon-ok check-mark"></span>
-                            </a>
-                        </li>
-                    </ol>
-                    <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <label class="control-label" for="terms"><p>Select a Term: </p></label>
+                        <ol name="selectTerm"
+                            class="nya-bs-select"
+                            ng-model="termModel"
+                            id="terms"
+                            required>
+                            <li nya-bs-option="option in terms.availableOptions">
+                                <a>
+                                    {{option.semester}} {{option.year}}
+                                    <span class="glyphicon glyphicon-ok check-mark"></span>
+                                </a>
+                            </li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xs-3 col-md-3"></div>
+                                <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
+                        </div>
+                    </div>
+                </div>
+
 
                 <label for="classFormat"><p>Select class format: </p></label>
                 <ol id="classFormat"
@@ -41,6 +49,8 @@
                     </li>
                 </ol>
 
+
+
                 <label for = "classStatus"><p>Select class status: </p></label>
                 <ol id = "classStatus"
                     class = "nya-bs-select"
@@ -50,6 +60,18 @@
                         <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                     </li>
                 </ol>
+
+                <div class="we" id="we">
+                <label for = "status"><p>Select class status: </p></label>
+
+                <table id="status" class="poop">
+                    <tr ng-repeat="subscription in entities">
+                        <td>
+                            <label class="checkbox-inline"><input type="checkbox" ng-model="subscription.checked" ng-click="updateSelection($index, entities)" />option</label>
+                        </td>
+                    </tr>
+                </table>
+                </div>
 
                 <label for = "classSession"><p>Select class sessions: </p></label>
                 <ol id = "classSession"
