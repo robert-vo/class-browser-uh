@@ -79,8 +79,15 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
             "path": "resources/classDays.json",
             "scopeName": "classDays",
             "modelName": "classDaysModel"
+        },
+        {
+            "path": "",
+            "scopeName": "courseNumber",
+            "modelName": "courseNumberModel"
         }
     ];
+
+    $scope.validValues = ['a', 'A','1','2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
     $scope.deleteModel = function() {
         [].slice.call(arguments).forEach(function(arg) {
