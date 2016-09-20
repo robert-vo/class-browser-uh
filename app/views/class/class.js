@@ -117,16 +117,16 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope
     };
 
     $scope.clearForms = function() {
+        var deleteModel = function() {
+            [].slice.call(arguments).forEach(function(arg) {
+                delete $scope[arg];
+            });
+        };
+
         $scope.hasNoResults = false;
         console.log('Clearing forms and fields.');
-        console.log($scope.departmentModel);
-        console.log($scope.creditHourModel);
-        console.log($scope.coreModel);
-        $scope.departmentModel = undefined;
-        $scope.creditHourModel = undefined;
-        $scope.coreModel = undefined;
-        $scope.parametersMessage = undefined;
-        $scope.rowCollection = undefined;
+
+        deleteModel('departmentModel', 'creditHourModel', 'coreModel', 'parametersMessage', 'rowCollection');
     };
 
 }]);
