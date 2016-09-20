@@ -55,7 +55,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope
             $scope.showDiv = true;
 
             $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class";
-            $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? " ." : "es.";
+            $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? "." : "es.";
 
             if([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
                 $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
