@@ -9,14 +9,10 @@
         ol {
             width: 100% !important;
         }
-
         button.btn.btn-danger {
             white-space: normal !important;
             width: 100% !important;
         }
-        /*label {*/
-            /*width: 24% !important;*/
-        /*}*/
     </style>
 </head>
 <body>
@@ -46,11 +42,13 @@
                         </ol>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('termModel')">Clear Term</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('termModel')">Clear Term
+                        </button>
                     </div>
                     <div class="row">
                         <div class="col-xs-3 col-md-3 col-sm-3">
-                            <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
+                            <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a
+                                term.</p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +57,7 @@
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="classFormat"><p>Class Format: </p></label>
                     </div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                    <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol id="classFormat"
                             class="nya-bs-select"
                             ng-model="formatModel"
@@ -67,49 +65,58 @@
                             multiple>
                             <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
                                 <span class="dropdown-header">{{$group}}</span>
-                                <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                                <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span
+                                        class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
                         </ol>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('formatModel')">Clear Class Format</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('formatModel')">Clear Class
+                            Format
+                        </button>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for = "classStatus"><p>Class Status: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                        <label for="classStatus"><p>Class Status: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
-                        <ol id = "classStatus"
-                            class = "nya-bs-select"
-                            ng-model = "statusModel"
+                        <ol id="classStatus"
+                            class="nya-bs-select"
+                            ng-model="statusModel"
                             multiple>
                             <li nya-bs-option="option in status.availableOptions">
                                 <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('statusModel')">Clear Class Status</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('statusModel')">Clear Class
+                            Status
+                        </button>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for = "classSession"><p>Class Sessions: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                        <label for="classSession"><p>Class Sessions: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
-                        <ol id = "classSession"
-                            class = "nya-bs-select"
-                            ng-model = "sessionModel"
+                        <ol id="classSession"
+                            class="nya-bs-select"
+                            ng-model="sessionModel"
                             multiple>
                             <li nya-bs-option="option in session.availableOptions">
                                 <a>{{ option.sessionTitle }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('sessionModel')">Clear Class Sessions</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('sessionModel')">Clear Class
+                            Sessions
+                        </button>
                     </div>
                 </div>
 
@@ -117,7 +124,7 @@
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="subject"><p>Select Subjects: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol class="nya-bs-select"
                             ng-model="departmentModel"
@@ -126,74 +133,89 @@
                             id="subject"
                             multiple>
                             <li nya-bs-option="option in departments.availableOptions">
-                                <a>{{option.departmentName}} : {{ option.departmentFullName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                                <a>{{option.departmentName}} : {{ option.departmentFullName }}<span
+                                        class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('departmentModel')">Clear Subjects</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('departmentModel')">Clear
+                            Subjects
+                        </button>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for = "buildings"><p>Select Buildings: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                        <label for="buildings"><p>Select Buildings: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
-                        <ol id = "buildings"
-                            class = "nya-bs-select"
-                            ng-model = "buildingModel"
+                        <ol id="buildings"
+                            class="nya-bs-select"
+                            ng-model="buildingModel"
                             data-live-search="true"
                             data-selected-text-format={{selectedCountLimit}}
                             multiple>
                             <li nya-bs-option="option in buildings.availableOptions">
-                                <a>{{option.buildingID != 0 ? option.buildingAbbreviation + " : " + option.buildingName : "No Building"}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                                <a>{{option.buildingID != 0 ? option.buildingAbbreviation + " : " + option.buildingName
+                                    : "No Building"}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('buildingModel')">Clear Buildings</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('buildingModel')">Clear
+                            Buildings
+                        </button>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for = "locations"><p>Select Campus Locations: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                        <label for="locations"><p>Select Campus Locations: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
-                        <ol id = "locations"
-                            class = "nya-bs-select"
-                            ng-model = "locationModel"
+                        <ol id="locations"
+                            class="nya-bs-select"
+                            ng-model="locationModel"
                             data-live-search="true"
                             data-selected-text-format={{selectedCountLimit}}
                             multiple>
                             <li nya-bs-option="option in locations.availableOptions">
                                 <a>{{option.location}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('locationModel')">Clear Campus Locations</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('locationModel')">Clear Campus
+                            Locations
+                        </button>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for = "component"><p>Select Class Components: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                        <label for="component"><p>Select Class Components: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
-                        <ol id = "component"
-                            class = "nya-bs-select"
-                            ng-model = "componentModel"
+                        <ol id="component"
+                            class="nya-bs-select"
+                            ng-model="componentModel"
                             data-live-search="true"
                             data-selected-text-format={{selectedCountLimit}}
                             multiple>
                             <li nya-bs-option="option in component.availableOptions">
-                                <a>{{option.component}} : {{option.componentName}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                                <a>{{option.component}} : {{option.componentName}}<span
+                                        class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('componentModel')">Clear Class Components</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('componentModel')">Clear Class
+                            Components
+                        </button>
                     </div>
                 </div>
 
@@ -201,7 +223,7 @@
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="creditHours"><p>Select Number of Credit Hours: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol class="nya-bs-select"
                             ng-model="creditHourModel"
@@ -211,9 +233,12 @@
                             <li nya-bs-option="option in creditHours.availableOptions">
                                 <a>{{ option.creditHours }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('creditHourModel')">Clear Number of Credit Hours</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('creditHourModel')">Clear
+                            Number of Credit Hours
+                        </button>
                     </div>
                 </div>
 
@@ -221,7 +246,7 @@
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="core"><p>Select Core Requirement: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol class="nya-bs-select"
                             ng-model="coreModel"
@@ -232,9 +257,12 @@
                             <li nya-bs-option="option in coreCategories.availableOptions">
                                 <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreModel')">Clear Core Requirement</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreModel')">Clear Core
+                            Requirement
+                        </button>
                     </div>
                 </div>
 
@@ -242,7 +270,7 @@
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="weekendU"><p>Is WeekendU Class: </p></label></div>
-                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                    <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol class="nya-bs-select"
                             ng-model="weekendUModel"
@@ -250,32 +278,45 @@
                             <li nya-bs-option="option in weekendU.availableOptions">
                                 <a>{{ option.weekendU }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
-                        </ol>                    </div>
+                        </ol>
+                    </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('weekendUModel')">Clear Is WeekendU</button>
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('weekendUModel')">Clear Is
+                            WeekendU
+                        </button>
                     </div>
                 </div>
 
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
-                 <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
+                <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
 
             </form>
 
             <br>
 
             department-crn - The 4 digit number that represents the class in a given department.
-            is-core - Use one of the True Values to indicate if a class fulfills a core requirement. False Values to indicate otherwise.
-            weekendU - Use one of the True Values to indicate if a class is a weekendU class. False Values to indicate otherwise.
-            monday - Use one of the True Values to indicate that the class meets on Monday. Using a False Value indicates otherwise.
-            tuesday - Use one of the True Values to indicate that the class meets on Tuesday. Using a False Value indicates otherwise.
-            wednesday - Use one of the True Values to indicate that the class meets on Wednesday. Using a False Value indicates otherwise.
-            thursday - Use one of the True Values to indicate that the class meets on Thursday. Using a False Value indicates otherwise.
-            friday - Use one of the True Values to indicate that the class meets on Friday. Using a False Value indicates otherwise.
-            saturday - Use one of the True Values to indicate that the class meets on Saturday. Using a False Value indicates otherwise.
-            sunday - Use one of the True Values to indicate that the class meets on Sunday. Using a False Value indicates otherwise.
-            syllabus - Use one of the True Values to indicate that the class has a syllabus. Using a False Value indicates otherwise.
+            is-core - Use one of the True Values to indicate if a class fulfills a core requirement. False Values to
+            indicate otherwise.
+            weekendU - Use one of the True Values to indicate if a class is a weekendU class. False Values to indicate
+            otherwise.
+            monday - Use one of the True Values to indicate that the class meets on Monday. Using a False Value
+            indicates otherwise.
+            tuesday - Use one of the True Values to indicate that the class meets on Tuesday. Using a False Value
+            indicates otherwise.
+            wednesday - Use one of the True Values to indicate that the class meets on Wednesday. Using a False Value
+            indicates otherwise.
+            thursday - Use one of the True Values to indicate that the class meets on Thursday. Using a False Value
+            indicates otherwise.
+            friday - Use one of the True Values to indicate that the class meets on Friday. Using a False Value
+            indicates otherwise.
+            saturday - Use one of the True Values to indicate that the class meets on Saturday. Using a False Value
+            indicates otherwise.
+            sunday - Use one of the True Values to indicate that the class meets on Sunday. Using a False Value
+            indicates otherwise.
+            syllabus - Use one of the True Values to indicate that the class has a syllabus. Using a False Value
+            indicates otherwise.
         </div>
     </div>
 </div>
