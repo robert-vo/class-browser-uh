@@ -13,6 +13,7 @@
        class="table table-bordered table-striped">
     <thead>
     <tr>
+        <th width="5%" class="sortable" st-sort="term">Term</th>
         <th width="5%" class="sortable" st-sort="department">Subject</th>
         <th width="5%" class="sortable" st-sort="department_crn">CRN</th>
         <th width="25%" class="sortable" st-sort="class_title">Class Title</th>
@@ -25,6 +26,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="row in displayed">
+        <td>{{row.term}}</td>
         <td>{{row.department}}</td>
         <td>{{row.department_crn}}</td>
         <td>{{row.class_title}}</td>
