@@ -11,48 +11,59 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
 .controller('OfferedClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', function ($scope, $http, $q, $rootScope, $parse) {
     var allJSONAndScopeNames = [
         {
-            "path": "resources/format.json",
-            "scopeName": "format"
+            "path": "resources/terms.json",
+            "scopeName": "terms",
+            "modelName": "termModel"
         },
         {
-            "path": "resources/terms.json",
-            "scopeName": "terms"
+            "path": "resources/format.json",
+            "scopeName": "format",
+            "modelName": "formatModel"
         },
         {
             "path": "resources/status.json",
-            "scopeName": "status"
+            "scopeName": "status",
+            "modelName": "statusModel"
         },
         {
             "path": "resources/session.json",
-            "scopeName": "session"
+            "scopeName": "session",
+            "modelName": "sessionModel"
         },
         {
             "path": "resources/subjects.json",
-            "scopeName": "departments"
+            "scopeName": "departments",
+            "modelName": "departmentModel"
         },
         {
             "path": "resources/buildings.json",
-            "scopeName": "buildings"
+            "scopeName": "buildings",
+            "modelName": "buildingModel"
         },
         {
             "path": "resources/locations.json",
-            "scopeName": "locations"
+            "scopeName": "locations",
+            "modelName": "locationModel"
         },
         {
             "path": "resources/component.json",
-            "scopeName": "component"
+            "scopeName": "component",
+            "modelName": "componentModel"
         },
         {
             "path": "resources/creditHours.json",
-            "scopeName": "creditHours"
+            "scopeName": "creditHours",
+            "modelName": "creditHourModel"
         },
         {
             "path": "resources/weekendU.json",
-            "scopeName": "weekendU"
+            "scopeName": "weekendU",
+            "modelName": "weekendUModel"
         },
         {
             "path": "resources/coreCategories.json",
-            "scopeName": "coreCategories"
+            "scopeName": "coreCategories",
+            "modelName": "coreModel"
         }
     ];
 
@@ -73,7 +84,9 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
     });
 
     $scope.clearForms = function() {
-        deleteModel('weekendUModel', 'coreModel');
+        allJSONAndScopeNames.forEach(function(e) {
+           deleteModel(e.modelName);
+        });
     };
 
 }]);
