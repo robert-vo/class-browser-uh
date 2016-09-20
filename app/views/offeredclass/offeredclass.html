@@ -319,7 +319,29 @@
                     </div>
                 </div>
 
-
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="classDays"><p>Class Days: </p></label>
+                    </div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
+                        <ol id="classDays"
+                            class="nya-bs-select"
+                            ng-model="classDaysModel"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple>
+                            <li nya-bs-option="option in classDays.availableOptions group by option.isOrNot">
+                                <span class="dropdown-header">{{$group}}</span>
+                                <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.day }}<span
+                                        class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('classDaysModel')">Clear Class
+                            Format
+                        </button>
+                    </div>
+                </div>
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear All Fields" ng-click="clearForms()">
@@ -330,22 +352,6 @@
             <br>
 
             department-crn - The 4 digit number that represents the class in a given department.
-            monday - Use one of the True Values to indicate that the class meets on Monday. Using a False Value
-            indicates otherwise.
-            tuesday - Use one of the True Values to indicate that the class meets on Tuesday. Using a False Value
-            indicates otherwise.
-            wednesday - Use one of the True Values to indicate that the class meets on Wednesday. Using a False Value
-            indicates otherwise.
-            thursday - Use one of the True Values to indicate that the class meets on Thursday. Using a False Value
-            indicates otherwise.
-            friday - Use one of the True Values to indicate that the class meets on Friday. Using a False Value
-            indicates otherwise.
-            saturday - Use one of the True Values to indicate that the class meets on Saturday. Using a False Value
-            indicates otherwise.
-            sunday - Use one of the True Values to indicate that the class meets on Sunday. Using a False Value
-            indicates otherwise.
-            syllabus - Use one of the True Values to indicate that the class has a syllabus. Using a False Value
-            indicates otherwise.
         </div>
     </div>
 </div>

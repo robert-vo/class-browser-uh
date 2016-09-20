@@ -74,6 +74,11 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
             "path": "resources/syllabus.json",
             "scopeName": "syllabus",
             "modelName": "syllabusModel"
+        },
+        {
+            "path": "resources/classDays.json",
+            "scopeName": "classDays",
+            "modelName": "classDaysModel"
         }
     ];
 
