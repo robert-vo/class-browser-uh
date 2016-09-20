@@ -8,8 +8,12 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
         controller: 'OfferedClassCtrl'
     });
 }])
-
 .controller('OfferedClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope, $http, $q, $rootScope) {
+    var deleteModel = function() {
+        [].slice.call(arguments).forEach(function(arg) {
+            delete $scope[arg];
+        });
+    };
 
     $rootScope.httpService.getData('resources/format.json').then(function(result) {
         $scope.format = result;
@@ -50,4 +54,13 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
     $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
         $scope.coreCategories = result;
     });
+
+    $rootScope.httpService.getData('resources/weekendU.json').then(function(result) {
+        $scope.weekendU = result;
+    });
+
+    $scope.clearForms = function() {
+        deleteModel('weekendUModel', 'coreModel');
+    };
+
 }]);
