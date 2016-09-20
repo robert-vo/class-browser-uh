@@ -301,6 +301,25 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="syllabus"><p>Has Syllabus? </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
+                        <ol class="nya-bs-select"
+                            ng-model="syllabusModel"
+                            id="syllabus">
+                            <li nya-bs-option="option in syllabus.availableOptions">
+                                <a>{{ option.syllabus }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('syllabusModel')">Clear Has Syllabus
+                        </button>
+                    </div>
+                </div>
+
+
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear All Fields" ng-click="clearForms()">
@@ -311,10 +330,6 @@
             <br>
 
             department-crn - The 4 digit number that represents the class in a given department.
-            is-core - Use one of the True Values to indicate if a class fulfills a core requirement. False Values to
-            indicate otherwise.
-            weekendU - Use one of the True Values to indicate if a class is a weekendU class. False Values to indicate
-            otherwise.
             monday - Use one of the True Values to indicate that the class meets on Monday. Using a False Value
             indicates otherwise.
             tuesday - Use one of the True Values to indicate that the class meets on Tuesday. Using a False Value

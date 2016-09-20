@@ -1,0 +1,10 @@
+{
+  "availableOptions" : [
+    {
+      "syllabus": "Yes"
+    },
+    {
+      "syllabus": "No"
+    }
+  ]
+}

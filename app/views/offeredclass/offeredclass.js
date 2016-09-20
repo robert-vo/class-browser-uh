@@ -68,7 +68,12 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
         {
             "path": "resources/isCore.json",
             "scopeName": "isCore",
-            "modeName": "isCoreModel"
+            "modelName": "isCoreModel"
+        },
+        {
+            "path": "resources/syllabus.json",
+            "scopeName": "syllabus",
+            "modelName": "syllabusModel"
         }
     ];
 
