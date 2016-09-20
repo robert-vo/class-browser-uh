@@ -26,7 +26,7 @@ config(function(envServiceProvider) {
     envServiceProvider.config({
         domains: {
             development: ['localhost'],
-            production: ['aws.com']
+            production: ['http://classbrowseruh.azurewebsites.net']
         },
         vars: {
             development: {
