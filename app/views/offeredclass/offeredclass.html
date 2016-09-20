@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Class</title>
-    <!--<link href="views/class/class.css" rel="stylesheet">-->
     <script src="bower_components/underscore/underscore-min.js"></script>
     <style>
         ol {
@@ -123,7 +122,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="subject"><p>Select Subjects: </p></label></div>
+                        <label for="subject"><p>Subjects: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol class="nya-bs-select"
@@ -148,7 +147,29 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="buildings"><p>Select Buildings: </p></label></div>
+                        <label for="courseNumber"><p>Course Number: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
+                        <input
+                                class="form-control input-lg"
+                                id="courseNumber"
+                                type="text"
+                                ng-model="courseNumberModel"
+                                maxlength="4"
+                                course-number-validator
+                                valid-values="validValues"
+                                text-uppercase
+                                placeholder="Enter the 4 digit course number, e.g., 2410.">
+                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('courseNumberModel')">Clear
+                            Course Number
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="buildings"><p>Buildings: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol id="buildings"
@@ -173,7 +194,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="locations"><p>Select Campus Locations: </p></label></div>
+                        <label for="locations"><p>Campus Locations: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol id="locations"
@@ -197,7 +218,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="component"><p>Select Class Components: </p></label></div>
+                        <label for="component"><p>Class Components: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol id="component"
@@ -221,7 +242,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="creditHours"><p>Select Number of Credit Hours: </p></label></div>
+                        <label for="creditHours"><p>Number of Credit Hours: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol class="nya-bs-select"
                             ng-model="creditHourModel"
@@ -242,7 +263,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="isCore"><p>Is Core Class: </p></label></div>
+                        <label for="isCore"><p>Is Core Class?</p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol class="nya-bs-select"
                             ng-model="isCoreModel"
@@ -261,7 +282,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="coreCategory"><p>Select Core Requirement: </p></label></div>
+                        <label for="coreCategory"><p>Core Requirement: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol class="nya-bs-select"
                             ng-model="coreCategoriesModel"
@@ -275,7 +296,8 @@
                         </ol>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreCategoriesModel')">Clear Core
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreCategoriesModel')">Clear
+                            Core
                             Requirement
                         </button>
                     </div>
@@ -284,7 +306,7 @@
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="weekendU"><p>Is WeekendU Class: </p></label></div>
+                        <label for="weekendU"><p>Is WeekendU Class?</p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol class="nya-bs-select"
                             ng-model="weekendUModel"
@@ -314,7 +336,8 @@
                         </ol>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('syllabusModel')">Clear Has Syllabus
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('syllabusModel')">Clear Has
+                            Syllabus
                         </button>
                     </div>
                 </div>
