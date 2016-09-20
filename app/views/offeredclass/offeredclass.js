@@ -67,7 +67,7 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
         }
     ];
 
-    var deleteModel = function() {
+    $scope.deleteModel = function() {
         [].slice.call(arguments).forEach(function(arg) {
             delete $scope[arg];
         });
@@ -85,7 +85,7 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
 
     $scope.clearForms = function() {
         allJSONAndScopeNames.forEach(function(e) {
-           deleteModel(e.modelName);
+           $scope.deleteModel(e.modelName);
         });
     };
 
