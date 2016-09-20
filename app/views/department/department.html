@@ -12,7 +12,7 @@
         <h2 ng-show="showDiv">Department Search Results</h2>
         <p ng-show="!showDiv">Click on the button below to view all of the department abbreviations and names.</p>
         <p ng-show="showDiv">Retrieved {{numberOfRows}} departments.</p>
-        <button type="button" class="btn btn-default" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
+        <button type="button" class="btn btn-default btn-lg" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
         <div ng-include="'views/department/departmentResult.html'"></div>
     </div>
 </div>
