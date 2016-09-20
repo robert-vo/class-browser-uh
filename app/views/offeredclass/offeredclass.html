@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Class</title>
-    <link href="views/class/class.css" rel="stylesheet">
+    <!--<link href="views/class/class.css" rel="stylesheet">-->
     <script src="bower_components/underscore/underscore-min.js"></script>
+    <style>
+        ol {
+            width: 100% !important;
+        }
+
+        button.btn.btn-danger {
+            white-space: normal !important;
+            width: 100% !important;
+        }
+        /*label {*/
+            /*width: 24% !important;*/
+        /*}*/
+    </style>
 </head>
 <body>
 
@@ -14,8 +27,11 @@
             <h2>Offered Class Search</h2>
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
                         <label class="control-label" for="terms"><p>Select a Term: </p></label>
+                    </div>
+
+                    <div class="col-xs-7 col-md-7 col-sm-7">
                         <ol name="selectTerm"
                             class="nya-bs-select"
                             ng-model="termModel"
@@ -28,135 +44,227 @@
                                 </a>
                             </li>
                         </ol>
-                        <div class="row">
-                            <div class="col-xs-3 col-md-3"></div>
-                                <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
+                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('termModel')">Clear Term</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-md-3 col-sm-3">
+                            <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a term.</p>
                         </div>
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="classFormat"><p>Class Format: </p></label>
+                    </div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+                        <ol id="classFormat"
+                            class="nya-bs-select"
+                            ng-model="formatModel"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple>
+                            <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
+                                <span class="dropdown-header">{{$group}}</span>
+                                <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('formatModel')">Clear Class Format</button>
+                    </div>
+                </div>
 
-                <label for="classFormat"><p>Select class format: </p></label>
-                <ol id="classFormat"
-                    class="nya-bs-select"
-                    ng-model="formatModel"
-                    data-selected-text-format={{selectedCountLimit}}
-                    multiple
-                    >
-                    <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
-                        <span class="dropdown-header">{{$group}}</span>
-                        <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.formatType }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for = "classStatus"><p>Class Status: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
 
-                <label for = "classStatus"><p>Select class status: </p></label>
-                <ol id = "classStatus"
-                    class = "nya-bs-select"
-                    ng-model = "statusModel"
-                    multiple>
-                    <li nya-bs-option="option in status.availableOptions">
-                        <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                        <ol id = "classStatus"
+                            class = "nya-bs-select"
+                            ng-model = "statusModel"
+                            multiple>
+                            <li nya-bs-option="option in status.availableOptions">
+                                <a>{{ option.status }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('statusModel')">Clear Class Status</button>
+                    </div>
+                </div>
 
-                <label for = "classSession"><p>Select class sessions: </p></label>
-                <ol id = "classSession"
-                    class = "nya-bs-select"
-                    ng-model = "sessionModel"
-                    multiple>
-                    <li nya-bs-option="option in session.availableOptions">
-                        <a>{{ option.sessionTitle }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
 
-                <label for="subject"><p>Select subjects: </p></label>
-                <ol class="nya-bs-select"
-                    ng-model="departmentModel"
-                    data-live-search="true"
-                    data-selected-text-format={{selectedCountLimit}}
-                    id="subject"
-                    multiple>
-                    <li nya-bs-option="option in departments.availableOptions">
-                        <a>{{option.departmentName}} : {{ option.departmentFullName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for = "classSession"><p>Class Sessions: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
 
-                <label for = "buildings"><p>Select buildings: </p></label>
-                <ol id = "buildings"
-                    class = "nya-bs-select"
-                    ng-model = "buildingModel"
-                    data-live-search="true"
-                    data-selected-text-format={{selectedCountLimit}}
-                    multiple>
-                    <li nya-bs-option="option in buildings.availableOptions">
-                        <a>{{option.buildingID != 0 ? option.buildingAbbreviation + " : " + option.buildingName : "No Building"}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                        <ol id = "classSession"
+                            class = "nya-bs-select"
+                            ng-model = "sessionModel"
+                            multiple>
+                            <li nya-bs-option="option in session.availableOptions">
+                                <a>{{ option.sessionTitle }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('sessionModel')">Clear Class Sessions</button>
+                    </div>
+                </div>
 
-                <label for = "locations"><p>Select campus locations: </p></label>
-                <ol id = "locations"
-                    class = "nya-bs-select"
-                    ng-model = "locationModel"
-                    data-live-search="true"
-                    data-selected-text-format={{selectedCountLimit}}
-                    multiple>
-                    <li nya-bs-option="option in locations.availableOptions">
-                        <a>{{option.location}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
 
-                <label for = "component"><p>Select class components: </p></label>
-                <ol id = "component"
-                    class = "nya-bs-select"
-                    ng-model = "componentModel"
-                    data-live-search="true"
-                    data-selected-text-format={{selectedCountLimit}}
-                    multiple>
-                    <li nya-bs-option="option in component.availableOptions">
-                        <a>{{option.component}} : {{option.componentName}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="subject"><p>Select Subjects: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
 
-                <label for="creditHours"><p>Select number of credit hours: </p></label>
-                <ol class="nya-bs-select"
-                    ng-model="creditHourModel"
-                    data-selected-text-format={{selectedCountLimit}}
-                    multiple
-                    id="creditHours">
-                    <li nya-bs-option="option in creditHours.availableOptions">
-                        <a>{{ option.creditHours }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                        <ol class="nya-bs-select"
+                            ng-model="departmentModel"
+                            data-live-search="true"
+                            data-selected-text-format={{selectedCountLimit}}
+                            id="subject"
+                            multiple>
+                            <li nya-bs-option="option in departments.availableOptions">
+                                <a>{{option.departmentName}} : {{ option.departmentFullName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('departmentModel')">Clear Subjects</button>
+                    </div>
+                </div>
 
-                <label for="core"><p>Select core requirement: </p></label>
-                <ol class="nya-bs-select"
-                    ng-model="coreModel"
-                    data-live-search="true"
-                    data-selected-text-format={{selectedCountLimit}}
-                    multiple
-                    id="core">
-                    <li nya-bs-option="option in coreCategories.availableOptions">
-                        <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
 
-                <label for="weekendU"><p>Is WeekendU Class: </p></label>
-                <ol class="nya-bs-select"
-                    ng-model="weekendUModel"
-                    id="weekendU">
-                    <li nya-bs-option="option in weekendU.availableOptions">
-                        <a>{{ option.weekendU }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
-                    </li>
-                </ol>
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for = "buildings"><p>Select Buildings: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+
+                        <ol id = "buildings"
+                            class = "nya-bs-select"
+                            ng-model = "buildingModel"
+                            data-live-search="true"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple>
+                            <li nya-bs-option="option in buildings.availableOptions">
+                                <a>{{option.buildingID != 0 ? option.buildingAbbreviation + " : " + option.buildingName : "No Building"}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('buildingModel')">Clear Buildings</button>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for = "locations"><p>Select Campus Locations: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+
+                        <ol id = "locations"
+                            class = "nya-bs-select"
+                            ng-model = "locationModel"
+                            data-live-search="true"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple>
+                            <li nya-bs-option="option in locations.availableOptions">
+                                <a>{{option.location}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('locationModel')">Clear Campus Locations</button>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for = "component"><p>Select Class Components: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+
+                        <ol id = "component"
+                            class = "nya-bs-select"
+                            ng-model = "componentModel"
+                            data-live-search="true"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple>
+                            <li nya-bs-option="option in component.availableOptions">
+                                <a>{{option.component}} : {{option.componentName}}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('componentModel')">Clear Class Components</button>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="creditHours"><p>Select Number of Credit Hours: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+
+                        <ol class="nya-bs-select"
+                            ng-model="creditHourModel"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple
+                            id="creditHours">
+                            <li nya-bs-option="option in creditHours.availableOptions">
+                                <a>{{ option.creditHours }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('creditHourModel')">Clear Number of Credit Hours</button>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="core"><p>Select Core Requirement: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+
+                        <ol class="nya-bs-select"
+                            ng-model="coreModel"
+                            data-live-search="true"
+                            data-selected-text-format={{selectedCountLimit}}
+                            multiple
+                            id="core">
+                            <li nya-bs-option="option in coreCategories.availableOptions">
+                                <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreModel')">Clear Core Requirement</button>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="weekendU"><p>Is WeekendU Class: </p></label></div>
+                     <div class="col-xs-7 col-md-7 col-sm-7"> 
+
+                        <ol class="nya-bs-select"
+                            ng-model="weekendUModel"
+                            id="weekendU">
+                            <li nya-bs-option="option in weekendU.availableOptions">
+                                <a>{{ option.weekendU }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('weekendUModel')">Clear Is WeekendU</button>
+                    </div>
+                </div>
+
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
                 <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
                  <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
 
-                {{weekendUModel}}
             </form>
 
             <br>
+
             department-crn - The 4 digit number that represents the class in a given department.
             is-core - Use one of the True Values to indicate if a class fulfills a core requirement. False Values to indicate otherwise.
             weekendU - Use one of the True Values to indicate if a class is a weekendU class. False Values to indicate otherwise.
