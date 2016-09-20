@@ -92,13 +92,13 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope
         core = _.pluck(core, 'categoryNumber');
 
 
-        if($rootScope.arrayService.isArrayIsUndefinedOrNull(department)) {
+        if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(department)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(department, 'department');
         }
-        if($rootScope.arrayService.isArrayIsUndefinedOrNull(creditHour)) {
+        if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(creditHour)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(creditHour, 'credit-hours');
         }
-        if($rootScope.arrayService.isArrayIsUndefinedOrNull(core)) {
+        if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(core)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(core, 'core');
         }
 

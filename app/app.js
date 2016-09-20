@@ -104,7 +104,7 @@ factory('apiURLService', function() {
 }).
 factory('arrayService', function() {
     return {
-        isArrayIsUndefinedOrNull: function(array) {
+        isArrayIsNotUndefinedOrNull: function(array) {
             return !(_.isUndefined(array) || _.isNull(array) || _.isEmpty(array));
         }
     }
@@ -134,7 +134,7 @@ run(function($rootScope, cartesianProductService, apiURLService, arrayService, h
 
     Array.prototype.allParametersUndefinedOrNull = function() {
         for(var i = 0; i < this.length; i++) {
-            if($rootScope.arrayService.isArrayIsUndefinedOrNull(this[i])) {
+            if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(this[i])) {
                 return false;
             }
         }
