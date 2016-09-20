@@ -63,7 +63,12 @@ angular.module('classBrowserUHApp.offeredclass', ['ngRoute'])
         {
             "path": "resources/coreCategories.json",
             "scopeName": "coreCategories",
-            "modelName": "coreModel"
+            "modelName": "coreCategoriesModel"
+        },
+        {
+            "path": "resources/isCore.json",
+            "scopeName": "isCore",
+            "modeName": "isCoreModel"
         }
     ];
 

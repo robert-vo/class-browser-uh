@@ -219,12 +219,10 @@
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="creditHours"><p>Select Number of Credit Hours: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
-
                         <ol class="nya-bs-select"
                             ng-model="creditHourModel"
                             data-selected-text-format={{selectedCountLimit}}
@@ -242,25 +240,42 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xs-2 col-md-2 col-sm-2">
+                        <label for="isCore"><p>Is Core Class: </p></label></div>
+                    <div class="col-xs-7 col-md-7 col-sm-7">
+                        <ol class="nya-bs-select"
+                            ng-model="isCoreModel"
+                            id="isCore">
+                            <li nya-bs-option="option in isCore.availableOptions">
+                                <a>{{ option.core }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-3 col-md-3 col-sm-3">
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('isCoreMode')">Clear Is
+                            Core
+                        </button>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-xs-2 col-md-2 col-sm-2">
-                        <label for="core"><p>Select Core Requirement: </p></label></div>
+                        <label for="coreCategory"><p>Select Core Requirement: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
-
                         <ol class="nya-bs-select"
-                            ng-model="coreModel"
+                            ng-model="coreCategoriesModel"
                             data-live-search="true"
                             data-selected-text-format={{selectedCountLimit}}
                             multiple
-                            id="core">
+                            id="coreCategory">
                             <li nya-bs-option="option in coreCategories.availableOptions">
                                 <a>{{ option.categoryName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
                         </ol>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreModel')">Clear Core
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreCategoriesModel')">Clear Core
                             Requirement
                         </button>
                     </div>
@@ -271,7 +286,6 @@
                     <div class="col-xs-2 col-md-2 col-sm-2">
                         <label for="weekendU"><p>Is WeekendU Class: </p></label></div>
                     <div class="col-xs-7 col-md-7 col-sm-7">
-
                         <ol class="nya-bs-select"
                             ng-model="weekendUModel"
                             id="weekendU">
@@ -289,7 +303,7 @@
 
 
                 <input type="submit" class="btn btn-default" value="Populate Classes" ng-click="populateClasses()">
-                <input type="button" class="btn btn-danger" value="Clear Form" ng-click="clearForms()">
+                <input type="button" class="btn btn-danger" value="Clear All Fields" ng-click="clearForms()">
                 <!--use to validate form -> myForm.$valid: {{!!offeredClassSearchForm.$valid}} {{!!offeredClassSearchForm.$invalid}}-->
 
             </form>
