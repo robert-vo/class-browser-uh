@@ -141,4 +141,23 @@ run(function($rootScope, cartesianProductService, apiURLService, arrayService, h
         return true;
     };
 
+}).
+directive('courseNumberValidator', function () {
+    return {
+        scope: {
+            validValues: '=validValues'
+        },
+        link: function (scope, elm, attrs) {
+            elm.bind('keypress', function(e){
+                var char = String.fromCharCode(e.which||e.charCode||e.keyCode), matches = [];
+                angular.forEach(scope.validValues, function(value, key){
+                    if(char === value) matches.push(char);
+                }, matches);
+                if(matches.length == 0){
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        }
+    }
 });
