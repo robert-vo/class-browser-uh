@@ -16,5 +16,5 @@ app/
     class/                --> Class Directory Search
     core/                 --> Core Class Search
     department/           --> Department Information
-    offeredClass/         --> Offered Class Search
+    offeredClass/         --> Offered Class Search (Work In Progress)
 ```
