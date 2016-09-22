@@ -1,4 +1,24 @@
 {
+  "class": [
+    {
+      "path": "resources/subjects.json",
+      "scopeName": "departments",
+      "modelName": "departmentModel",
+      "parameter": "subject"
+    },
+    {
+      "path": "resources/creditHours.json",
+      "scopeName": "creditHours",
+      "modelName": "creditHourModel",
+      "parameter": "creditHour"
+    },
+    {
+      "path": "resources/coreCategories.json",
+      "scopeName": "coreCategories",
+      "modelName": "coreModel",
+      "parameter": "core"
+    }
+  ],
   "offeredClass": [
     {
       "path": "resources/terms.json",
