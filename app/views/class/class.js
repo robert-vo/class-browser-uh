@@ -9,7 +9,7 @@ config(['$routeProvider', function($routeProvider) {
 }]).
 controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope, $http, $q, $rootScope) {
     $scope.rowCollection = [];
-
+    $scope.dataLoading = true;
     $rootScope.httpService.getData('resources/subjects.json').then(function(result) {
         $scope.departments = result;
     });
