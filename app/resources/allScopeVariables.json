@@ -1,0 +1,83 @@
+{
+  "offeredClass": [
+    {
+      "path": "resources/terms.json",
+      "scopeName": "terms",
+      "modelName": "termModel",
+      "parameter": "term"
+    },
+    {
+      "path": "resources/format.json",
+      "scopeName": "format",
+      "modelName": "formatModel",
+      "parameter": "format"
+    },
+    {
+      "path": "resources/status.json",
+      "scopeName": "status",
+      "modelName": "statusModel",
+      "parameter": "status"
+    },
+    {
+      "path": "resources/session.json",
+      "scopeName": "session",
+      "modelName": "sessionModel",
+      "parameter": "session"
+    },
+    {
+      "path": "resources/subjects.json",
+      "scopeName": "departments",
+      "modelName": "departmentModel"
+    },
+    {
+      "path": "resources/buildings.json",
+      "scopeName": "buildings",
+      "modelName": "buildingModel"
+    },
+    {
+      "path": "resources/locations.json",
+      "scopeName": "locations",
+      "modelName": "locationModel"
+    },
+    {
+      "path": "resources/component.json",
+      "scopeName": "component",
+      "modelName": "componentModel"
+    },
+    {
+      "path": "resources/creditHours.json",
+      "scopeName": "creditHours",
+      "modelName": "creditHourModel"
+    },
+    {
+      "path": "resources/weekendU.json",
+      "scopeName": "weekendU",
+      "modelName": "weekendUModel"
+    },
+    {
+      "path": "resources/coreCategories.json",
+      "scopeName": "coreCategories",
+      "modelName": "coreCategoriesModel"
+    },
+    {
+      "path": "resources/isCore.json",
+      "scopeName": "isCore",
+      "modelName": "isCoreModel"
+    },
+    {
+      "path": "resources/syllabus.json",
+      "scopeName": "syllabus",
+      "modelName": "syllabusModel"
+    },
+    {
+      "path": "resources/classDays.json",
+      "scopeName": "classDays",
+      "modelName": "classDaysModel"
+    },
+    {
+      "path": "",
+      "scopeName": "courseNumber",
+      "modelName": "courseNumberModel"
+    }
+  ]
+}
