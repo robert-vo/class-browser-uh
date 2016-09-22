@@ -25,15 +25,21 @@ config(function(nyaBsConfigProvider) {
 config(function(envServiceProvider) {
     envServiceProvider.config({
         domains: {
-            development: ['localhost'],
-            production: ['http://classbrowseruh.azurewebsites.net']
+            development : ['localhost'],
+            production: ['https://classbrowseruh.firebaseapp.com/#!/home',
+                    'classbrowseruh.firebaseapp',
+                    'firebaseapp',
+                    'https://classbrowseruh.firebaseapp.com/#!/',
+                    'classbrowseruh.firebaseapp.com',
+                    'classbrowseruh.firebaseapp.com/',
+                    'classbrowseruh.firebaseapp.com/#!/']
         },
         vars: {
             development: {
                 apiUrl: '//localhost:8080/api'
             },
             production: {
-                apiUrl: '//classbrowseruh.us-west-2.elasticbeanstalk.com/api'
+                apiUrl: 'http://classbrowseruh.us-west-2.elasticbeanstalk.com/api'
             }
         }
     });
@@ -48,17 +54,6 @@ controller('EnvVarCtrl', ['$scope', 'envService', function($scope, envService) {
     $scope.vars = envService.read('all');
     $scope.apiUrl = $scope.vars.apiUrl;
 }]).
-directive('pageSelect', function() {
-    return {
-        restrict: 'E',
-        template: '<input type="text" class="select-page" ng-model="inputPage" ng-change="selectPage(inputPage)">',
-        link: function(scope, element, attrs) {
-            scope.$watch('currentPage', function(c) {
-                scope.inputPage = c;
-            });
-        }
-    }
-}).
 factory('cartesianProductService', function() {
     var allFunctions = {
         nonEmpty: function(arr) {
@@ -113,8 +108,12 @@ factory('httpService', function($http, $q) {
     return {
         getData: function(filePath) {
             var defer = $q.defer();
-            $http
-                .get(filePath)
+            $http({
+                method: 'GET',
+                url: filePath,
+                response: 'text',
+                port: 443
+            })
                 .success(function(data){
                     defer.resolve(data);
                 })
@@ -122,25 +121,6 @@ factory('httpService', function($http, $q) {
                     alert("Unable to populate fields.");
                 });
             return defer.promise;
-        }
-    }
-}).
-directive('courseNumberValidator', function () {
-    return {
-        scope: {
-            validValues: '=validValues'
-        },
-        link: function (scope, elm, attrs) {
-            elm.bind('keypress', function(e){
-                var char = String.fromCharCode(e.which||e.charCode||e.keyCode), matches = [];
-                angular.forEach(scope.validValues, function(value, key){
-                    if(char === value) matches.push(char);
-                }, matches);
-                if(matches.length == 0){
-                    e.preventDefault();
-                    return false;
-                }
-            });
         }
     }
 }).
