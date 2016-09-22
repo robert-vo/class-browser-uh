@@ -7,20 +7,26 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'ClassCtrl'
     });
 }]).
-controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', function ($scope, $http, $q, $rootScope) {
+controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', function ($scope, $http, $q, $rootScope, $parse) {
     $scope.rowCollection = [];
     $scope.isDataLoading = true;
-    $rootScope.httpService.getData('resources/subjects.json').then(function(result) {
-        $scope.departments = result;
-    });
 
-    $rootScope.httpService.getData('resources/creditHours.json').then(function(result) {
-        $scope.creditHours = result;
-    });
+    var setScopeVariableFromJSON = function(filePath, scopeVariable) {
+        $rootScope.httpService.getData(filePath).then(function(result) {
+            $parse(scopeVariable).assign($scope, result);
+        });
+    };
 
-    $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
-        $scope.coreCategories = result;
-    });
+    var initializeAllJSONAndScopeNames = function(name) {
+        $rootScope.httpService.getData('resources/allScopeVariables.json').then(function(result) {
+            $scope.allJSONAndScopeNames = result[name];
+            $scope.allJSONAndScopeNames.forEach(function(e) {
+                setScopeVariableFromJSON(e.path, e.scopeName);
+            });
+        });
+    };
+
+    initializeAllJSONAndScopeNames("class");
 
     var generateMessage = function(model, type, objToPluck) {
         if(model == undefined || model.length == 0) {
