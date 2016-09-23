@@ -11,12 +11,11 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
 
 .controller('DepartmentCtrl', function($scope, $http) {
     var url = $scope.apiUrl + '/department';
-    $scope.resultSet = [];
-    $scope.numberOfRows = 0;
 
     $scope.populateDepartments = function() {
         $scope.isDataLoading = true;
-        $http.get(url)
+        $http
+            .get(url)
             .success(function(data) {
                 console.log("Retrieved " + data.numberOfRows + " departments.");
                 console.log(data);
