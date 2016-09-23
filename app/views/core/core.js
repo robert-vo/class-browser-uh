@@ -30,7 +30,7 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
 
     var onError = function onError(err) {
         $scope.isError = true;
-        $scope.errorMessage = "Unable to retrieve the core core classes. Please try again.";
+        $scope.errorMessage = "Unable to retrieve the core classes. Please try again.";
     };
 
     var finallyDo = function finallyDo() {
