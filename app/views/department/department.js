@@ -14,7 +14,7 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
 
     function onSuccess(result) {
         $scope.resultSet = result.result;
-        $scope.showDiv = true;
+        $scope.showResults = true;
         $scope.numberOfRows = result.numberOfRows;
     }
 

@@ -10,7 +10,7 @@
 
 <div class="container">
     <div class="jumbotron">
-        <div id="classSearch" ng-show="!showDiv">
+        <div id="classSearch" ng-show="!showResults">
             <h2>Offered Class Search</h2>
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
                 <div class="row">
@@ -374,7 +374,7 @@
             <p><strong>Warning!</strong></p> <p>There are no classes found with the categories you have specified. Please try again.</p>
         </div>
 
-        <div ng-include="'views/offeredClass/offeredClassResult.html'" ng-show="showDiv"></div>
+        <div ng-include="'views/offeredClass/offeredClassResult.html'" ng-show="showResults"></div>
 
     </div>
 </div>

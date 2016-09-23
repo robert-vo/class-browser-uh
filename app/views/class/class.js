@@ -58,7 +58,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         $scope.hasNoResults = false;
 
         if($scope.rowCollection.length > 0) {
-            $scope.showDiv = true;
+            $scope.showResults = true;
 
             $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class";
             $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? "." : "es.";
@@ -119,7 +119,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
 
     $scope.goBack = function() {
         console.log('Going back to class search page.');
-        $scope.showDiv = false;
+        $scope.showResults = false;
     };
 
     $scope.clearForms = function() {

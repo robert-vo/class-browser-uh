@@ -8,11 +8,11 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h2 ng-show="!showDiv">Department Information</h2>
-        <p ng-show="!showDiv">Click on the button below to view all of the department abbreviations and names.</p>
-        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click='populateDepartments()' ng-show="!showDiv && !isDataLoading">Populate Departments</button>
+        <h2 ng-show="!showResults">Department Information</h2>
+        <p ng-show="!showResults">Click on the button below to view all of the department abbreviations and names.</p>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click='populateDepartments()' ng-show="!showResults && !isDataLoading">Populate Departments</button>
         <loading-icon></loading-icon>
-        <div ng-include="'views/department/departmentResult.html'" ng-show="showDiv"></div>
+        <div ng-include="'views/department/departmentResult.html'" ng-show="showResults"></div>
     </div>
 </div>
 </body>

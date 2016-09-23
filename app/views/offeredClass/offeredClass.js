@@ -48,7 +48,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     $scope.findClasses = function(isValidForm) {
         if(isValidForm) {
             console.log("Finding classes...");
-            $scope.showDiv = true;
+            $scope.showResults = true;
 
             var generateMessage = function(model, type, parameter, secondParameter) {
                 if(model == undefined || model.length == 0) {
@@ -76,7 +76,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     $scope.goBack = function() {
         console.log('Going back to offered class search page.');
-        $scope.showDiv = false;
+        $scope.showResults = false;
     };
 
 }]);
