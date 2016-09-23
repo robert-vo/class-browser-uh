@@ -28,12 +28,8 @@
             <loading-icon></loading-icon>
         </form>
 
-        <div id="errorBox" ng-if="isError">
-            <br>
-            <div class="alert alert-danger">
-                <p><strong>Error!</strong> {{errorMessage}}</p>
-            </div>
-        </div>
+        <error-message-box></error-message-box>
+
         <div ng-include="'views/core/coreResult.html'" ng-show="showResults"></div>
     </div>
 </div>
