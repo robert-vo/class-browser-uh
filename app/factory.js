@@ -65,7 +65,7 @@ factory('httpService', function($http, $q) {
                     defer.resolve(data);
                 })
                 .error(function() {
-                    alert("Unable to populate fields.");
+                    return defer.$$reject("Unable to populate the fields.");
                 });
             return defer.promise;
         }
