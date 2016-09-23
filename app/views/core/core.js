@@ -10,32 +10,31 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
 }])
 .controller('CoreCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
-    $scope.rowCollection = [];
-    $scope.message = "";
-    $scope.messageTwo = "";
-
-     $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
-         $scope.coreCategories = result;
+    $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
+        $scope.coreCategories = result;
     });
 
     $scope.populateCoreClasses = function(){
-
+        $scope.isDataLoading = true;
+        $scope.isError = false;
         var apiUrl = $scope.apiUrl + '/core=' + $scope.coreCategory.categoryNumber;
+        $rootScope.httpService.getData(apiUrl).then(onSuccess).catch(onError).then(finallyDo);
+    };
 
-        console.log("User selected category number: " + $scope.coreCategory.categoryNumber);
-        console.log("Populating Core Classes...");
+    var onSuccess = function onSuccess(result) {
+        $scope.message = generateFirstMessage($scope.coreCategory.categoryName, result.numberOfRows);
+        $scope.messageTwo = generateSecondMessage($scope.coreCategory.categoryName, result.result[0].hours_required);
+        $scope.rowCollection = result.result;
+        $scope.showResults = true;
+    };
 
-        $http
-            .get(apiUrl)
-            .success(function (data) {
-                $scope.message = generateFirstMessage(data.result[0].core_title, data.numberOfRows);
-                $scope.messageTwo = generateSecondMessage(data.result[0].core_title, data.result[0].hours_required);
-                $scope.rowCollection = data.result;
-                $scope.showDiv = true;
-            })
-            .error(function (data) {
-                alert("Unable to retrieve the data.");
-            });
+    var onError = function onError(err) {
+        $scope.isError = true;
+        $scope.errorMessage = "Unable to retrieve the core core classes. Please try again.";
+    };
+
+    var finallyDo = function finallyDo() {
+        $scope.isDataLoading = false;
     };
 
     var generateFirstMessage = function(coreTitle, numberOfRows) {
