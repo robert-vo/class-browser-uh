@@ -53,11 +53,11 @@ factory('arrayService', function() {
 }).
 factory('httpService', function($http, $q) {
     return {
-        getData: function(filePath) {
+        getData: function(url) {
             var defer = $q.defer();
             $http({
                 method: 'GET',
-                url: filePath,
+                url: url,
                 response: 'text',
                 port: 443
             })
