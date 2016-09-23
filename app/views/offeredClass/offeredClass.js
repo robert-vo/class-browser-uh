@@ -15,16 +15,17 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         });
     };
 
-    var initializeAllJSONAndScopeNames = function() {
+    var initializeAllJSONAndScopeNames = function(name) {
         $rootScope.httpService.getData('resources/allScopeVariables.json').then(function(result) {
-            $scope.allJSONAndScopeNames = result.offeredClass;
+            $scope.allJSONAndScopeNames = result[name];
             $scope.allJSONAndScopeNames.forEach(function(e) {
                 setScopeVariableFromJSON(e.path, e.scopeName);
             });
         });
     };
 
-    initializeAllJSONAndScopeNames();
+
+    initializeAllJSONAndScopeNames("offeredClass");
 
     $scope.validValues = ['a', 'A','1','2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
@@ -49,22 +50,11 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             console.log("Finding classes...");
             $scope.showDiv = true;
 
-            var types = {
-                'get': function(prop) {
-                    return Object.prototype.toString.call(prop);
-                },
-                'object': '[object Object]',
-                'array': '[object Array]',
-                'string': '[object String]',
-                'boolean': '[object Boolean]',
-                'number': '[object Number]'
-            };
-
             var generateMessage = function(model, type, parameter, secondParameter) {
                 if(model == undefined || model.length == 0) {
                     return "";
                 }
-                if(types.get(model) == types.object) {
+                if($rootScope.types.get(model) == $rootScope.types.object) {
                     return "<b>" + type + "</b>: " + model[parameter] + " " + model[secondParameter] + "<br>";
                 }
                 else {
