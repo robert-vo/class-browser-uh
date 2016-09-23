@@ -24,7 +24,6 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         });
     };
 
-
     initializeAllJSONAndScopeNames("offeredClass");
 
     $scope.validValues = ['a', 'A','1','2', '3', '4', '5', '6', '7', '8', '9', '0'];
@@ -47,6 +46,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     $scope.findClasses = function(isValidForm) {
         if(isValidForm) {
+            $scope.isDataLoading = true;
+            $scope.isError = false;
+            $scope.hasNoResults = false;
+
             console.log("Finding classes...");
             $scope.showResults = true;
 
