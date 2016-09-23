@@ -17,8 +17,12 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
     $scope.populateCoreClasses = function(){
         $scope.isDataLoading = true;
         $scope.isError = false;
-        var apiUrl = $scope.apiUrl + '/core=' + $scope.coreCategory.categoryNumber;
+        var apiUrl = generateApiURL();
         $rootScope.httpService.getData(apiUrl).then(onSuccess).catch(onError).then(finallyDo);
+    };
+
+    var generateApiURL = function() {
+        return $scope.apiUrl + "/core=" + $scope.coreCategory.categoryNumber;
     };
 
     var onSuccess = function onSuccess(result) {
