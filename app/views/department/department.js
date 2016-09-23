@@ -9,25 +9,30 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
     });
 }])
 
-.controller('DepartmentCtrl', function($scope, $http) {
+.controller('DepartmentCtrl', function($scope, $http, $rootScope) {
     var url = $scope.apiUrl + '/department';
+
+    function onSuccess(result) {
+        $scope.resultSet = result.result;
+        $scope.showDiv = true;
+        $scope.numberOfRows = result.numberOfRows;
+    }
+
+    function handleError(err) {
+        alert(err);
+    }
+
+    function finallyDo() {
+        $scope.isDataLoading = false;
+    }
 
     $scope.populateDepartments = function() {
         $scope.isDataLoading = true;
-        $http
-            .get(url)
-            .success(function(data) {
-                console.log("Retrieved " + data.numberOfRows + " departments.");
-                console.log(data);
-                $scope.resultSet = data.result;
-                $scope.showDiv = true;
-                $scope.numberOfRows = data.numberOfRows;
-            })
-            .error(function(data) {
-                alert("Unable to retrieve the data.");
-            })
-            .finally(function() {
-                $scope.isDataLoading = false;
-            });
+
+        $rootScope.httpService
+            .getData(url)
+            .then(onSuccess)
+            .catch(handleError)
+            .then(finallyDo);
     }
 });
