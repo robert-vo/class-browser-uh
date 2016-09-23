@@ -8,25 +8,15 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
         controller: 'CoreCtrl'
     });
 }])
-.controller('CoreCtrl', ['$scope', '$http', function ($scope, $http) {
+.controller('CoreCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
     $scope.rowCollection = [];
     $scope.message = "";
     $scope.messageTwo = "";
-    $scope.coreCategories = {
-        availableOptions: [
-            {categoryNumber: 1, categoryName: "Communication"},
-            {categoryNumber: 2, categoryName : "Mathematics"},
-            {categoryNumber: 3, categoryName : "Life and Physical Sciences"},
-            {categoryNumber: 4, categoryName : "Language, Philosophy & Culture"},
-            {categoryNumber: 5, categoryName : "Creative Arts"},
-            {categoryNumber: 6, categoryName : "American History"},
-            {categoryNumber: 7, categoryName : "Government/Political Science"},
-            {categoryNumber: 8, categoryName : "Social & Behavioral Sciences"},
-            {categoryNumber: 9, categoryName : "Mathematics/Reasoning"},
-            {categoryNumber: 10, categoryName : "Writing in the Disciplines"}
-        ]
-    };
+
+     $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
+         $scope.coreCategories = result;
+    });
 
     $scope.populateCoreClasses = function(){
 
