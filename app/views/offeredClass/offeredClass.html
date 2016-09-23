@@ -369,10 +369,9 @@
             </form>
         </div>
 
-        <br>
-        <div class="alert alert-warning" ng-show="hasNoResults">
-            <p><strong>Warning!</strong></p> <p>There are no classes found with the categories you have specified. Please try again.</p>
-        </div>
+        <loading-icon></loading-icon>
+        <error-message-box></error-message-box>
+        <warning-message-box></warning-message-box>
 
         <div ng-include="'views/offeredClass/offeredClassResult.html'" ng-show="showResults"></div>
 
