@@ -9,11 +9,10 @@
 <div class="container">
     <div class="jumbotron">
         <h2 ng-show="!showDiv">Department Information</h2>
-        <h2 ng-show="showDiv">Department Information Results</h2>
         <p ng-show="!showDiv">Click on the button below to view all of the department abbreviations and names.</p>
-        <p ng-show="showDiv">Retrieved {{numberOfRows}} departments.</p>
-        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click='populateDepartments()' ng-show="!showDiv">Populate Departments</button>
-        <div ng-include="'views/department/departmentResult.html'"></div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click='populateDepartments()' ng-show="!showDiv && !isDataLoading">Populate Departments</button>
+        <loading-icon></loading-icon>
+        <div ng-include="'views/department/departmentResult.html'" ng-show="showDiv"></div>
     </div>
 </div>
 </body>
