@@ -15,6 +15,7 @@
                 ng-model="coreCategory"
                 data-live-search="true"
                 ng-change="populateCoreClasses()"
+                ng-show="!isDataLoading"
                 title="Select a core category here.">
                 <li nya-bs-option="option in coreCategories.availableOptions">
                     <a>
@@ -24,9 +25,16 @@
                     </a>
                 </li>
             </ol>
+            <loading-icon></loading-icon>
         </form>
 
-        <div ng-include="'views/core/coreResult.html'"></div>
+        <div id="errorBox" ng-if="isError">
+            <br>
+            <div class="alert alert-danger">
+                <p><strong>Error!</strong> {{errorMessage}}</p>
+            </div>
+        </div>
+        <div ng-include="'views/core/coreResult.html'" ng-show="showResults"></div>
     </div>
 </div>
 </body>
