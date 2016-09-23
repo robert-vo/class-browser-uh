@@ -9,7 +9,6 @@ config(['$routeProvider', function($routeProvider) {
 }]).
 controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', function ($scope, $http, $q, $rootScope, $parse) {
     $scope.rowCollection = [];
-    $scope.isDataLoading = true;
 
     var setScopeVariableFromJSON = function(filePath, scopeVariable) {
         $rootScope.httpService.getData(filePath).then(function(result) {
@@ -39,23 +38,33 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
 
 
     $scope.populateClasses = function(){
+        $scope.isDataLoading = true;
+        $scope.isError = false;
+        $scope.hasNoResults = false;
         $scope.rowCollection = [];
-        var apiUrl = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
-        console.log("Populating Classes...");
-
         $scope.numberOfRows = 0;
+
+        var apiUrl = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
+
         for(var i = 0; i < apiUrl.length; i++) {
             console.log("Got URL: " + apiUrl[i]);
-            $rootScope.httpService.getData(apiUrl[i]).then(function(result) {
-                $scope.numberOfRows += result.numberOfRows;
-                $scope.rowCollection = $scope.rowCollection.concat(result.result);
-                populateFields();
-            });
+            $rootScope.httpService.getData(apiUrl[i])
+                .then(function(result) {
+                    $scope.numberOfRows += result.numberOfRows;
+                    $scope.rowCollection = $scope.rowCollection.concat(result.result);
+                    populateFields();
+                })
+                .catch(function(err) {
+                    $scope.isError = true;
+                    $scope.errorMessage = "Unable to populate classes for the class directory. Please try again later.";
+                })
+                .then(function() {
+                    $scope.isDataLoading = false;
+                });
         }
     };
 
     var populateFields = function(){
-        $scope.hasNoResults = false;
 
         if($scope.rowCollection.length > 0) {
             $scope.showResults = true;
@@ -130,7 +139,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         };
 
         $scope.hasNoResults = false;
-        console.log('Clearing forms and fields.');
+        $scope.isError = false;
 
         deleteModel('departmentModel', 'creditHourModel', 'coreModel', 'parametersMessage', 'rowCollection');
     };
