@@ -33,6 +33,12 @@ directive('errorMessageBox', function() {
         template: '<div id="errorBox" ng-if="isError"><br><div class="alert alert-danger"> <p><strong>Error!</strong> {{errorMessage}}</p></div></div>'
     };
 }).
+directive('warningMessageBox', function() {
+    return {
+        restrict: 'E',
+        template: '<br> <div class="alert alert-warning" ng-show="hasNoResults"> <p><strong>Warning!</strong></p> <p>{{warningMessage}}</p> </div>'
+    };
+}).
 directive('courseNumberValidator', function () {
     return {
         scope: {
