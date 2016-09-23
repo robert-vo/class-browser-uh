@@ -137,11 +137,9 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
                 delete $scope[arg];
             });
         };
-
-        $scope.hasNoResults = false;
-        $scope.isError = false;
-
-        deleteModel('departmentModel', 'creditHourModel', 'coreModel', 'parametersMessage', 'rowCollection');
+        deleteModel('departmentModel', 'creditHourModel', 'coreModel',
+            'parametersMessage', 'rowCollection', 'hasNoResults', 'isError',
+            'isDataLoading');
     };
 
 }]);
