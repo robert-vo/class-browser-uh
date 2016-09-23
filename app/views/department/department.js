@@ -11,13 +11,11 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
 
 .controller('DepartmentCtrl', function($scope, $http) {
     var url = $scope.apiUrl + '/department';
-
     $scope.resultSet = [];
     $scope.numberOfRows = 0;
 
     $scope.populateDepartments = function() {
-        console.log("Populating departments...");
-
+        $scope.isDataLoading = true;
         $http.get(url)
             .success(function(data) {
                 console.log("Retrieved " + data.numberOfRows + " departments.");
@@ -28,6 +26,9 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
             })
             .error(function(data) {
                 alert("Unable to retrieve the data.");
+            })
+            .finally(function() {
+                $scope.isDataLoading = false;
             });
     }
 });
