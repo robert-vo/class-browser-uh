@@ -16,7 +16,6 @@
                 A directory of classes that have been offered at one point in time.
                 Leaving a field blank, "Nothing Selected", searches for everything in the particular category.
             </p>
-            <loading-icon></loading-icon>
 
             <form name="coreSearchForm">
                 <div class="form-group">
@@ -55,10 +54,13 @@
                         </li>
                     </ol>
                 </div>
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search For Classes" ng-click="populateClasses()">
-                <input type="button" class="btn btn-danger btn-lg btn-block" value="Clear Form" ng-click="clearForms()">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search For Classes" ng-click="populateClasses()" ng-show="!showResults && !isDataLoading">
+                <input type="button" class="btn btn-danger btn-lg btn-block" value="Clear Form" ng-click="clearForms()" ng-show="!showResults && !isDataLoading">
             </form>
         </div>
+
+        <loading-icon></loading-icon>
+        <error-message-box></error-message-box>
 
         <br>
         <div class="alert alert-warning" ng-show="hasNoResults">
