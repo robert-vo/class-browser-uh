@@ -18,8 +18,9 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
         $scope.numberOfRows = result.numberOfRows;
     }
 
-    function handleError(err) {
-        alert(err);
+    function onError(err) {
+        $scope.isError = true;
+        $scope.errorMessage = "Unable to retrieve the departments. Please try again.";
     }
 
     function finallyDo() {
@@ -32,7 +33,7 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
         $rootScope.httpService
             .getData(url)
             .then(onSuccess)
-            .catch(handleError)
+            .catch(onError)
             .then(finallyDo);
     }
 });
