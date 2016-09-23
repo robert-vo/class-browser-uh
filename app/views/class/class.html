@@ -61,11 +61,7 @@
 
         <loading-icon></loading-icon>
         <error-message-box></error-message-box>
-
-        <br>
-        <div class="alert alert-warning" ng-show="hasNoResults">
-            <p><strong>Warning!</strong></p> <p>There are no classes found with the categories you have specified. Please try again.</p>
-        </div>
+        <warning-message-box></warning-message-box>
 
         <div ng-include="'views/class/classResult.html'" ng-show="showResults"></div>
 
