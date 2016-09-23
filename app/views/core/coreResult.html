@@ -1,12 +1,11 @@
 <link href="views/templates/tableStyle.css" rel="stylesheet">
 
-<p ng-show="showDiv"><p>{{messageTwo}}</p>
-<p></p><p ng-show="showDiv">{{message}}</p>
-<h2 ng-show="showDiv">Core Search Results</h2>
+<p><p>{{messageTwo}}</p>
+<p></p><p>{{message}}</p>
+<h2>Core Search Results</h2>
 <table st-safe-src="rowCollection"
        st-table="displayed"
-       class="table table-bordered table-striped"
-       ng-show="showDiv">
+       class="table table-bordered table-striped">
     <thead>
         <tr>
             <th width="10%" class="sortable" st-sort="department">Subject</th>
