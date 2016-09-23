@@ -86,6 +86,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
             }
         }
         else {
+            $scope.warningMessage = "There are no classes found with the categories you have specified. Please try again.";
             $scope.hasNoResults = true;
         }
     };
