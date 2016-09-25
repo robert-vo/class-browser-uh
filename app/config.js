@@ -11,7 +11,7 @@ angular.module('classBrowserUHApp').config(function (nyaBsConfigProvider) {
     envServiceProvider.config({
         domains: {
             development: ['localhost'],
-            production: ['classbrowseruh.firebaseapp', 'robert-vo.github.io']
+            production: ['classbrowseruh.firebaseapp', 'robert-vo.github.io', 'robertvo.me']
         },
         vars: {
             development: {
