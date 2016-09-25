@@ -132,7 +132,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
 
     var finallyDo = function() {
         $scope.isDataLoading = false;
-        if($scope.rowCollection.length == 0) {
+        if($scope.rowCollection.length == 0 && !$scope.isError) {
             $scope.hasNoResults = true;
             $scope.warningMessage = "There are no classes found with the categories you have specified. Please try again.";
         }
