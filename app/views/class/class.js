@@ -44,39 +44,48 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         $scope.rowCollection = [];
         $scope.numberOfRows = 0;
 
-        var apiUrl = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
+        var apiURLs = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
 
-        for(var i = 0; i < apiUrl.length; i++) {
-            console.log("Got URL: " + apiUrl[i]);
-            $rootScope.httpService.getData(apiUrl[i])
-                .then(function(result) {
-                    $scope.numberOfRows += result.numberOfRows;
-                    $scope.rowCollection = $scope.rowCollection.concat(result.result);
-                    populateFields();
-                })
-                .catch(function(err) {
-                    $scope.isError = true;
-                    $scope.errorMessage = "Unable to populate classes for the class directory. Please try again later.";
-                })
-                .then(function() {
-                    $scope.isDataLoading = false;
-                });
+        _.each(apiURLs, function(apiURL) {
+                $rootScope.httpService.getData(apiURL)
+                    .then(appendResults)
+                    .then(populateFields)
+                    .catch(onError)
+                    .then(finallyDo)
+            }
+        );
+    };
+
+    var appendResults = function(result) {
+        $scope.numberOfRows += result.numberOfRows;
+        $scope.rowCollection = $scope.rowCollection.concat(result.result);
+    };
+
+    var onError = function(err) {
+        $scope.isError = true;
+        $scope.errorMessage = "Unable to populate classes for the class directory. Please try again later.";
+    };
+
+    var finallyDo = function() {
+        $scope.isDataLoading = false;
+        if($scope.rowCollection.length == 0) {
+            $scope.hasNoResults = true;
+            $scope.warningMessage = "There are no classes found with the categories you have specified. Please try again.";
         }
     };
 
     var populateFields = function(){
-
         if($scope.rowCollection.length > 0) {
             $scope.showResults = true;
+            $scope.hasNoResults = false;
 
             $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class";
             $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? "." : "es.";
 
-            if([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
+            if ([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
                 $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
             }
             else {
-                $scope.parametersMessage = "";
                 $scope.subjectMessage = generateMessage($scope.departmentModel, 'Subjects', 'departmentFullName');
                 $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
                 $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
@@ -85,28 +94,54 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
                     $scope.coreMessage;
             }
         }
-        else {
-            $scope.warningMessage = "There are no classes found with the categories you have specified. Please try again.";
-            $scope.hasNoResults = true;
-        }
     };
 
 
     var buildApiUrlsFromModel = function(department, creditHour, core) {
         console.log("Building API URL...");
         var baseUrl = $scope.apiUrl + '/information?';
-        var allParametersFromScope = [department, creditHour, core];
+        var allParametersFromScope = [
+            {
+                model: department,
+                parameterToPluck: 'departmentName',
+                apiParameter: 'department'
+            },
+            {
+                model: creditHour,
+                parameterToPluck: 'creditHours',
+                apiParameter: 'credit-hours'
+            },
+            {
+                model: core,
+                parameterToPluck: 'categoryNumber',
+                apiParameter: 'core'
+            }
+        ];
 
-        if(allParametersFromScope.allParametersUndefinedOrNull()) {
-            console.log("All parameters are empty...");
+        var areAllParametersUndefinedOrNull = function(parameters) {
+            parameters.forEach(function(e) {
+                if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(e.model)) {
+                    console.log("model: " + e.model);
+                    return false;
+                }
+            });
+            return true;
+        };
+
+        if(areAllParametersUndefinedOrNull(allParametersFromScope)) {
+            console.log("No parameters");
             return [baseUrl];
         }
 
-        console.log("User has selected some categories. Preparing API URL(s).");
-        department = _.pluck(department, 'departmentName');
-        creditHour = _.pluck(creditHour, 'creditHours');
-        core = _.pluck(core, 'categoryNumber');
 
+        allParametersFromScope.forEach(function(part, index, allParametersFromScope) {
+            console.log(_.pluck(part.model, part.parameterToPluck));
+            allParametersFromScope[index] = _.pluck(part.model, part.parameterToPluck);
+        });
+
+        // department = _.pluck(department, 'departmentName');
+        // creditHour = _.pluck(creditHour, 'creditHours');
+        // core = _.pluck(core, 'categoryNumber');
 
         if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(department)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(department, 'department');
@@ -127,17 +162,18 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         return allParameters;
     };
 
+    var deleteModel = function() {
+        [].slice.call(arguments).forEach(function(arg) {
+            delete $scope[arg];
+        });
+    };
+
     $scope.goBack = function() {
         console.log('Going back to class search page.');
-        $scope.showResults = false;
+        deleteModel('hasNoResults', 'isError', 'isDataLoading', 'showResults');
     };
 
     $scope.clearForms = function() {
-        var deleteModel = function() {
-            [].slice.call(arguments).forEach(function(arg) {
-                delete $scope[arg];
-            });
-        };
         deleteModel('departmentModel', 'creditHourModel', 'coreModel',
             'parametersMessage', 'rowCollection', 'hasNoResults', 'isError',
             'isDataLoading');
