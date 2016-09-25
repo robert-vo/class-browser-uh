@@ -27,16 +27,6 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
 
     initializeAllJSONAndScopeNames("class");
 
-    var generateMessage = function(model, type, objToPluck) {
-        if(model == undefined || model.length == 0) {
-            return "";
-        }
-        else {
-            return "<b> " + type + "</b>: " + _.pluck(model, objToPluck).join(', ') + "<br>";
-        }
-    };
-
-
     $scope.populateClasses = function(){
         $scope.isDataLoading = true;
         $scope.isError = false;
@@ -55,47 +45,6 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
             }
         );
     };
-
-    var appendResults = function(result) {
-        $scope.numberOfRows += result.numberOfRows;
-        $scope.rowCollection = $scope.rowCollection.concat(result.result);
-    };
-
-    var onError = function(err) {
-        $scope.isError = true;
-        $scope.errorMessage = "Unable to populate classes for the class directory. Please try again later.";
-    };
-
-    var finallyDo = function() {
-        $scope.isDataLoading = false;
-        if($scope.rowCollection.length == 0) {
-            $scope.hasNoResults = true;
-            $scope.warningMessage = "There are no classes found with the categories you have specified. Please try again.";
-        }
-    };
-
-    var populateFields = function(){
-        if($scope.rowCollection.length > 0) {
-            $scope.showResults = true;
-            $scope.hasNoResults = false;
-
-            $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class";
-            $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? "." : "es.";
-
-            if ([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
-                $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
-            }
-            else {
-                $scope.subjectMessage = generateMessage($scope.departmentModel, 'Subjects', 'departmentFullName');
-                $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
-                $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
-                $scope.parametersMessage = $scope.subjectMessage +
-                    $scope.creditHoursMessage +
-                    $scope.coreMessage;
-            }
-        }
-    };
-
 
     var buildApiUrlsFromModel = function(department, creditHour, core) {
         var baseUrl = $scope.apiUrl + '/information?';
@@ -124,10 +73,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         allParametersFromScope.forEach(function(part, index, arr) {
             var apiParameter = part.apiParameter;
             arr[index] = _.pluck(part.model, part.parameterToPluck);
-
-            if(!$rootScope.arrayService.isArrayUndefinedOrNull(arr[index])) {
-                $rootScope.apiURLService.appendParameterEqualsValueInPlace(arr[index], apiParameter);
-            }
+            checkArrayAndExpandInPlace(arr[index], apiParameter);
         });
 
         var allAPIUrls = allParametersFromScope
@@ -135,7 +81,61 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
             .reduce($rootScope.cartesianProductService.productAdd, [""]);
 
         return $rootScope.apiURLService.appendParametersAndReturnAPIUrls(allAPIUrls, baseUrl);
+    };
 
+    var checkArrayAndExpandInPlace = function(arrayValue, apiParameter) {
+        if(!$rootScope.arrayService.isArrayUndefinedOrNull(arrayValue)) {
+            $rootScope.apiURLService.appendParameterEqualsValueInPlace(arrayValue, apiParameter);
+        }
+    };
+
+    var appendResults = function(result) {
+        $scope.numberOfRows += result.numberOfRows;
+        $scope.rowCollection = $scope.rowCollection.concat(result.result);
+    };
+
+    var generateMessage = function(model, type, objToPluck) {
+        if(model == undefined || model.length == 0) {
+            return "";
+        }
+        else {
+            return "<b> " + type + "</b>: " + _.pluck(model, objToPluck).join(', ') + "<br>";
+        }
+    };
+
+    var populateFields = function(){
+        if($scope.rowCollection.length > 0) {
+            $scope.showResults = true;
+            $scope.hasNoResults = false;
+
+            $scope.numberOfRowsMessage = "Retrieved " + $scope.numberOfRows + " class";
+            $scope.numberOfRowsMessage += $scope.numberOfRows == 1 ? "." : "es.";
+
+            if ([$scope.departmentModel, $scope.creditHourModel, $scope.coreModel].allParametersUndefinedOrNull()) {
+                $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
+            }
+            else {
+                $scope.subjectMessage = generateMessage($scope.departmentModel, 'Subjects', 'departmentFullName');
+                $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
+                $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
+                $scope.parametersMessage = $scope.subjectMessage +
+                    $scope.creditHoursMessage +
+                    $scope.coreMessage;
+            }
+        }
+    };
+
+    var onError = function(err) {
+        $scope.isError = true;
+        $scope.errorMessage = "Unable to populate classes for the class directory. Please try again later.";
+    };
+
+    var finallyDo = function() {
+        $scope.isDataLoading = false;
+        if($scope.rowCollection.length == 0) {
+            $scope.hasNoResults = true;
+            $scope.warningMessage = "There are no classes found with the categories you have specified. Please try again.";
+        }
     };
 
     var deleteModel = function() {
