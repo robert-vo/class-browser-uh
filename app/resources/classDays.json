@@ -1,18 +1,60 @@
 {
   "availableOptions": [
-    {"day": "Monday", "isOrNot": "Is"},
-    {"day": "Monday", "isOrNot": "Not"},
-    {"day": "Tuesday", "isOrNot": "Not"},
-    {"day": "Tuesday", "isOrNot": "Is"},
-    {"day": "Wednesday", "isOrNot": "Not"},
-    {"day": "Wednesday", "isOrNot": "Is"},
-    {"day": "Thursday", "isOrNot": "Not"},
-    {"day": "Thursday", "isOrNot": "Is"},
-    {"day": "Friday", "isOrNot": "Not"},
-    {"day": "Friday", "isOrNot": "Is"},
-    {"day": "Saturday", "isOrNot": "Not"},
-    {"day": "Saturday", "isOrNot": "Is"},
-    {"day": "Sunday", "isOrNot": "Not"},
-    {"day": "Sunday", "isOrNot": "Is"}
+    {
+      "day": "Monday",
+      "isOrNot": "Is"
+    },
+    {
+      "day": "Monday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Tuesday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Tuesday",
+      "isOrNot": "Is"
+    },
+    {
+      "day": "Wednesday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Wednesday",
+      "isOrNot": "Is"
+    },
+    {
+      "day": "Thursday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Thursday",
+      "isOrNot": "Is"
+    },
+    {
+      "day": "Friday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Friday",
+      "isOrNot": "Is"
+    },
+    {
+      "day": "Saturday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Saturday",
+      "isOrNot": "Is"
+    },
+    {
+      "day": "Sunday",
+      "isOrNot": "Not"
+    },
+    {
+      "day": "Sunday",
+      "isOrNot": "Is"
+    }
   ]
 }

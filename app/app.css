@@ -1,48 +1,48 @@
 /* app css stylesheet */
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }
 
 .navbar .divider-vertical {
-  height: 50px;
-  margin: 0 9px;
-  border-right: 1px solid #ffffff;
-  border-left: 1px solid #f2f2f2;
+    height: 50px;
+    margin: 0 9px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
 }
 
 .navbar-inverse .divider-vertical {
-  border-right-color: #222222;
-  border-left-color: #111111;
+    border-right-color: #222222;
+    border-left-color: #111111;
 }
 
 @media (max-width: 767px) {
-  .navbar-collapse .nav > .divider-vertical {
-    display: none;
-  }
+    .navbar-collapse .nav > .divider-vertical {
+        display: none;
+    }
 }

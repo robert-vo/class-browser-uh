@@ -1,10 +1,28 @@
 {
   "availableOptions": [
-    {"format": "Online", "isOrNot": "Is"},
-    {"format": "Online", "isOrNot": "Not"},
-    {"format": "Face to Face", "isOrNot": "Not"},
-    {"format": "Face to Face", "isOrNot": "Is"},
-    {"format": "Hybrid", "isOrNot": "Not"},
-    {"format": "Hybrid", "isOrNot": "Is"}
+    {
+      "format": "Online",
+      "isOrNot": "Is"
+    },
+    {
+      "format": "Online",
+      "isOrNot": "Not"
+    },
+    {
+      "format": "Face to Face",
+      "isOrNot": "Not"
+    },
+    {
+      "format": "Face to Face",
+      "isOrNot": "Is"
+    },
+    {
+      "format": "Hybrid",
+      "isOrNot": "Not"
+    },
+    {
+      "format": "Hybrid",
+      "isOrNot": "Is"
+    }
   ]
 }

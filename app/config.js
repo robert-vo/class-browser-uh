@@ -1,18 +1,16 @@
 'use strict';
 
-angular.module('classBrowserUHApp').
-config(function(nyaBsConfigProvider) {
+angular.module('classBrowserUHApp').config(function (nyaBsConfigProvider) {
     var nyaSearchBoxMessages = {
         defaultNoneSelection: 'Nothing Selected',
         noSearchResult: 'No Search Results Found!',
         numberItemSelected: '%d Items Selected'
     };
     nyaBsConfigProvider.setLocalizedText('en-us', nyaSearchBoxMessages);
-}).
-config(function(envServiceProvider) {
+}).config(function (envServiceProvider) {
     envServiceProvider.config({
         domains: {
-            development : ['localhost'],
+            development: ['localhost'],
             production: ['classbrowseruh.firebaseapp']
         },
         vars: {
@@ -25,8 +23,7 @@ config(function(envServiceProvider) {
         }
     });
     envServiceProvider.check();
-}).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+}).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);

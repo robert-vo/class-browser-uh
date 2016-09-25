@@ -1,18 +1,17 @@
 'use strict';
 
-angular.module('classBrowserUHApp').
-factory('cartesianProductService', function() {
+angular.module('classBrowserUHApp').factory('cartesianProductService', function () {
     var allFunctions = {
-        nonEmpty: function(arr) {
+        nonEmpty: function (arr) {
             return arr.length > 0;
         },
-        productAdd: function(xs, ys) {
+        productAdd: function (xs, ys) {
             return allFunctions.product(allFunctions.add, xs, ys);
         },
-        add: function(a, b) {
+        add: function (a, b) {
             return a + "&" + b;
         },
-        product: function(f, xs, ys) {
+        product: function (f, xs, ys) {
             var zs = [];
 
             var m = xs.length;
@@ -29,8 +28,7 @@ factory('cartesianProductService', function() {
         }
     };
     return allFunctions;
-}).
-factory('apiURLService', function() {
+}).factory('apiURLService', function () {
     return {
         appendParameterEqualsValueInPlace: function (arr, parameter) {
             arr.forEach(function (part, index, arr) {
@@ -44,17 +42,15 @@ factory('apiURLService', function() {
             return arr;
         }
     };
-}).
-factory('arrayService', function() {
+}).factory('arrayService', function () {
     return {
-        isArrayUndefinedOrNull: function(array) {
+        isArrayUndefinedOrNull: function (array) {
             return !!(_.isUndefined(array) || _.isNull(array) || _.isEmpty(array));
         }
     }
-}).
-factory('httpService', function($http, $q) {
+}).factory('httpService', function ($http, $q) {
     return {
-        getData: function(url) {
+        getData: function (url) {
             var defer = $q.defer();
             $http({
                 method: 'GET',
@@ -62,26 +58,25 @@ factory('httpService', function($http, $q) {
                 response: 'text',
                 port: 443
             })
-                .success(function(data){
+                .success(function (data) {
                     defer.resolve(data);
                 })
-                .error(function() {
+                .error(function () {
                     return defer.$$reject("Unable to populate the fields.");
                 });
             return defer.promise;
         }
     }
-}).
-run(function($rootScope, cartesianProductService, apiURLService, arrayService, httpService) {
+}).run(function ($rootScope, cartesianProductService, apiURLService, arrayService, httpService) {
     $rootScope.cartesianProductService = cartesianProductService;
     $rootScope.apiURLService = apiURLService;
     $rootScope.arrayService = arrayService;
     $rootScope.httpService = httpService;
     $rootScope.selectedCountLimit = 'count > 3';
 
-    Array.prototype.allParametersUndefinedOrNull = function() {
-        for(var i = 0; i < this.length; i++) {
-            if($rootScope.arrayService.isArrayUndefinedOrNull(this[i])) {
+    Array.prototype.allParametersUndefinedOrNull = function () {
+        for (var i = 0; i < this.length; i++) {
+            if ($rootScope.arrayService.isArrayUndefinedOrNull(this[i])) {
                 return false;
             }
         }
@@ -89,7 +84,7 @@ run(function($rootScope, cartesianProductService, apiURLService, arrayService, h
     };
 
     $rootScope.types = {
-        'get': function(prop) {
+        'get': function (prop) {
             return Object.prototype.toString.call(prop);
         },
         'object': '[object Object]',

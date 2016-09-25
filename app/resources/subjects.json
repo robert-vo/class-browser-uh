@@ -1,462 +1,616 @@
 {
-  "availableOptions" : [ {
-    "departmentName" : "AAS",
-    "departmentFullName" : "African American Studies"
-  }, {
-    "departmentName" : "ACCT",
-    "departmentFullName" : "Accounting"
-  }, {
-    "departmentName" : "AFSC",
-    "departmentFullName" : "Air Force Science"
-  }, {
-    "departmentName" : "AMER",
-    "departmentFullName" : "American Cultures"
-  }, {
-    "departmentName" : "ANTH",
-    "departmentFullName" : "Anthropology"
-  }, {
-    "departmentName" : "ARAB",
-    "departmentFullName" : "Arabic"
-  }, {
-    "departmentName" : "ARAF",
-    "departmentFullName" : "Architect Affiliated St"
-  }, {
-    "departmentName" : "ARCH",
-    "departmentFullName" : "Architecture"
-  }, {
-    "departmentName" : "ARED",
-    "departmentFullName" : "Art Education"
-  }, {
-    "departmentName" : "ARLD",
-    "departmentFullName" : "Arts Leadership"
-  }, {
-    "departmentName" : "ARRE",
-    "departmentFullName" : "Arch Reciprocal Exch"
-  }, {
-    "departmentName" : "ART",
-    "departmentFullName" : "Art"
-  }, {
-    "departmentName" : "ARTH",
-    "departmentFullName" : "Art History"
-  }, {
-    "departmentName" : "ASLI",
-    "departmentFullName" : "Amer Sign Lang INTerpre"
-  }, {
-    "departmentName" : "ATP",
-    "departmentFullName" : "Athletic Training Progr"
-  }, {
-    "departmentName" : "BCHS",
-    "departmentFullName" : "Biochemical & Biophys Sci"
-  }, {
-    "departmentName" : "BIOE",
-    "departmentFullName" : "Biomedical Engineering"
-  }, {
-    "departmentName" : "BIOL",
-    "departmentFullName" : "Biology"
-  }, {
-    "departmentName" : "BTEC",
-    "departmentFullName" : "Biotechnology"
-  }, {
-    "departmentName" : "BUAF",
-    "departmentFullName" : "Business Affiliated St"
-  }, {
-    "departmentName" : "BURE",
-    "departmentFullName" : "Business Reciprocal Exc"
-  }, {
-    "departmentName" : "BZAN",
-    "departmentFullName" : "Business Analytics"
-  }, {
-    "departmentName" : "CCS",
-    "departmentFullName" : "Comparative Cult Studies"
-  }, {
-    "departmentName" : "CHEE",
-    "departmentFullName" : "Chemical Engineering"
-  }, {
-    "departmentName" : "CHEM",
-    "departmentFullName" : "Chemistry"
-  }, {
-    "departmentName" : "CHNS",
-    "departmentFullName" : "Chinese"
-  }, {
-    "departmentName" : "CIS",
-    "departmentFullName" : "Computer Information Sys"
-  }, {
-    "departmentName" : "CIVE",
-    "departmentFullName" : "Civil & Environm Engr"
-  }, {
-    "departmentName" : "CLAS",
-    "departmentFullName" : "Classics"
-  }, {
-    "departmentName" : "CNST",
-    "departmentFullName" : "Construction Technology"
-  }, {
-    "departmentName" : "COMD",
-    "departmentFullName" : "Communication Disorders"
-  }, {
-    "departmentName" : "COMM",
-    "departmentFullName" : "Communication"
-  }, {
-    "departmentName" : "COOP",
-    "departmentFullName" : "Cooperative Engineering"
-  }, {
-    "departmentName" : "CORE",
-    "departmentFullName" : "CORE Curriculum"
-  }, {
-    "departmentName" : "COSC",
-    "departmentFullName" : "Computer Science"
-  }, {
-    "departmentName" : "CUIN",
-    "departmentFullName" : "Curriculum & Instruction"
-  }, {
-    "departmentName" : "CUST",
-    "departmentFullName" : "Cultural & Urban Studies"
-  }, {
-    "departmentName" : "DAN",
-    "departmentFullName" : "Dance"
-  }, {
-    "departmentName" : "DIGM",
-    "departmentFullName" : "Digital Media"
-  }, {
-    "departmentName" : "ECE",
-    "departmentFullName" : "Electrical and Comp Engr"
-  }, {
-    "departmentName" : "ECON",
-    "departmentFullName" : "Economics"
-  }, {
-    "departmentName" : "EDAF",
-    "departmentFullName" : "Education Affil Studies"
-  }, {
-    "departmentName" : "EDRS",
-    "departmentFullName" : "Educational Research"
-  }, {
-    "departmentName" : "EDUC",
-    "departmentFullName" : "Education"
-  }, {
-    "departmentName" : "EGRP",
-    "departmentFullName" : "Engineering PROMES"
-  }, {
-    "departmentName" : "ELCS",
-    "departmentFullName" : "Educ Ldrshp & Cultural St"
-  }, {
-    "departmentName" : "ELED",
-    "departmentFullName" : "Elementary Education"
-  }, {
-    "departmentName" : "ELET",
-    "departmentFullName" : "Electrical-Electron Tec"
-  }, {
-    "departmentName" : "ENGI",
-    "departmentFullName" : "Engineering"
-  }, {
-    "departmentName" : "ENGL",
-    "departmentFullName" : "English"
-  }, {
-    "departmentName" : "ENRE",
-    "departmentFullName" : "Engineering Recipr Exc"
-  }, {
-    "departmentName" : "ENRG",
-    "departmentFullName" : "Energy & Sustainability"
-  }, {
-    "departmentName" : "ENTR",
-    "departmentFullName" : "Entrepreneurship"
-  }, {
-    "departmentName" : "EPSY",
-    "departmentFullName" : "Educational Psychology"
-  }, {
-    "departmentName" : "FINA",
-    "departmentFullName" : "Finance"
-  }, {
-    "departmentName" : "FORE",
-    "departmentFullName" : "Foresight"
-  }, {
-    "departmentName" : "FREN",
-    "departmentFullName" : "French"
-  }, {
-    "departmentName" : "GENB",
-    "departmentFullName" : "General Business Admin"
-  }, {
-    "departmentName" : "GEOL",
-    "departmentFullName" : "Geosciences"
-  }, {
-    "departmentName" : "GERM",
-    "departmentFullName" : "German"
-  }, {
-    "departmentName" : "GIS",
-    "departmentFullName" : "Global and INTernational Studies"
-  }, {
-    "departmentName" : "GREK",
-    "departmentFullName" : "Greek"
-  }, {
-    "departmentName" : "GRET",
-    "departmentFullName" : "Global Retailing"
-  }, {
-    "departmentName" : "HDCS",
-    "departmentFullName" : "Hum Develop & Consum Sc"
-  }, {
-    "departmentName" : "HDFS",
-    "departmentFullName" : "Hum Develop & Fam Stds"
-  }, {
-    "departmentName" : "HIND",
-    "departmentFullName" : "Hindi"
-  }, {
-    "departmentName" : "HIST",
-    "departmentFullName" : "History"
-  }, {
-    "departmentName" : "HLT",
-    "departmentFullName" : "Health Education"
-  }, {
-    "departmentName" : "HON",
-    "departmentFullName" : "Honors College"
-  }, {
-    "departmentName" : "HRAF",
-    "departmentFullName" : "HRM Affiliated Studies"
-  }, {
-    "departmentName" : "HRD",
-    "departmentFullName" : "Human Resources Developm"
-  }, {
-    "departmentName" : "HRMA",
-    "departmentFullName" : "Hotel & Restaurant Mgt"
-  }, {
-    "departmentName" : "HRRE",
-    "departmentFullName" : "HRM Reciprocal Exc"
-  }, {
-    "departmentName" : "IART",
-    "departmentFullName" : "INTerdisciplinary Art"
-  }, {
-    "departmentName" : "IDNS",
-    "departmentFullName" : "INTerdisciplinary-NSM"
-  }, {
-    "departmentName" : "IGS",
-    "departmentFullName" : "INTernational & Global St"
-  }, {
-    "departmentName" : "ILAS",
-    "departmentFullName" : "INTerdisciplinary-LASS"
-  }, {
-    "departmentName" : "INAR",
-    "departmentFullName" : "INTerior Arch"
-  }, {
-    "departmentName" : "INDE",
-    "departmentFullName" : "Industrial Engineering"
-  }, {
-    "departmentName" : "INDS",
-    "departmentFullName" : "Industrial Design"
-  }, {
-    "departmentName" : "INTB",
-    "departmentFullName" : "INTernational Business"
-  }, {
-    "departmentName" : "IRW",
-    "departmentFullName" : "INTeg Reading & Writing"
-  }, {
-    "departmentName" : "ITAL",
-    "departmentFullName" : "Italian"
-  }, {
-    "departmentName" : "ITEC",
-    "departmentFullName" : "Information Syst Tech"
-  }, {
-    "departmentName" : "JPNS",
-    "departmentFullName" : "Japanese"
-  }, {
-    "departmentName" : "JWST",
-    "departmentFullName" : "Jewish Studies"
-  }, {
-    "departmentName" : "KIN",
-    "departmentFullName" : "Kinesiology"
-  }, {
-    "departmentName" : "LAAF",
-    "departmentFullName" : "Law Affiliated Studies"
-  }, {
-    "departmentName" : "LARE",
-    "departmentFullName" : "Law Reciprocal Exchange"
-  }, {
-    "departmentName" : "LAST",
-    "departmentFullName" : "Latin Am Studies"
-  }, {
-    "departmentName" : "LATN",
-    "departmentFullName" : "Latin"
-  }, {
-    "departmentName" : "LAW",
-    "departmentFullName" : "Law"
-  }, {
-    "departmentName" : "LSAF",
-    "departmentFullName" : "LASS Affiliated Studies"
-  }, {
-    "departmentName" : "LSRE",
-    "departmentFullName" : "LASS Reciprocal Exc"
-  }, {
-    "departmentName" : "MANA",
-    "departmentFullName" : "Management"
-  }, {
-    "departmentName" : "MARK",
-    "departmentFullName" : "Marketing and Entrepren"
-  }, {
-    "departmentName" : "MAS",
-    "departmentFullName" : "Mexican Am Studies"
-  }, {
-    "departmentName" : "MATH",
-    "departmentFullName" : "Mathematics"
-  }, {
-    "departmentName" : "MECE",
-    "departmentFullName" : "Mechanical Engineering"
-  }, {
-    "departmentName" : "MECT",
-    "departmentFullName" : "Mechanical Technology"
-  }, {
-    "departmentName" : "MIS",
-    "departmentFullName" : "Management Info. Systems"
-  }, {
-    "departmentName" : "MSCI",
-    "departmentFullName" : "Military Science"
-  }, {
-    "departmentName" : "MTLS",
-    "departmentFullName" : "Materials Engineering"
-  }, {
-    "departmentName" : "MUED",
-    "departmentFullName" : "Music Education"
-  }, {
-    "departmentName" : "MUSA",
-    "departmentFullName" : "Applied Music"
-  }, {
-    "departmentName" : "MUSI",
-    "departmentFullName" : "Music"
-  }, {
-    "departmentName" : "NAVY",
-    "departmentFullName" : "Navy"
-  }, {
-    "departmentName" : "NSAF",
-    "departmentFullName" : "NSM Affiliated Studies"
-  }, {
-    "departmentName" : "NSRE",
-    "departmentFullName" : "NSM Reciprocal Exchange"
-  }, {
-    "departmentName" : "NURS",
-    "departmentFullName" : "Nursing"
-  }, {
-    "departmentName" : "NUTR",
-    "departmentFullName" : "Nutrition"
-  }, {
-    "departmentName" : "OPTO",
-    "departmentFullName" : "Optometry"
-  }, {
-    "departmentName" : "PCEU",
-    "departmentFullName" : "Pharmaceutics"
-  }, {
-    "departmentName" : "PCOL",
-    "departmentFullName" : "Pharmacology"
-  }, {
-    "departmentName" : "PEB",
-    "departmentFullName" : "Physical Edu Basic Instr"
-  }, {
-    "departmentName" : "PEP",
-    "departmentFullName" : "Physical Ed Professional"
-  }, {
-    "departmentName" : "PETR",
-    "departmentFullName" : "Petroleum Engineering"
-  }, {
-    "departmentName" : "PHAR",
-    "departmentFullName" : "Pharmacy"
-  }, {
-    "departmentName" : "PHCA",
-    "departmentFullName" : "Pharmacy Practice"
-  }, {
-    "departmentName" : "PHIL",
-    "departmentFullName" : "Philosophy"
-  }, {
-    "departmentName" : "PHLA",
-    "departmentFullName" : "Pharm Leadership Admin"
-  }, {
-    "departmentName" : "PHLS",
-    "departmentFullName" : "Psych Hlth Learn Sci"
-  }, {
-    "departmentName" : "PHOP",
-    "departmentFullName" : "Physiological Optics"
-  }, {
-    "departmentName" : "PHYS",
-    "departmentFullName" : "Physics"
-  }, {
-    "departmentName" : "POLC",
-    "departmentFullName" : "Policy"
-  }, {
-    "departmentName" : "POLS",
-    "departmentFullName" : "Political Science"
-  }, {
-    "departmentName" : "PSYC",
-    "departmentFullName" : "Psychology"
-  }, {
-    "departmentName" : "PUBL",
-    "departmentFullName" : "Public Administration"
-  }, {
-    "departmentName" : "QSS",
-    "departmentFullName" : "Quantitative Social Sci"
-  }, {
-    "departmentName" : "RELS",
-    "departmentFullName" : "Religious Studies"
-  }, {
-    "departmentName" : "RUSS",
-    "departmentFullName" : "Russian"
-  }, {
-    "departmentName" : "SAAF",
-    "departmentFullName" : "Affiliated Studies Grad"
-  }, {
-    "departmentName" : "SAER",
-    "departmentFullName" : "Systems Anal & Ed Res"
-  }, {
-    "departmentName" : "SARE",
-    "departmentFullName" : "Reciprocal Exchange Grad"
-  }, {
-    "departmentName" : "SCLT",
-    "departmentFullName" : "Supply Chain Logis Tech"
-  }, {
-    "departmentName" : "SCM",
-    "departmentFullName" : "Supply Chain Mgmt"
-  }, {
-    "departmentName" : "SEDE",
-    "departmentFullName" : "Secondary Education"
-  }, {
-    "departmentName" : "SOC",
-    "departmentFullName" : "Sociology"
-  }, {
-    "departmentName" : "SOCW",
-    "departmentFullName" : "Social Work"
-  }, {
-    "departmentName" : "SPAC",
-    "departmentFullName" : "Space Architecture"
-  }, {
-    "departmentName" : "SPAN",
-    "departmentFullName" : "Spanish"
-  }, {
-    "departmentName" : "STAT",
-    "departmentFullName" : "Statistics"
-  }, {
-    "departmentName" : "SUBS",
-    "departmentFullName" : "Subsea Engineering"
-  }, {
-    "departmentName" : "TEAF",
-    "departmentFullName" : "TECH Affiliated Studies"
-  }, {
-    "departmentName" : "TECH",
-    "departmentFullName" : "Technology"
-  }, {
-    "departmentName" : "TELS",
-    "departmentFullName" : "TECH Leadership& Superv"
-  }, {
-    "departmentName" : "TEPM",
-    "departmentFullName" : "Technology Project Mgt"
-  }, {
-    "departmentName" : "THEA",
-    "departmentFullName" : "Theatre"
-  }, {
-    "departmentName" : "TMTH",
-    "departmentFullName" : "Technical Mathematics"
-  }, {
-    "departmentName" : "UNIV",
-    "departmentFullName" : "University Studies"
-  }, {
-    "departmentName" : "VIET",
-    "departmentFullName" : "Vietnamese"
-  }, {
-    "departmentName" : "WCL",
-    "departmentFullName" : "World Cultures & Lit"
-  }, {
-    "departmentName" : "WGSS",
-    "departmentFullName" : "WomenGendSexualitySt"
-  } ]
+  "availableOptions": [
+    {
+      "departmentName": "AAS",
+      "departmentFullName": "African American Studies"
+    },
+    {
+      "departmentName": "ACCT",
+      "departmentFullName": "Accounting"
+    },
+    {
+      "departmentName": "AFSC",
+      "departmentFullName": "Air Force Science"
+    },
+    {
+      "departmentName": "AMER",
+      "departmentFullName": "American Cultures"
+    },
+    {
+      "departmentName": "ANTH",
+      "departmentFullName": "Anthropology"
+    },
+    {
+      "departmentName": "ARAB",
+      "departmentFullName": "Arabic"
+    },
+    {
+      "departmentName": "ARAF",
+      "departmentFullName": "Architect Affiliated St"
+    },
+    {
+      "departmentName": "ARCH",
+      "departmentFullName": "Architecture"
+    },
+    {
+      "departmentName": "ARED",
+      "departmentFullName": "Art Education"
+    },
+    {
+      "departmentName": "ARLD",
+      "departmentFullName": "Arts Leadership"
+    },
+    {
+      "departmentName": "ARRE",
+      "departmentFullName": "Arch Reciprocal Exch"
+    },
+    {
+      "departmentName": "ART",
+      "departmentFullName": "Art"
+    },
+    {
+      "departmentName": "ARTH",
+      "departmentFullName": "Art History"
+    },
+    {
+      "departmentName": "ASLI",
+      "departmentFullName": "Amer Sign Lang INTerpre"
+    },
+    {
+      "departmentName": "ATP",
+      "departmentFullName": "Athletic Training Progr"
+    },
+    {
+      "departmentName": "BCHS",
+      "departmentFullName": "Biochemical & Biophys Sci"
+    },
+    {
+      "departmentName": "BIOE",
+      "departmentFullName": "Biomedical Engineering"
+    },
+    {
+      "departmentName": "BIOL",
+      "departmentFullName": "Biology"
+    },
+    {
+      "departmentName": "BTEC",
+      "departmentFullName": "Biotechnology"
+    },
+    {
+      "departmentName": "BUAF",
+      "departmentFullName": "Business Affiliated St"
+    },
+    {
+      "departmentName": "BURE",
+      "departmentFullName": "Business Reciprocal Exc"
+    },
+    {
+      "departmentName": "BZAN",
+      "departmentFullName": "Business Analytics"
+    },
+    {
+      "departmentName": "CCS",
+      "departmentFullName": "Comparative Cult Studies"
+    },
+    {
+      "departmentName": "CHEE",
+      "departmentFullName": "Chemical Engineering"
+    },
+    {
+      "departmentName": "CHEM",
+      "departmentFullName": "Chemistry"
+    },
+    {
+      "departmentName": "CHNS",
+      "departmentFullName": "Chinese"
+    },
+    {
+      "departmentName": "CIS",
+      "departmentFullName": "Computer Information Sys"
+    },
+    {
+      "departmentName": "CIVE",
+      "departmentFullName": "Civil & Environm Engr"
+    },
+    {
+      "departmentName": "CLAS",
+      "departmentFullName": "Classics"
+    },
+    {
+      "departmentName": "CNST",
+      "departmentFullName": "Construction Technology"
+    },
+    {
+      "departmentName": "COMD",
+      "departmentFullName": "Communication Disorders"
+    },
+    {
+      "departmentName": "COMM",
+      "departmentFullName": "Communication"
+    },
+    {
+      "departmentName": "COOP",
+      "departmentFullName": "Cooperative Engineering"
+    },
+    {
+      "departmentName": "CORE",
+      "departmentFullName": "CORE Curriculum"
+    },
+    {
+      "departmentName": "COSC",
+      "departmentFullName": "Computer Science"
+    },
+    {
+      "departmentName": "CUIN",
+      "departmentFullName": "Curriculum & Instruction"
+    },
+    {
+      "departmentName": "CUST",
+      "departmentFullName": "Cultural & Urban Studies"
+    },
+    {
+      "departmentName": "DAN",
+      "departmentFullName": "Dance"
+    },
+    {
+      "departmentName": "DIGM",
+      "departmentFullName": "Digital Media"
+    },
+    {
+      "departmentName": "ECE",
+      "departmentFullName": "Electrical and Comp Engr"
+    },
+    {
+      "departmentName": "ECON",
+      "departmentFullName": "Economics"
+    },
+    {
+      "departmentName": "EDAF",
+      "departmentFullName": "Education Affil Studies"
+    },
+    {
+      "departmentName": "EDRS",
+      "departmentFullName": "Educational Research"
+    },
+    {
+      "departmentName": "EDUC",
+      "departmentFullName": "Education"
+    },
+    {
+      "departmentName": "EGRP",
+      "departmentFullName": "Engineering PROMES"
+    },
+    {
+      "departmentName": "ELCS",
+      "departmentFullName": "Educ Ldrshp & Cultural St"
+    },
+    {
+      "departmentName": "ELED",
+      "departmentFullName": "Elementary Education"
+    },
+    {
+      "departmentName": "ELET",
+      "departmentFullName": "Electrical-Electron Tec"
+    },
+    {
+      "departmentName": "ENGI",
+      "departmentFullName": "Engineering"
+    },
+    {
+      "departmentName": "ENGL",
+      "departmentFullName": "English"
+    },
+    {
+      "departmentName": "ENRE",
+      "departmentFullName": "Engineering Recipr Exc"
+    },
+    {
+      "departmentName": "ENRG",
+      "departmentFullName": "Energy & Sustainability"
+    },
+    {
+      "departmentName": "ENTR",
+      "departmentFullName": "Entrepreneurship"
+    },
+    {
+      "departmentName": "EPSY",
+      "departmentFullName": "Educational Psychology"
+    },
+    {
+      "departmentName": "FINA",
+      "departmentFullName": "Finance"
+    },
+    {
+      "departmentName": "FORE",
+      "departmentFullName": "Foresight"
+    },
+    {
+      "departmentName": "FREN",
+      "departmentFullName": "French"
+    },
+    {
+      "departmentName": "GENB",
+      "departmentFullName": "General Business Admin"
+    },
+    {
+      "departmentName": "GEOL",
+      "departmentFullName": "Geosciences"
+    },
+    {
+      "departmentName": "GERM",
+      "departmentFullName": "German"
+    },
+    {
+      "departmentName": "GIS",
+      "departmentFullName": "Global and INTernational Studies"
+    },
+    {
+      "departmentName": "GREK",
+      "departmentFullName": "Greek"
+    },
+    {
+      "departmentName": "GRET",
+      "departmentFullName": "Global Retailing"
+    },
+    {
+      "departmentName": "HDCS",
+      "departmentFullName": "Hum Develop & Consum Sc"
+    },
+    {
+      "departmentName": "HDFS",
+      "departmentFullName": "Hum Develop & Fam Stds"
+    },
+    {
+      "departmentName": "HIND",
+      "departmentFullName": "Hindi"
+    },
+    {
+      "departmentName": "HIST",
+      "departmentFullName": "History"
+    },
+    {
+      "departmentName": "HLT",
+      "departmentFullName": "Health Education"
+    },
+    {
+      "departmentName": "HON",
+      "departmentFullName": "Honors College"
+    },
+    {
+      "departmentName": "HRAF",
+      "departmentFullName": "HRM Affiliated Studies"
+    },
+    {
+      "departmentName": "HRD",
+      "departmentFullName": "Human Resources Developm"
+    },
+    {
+      "departmentName": "HRMA",
+      "departmentFullName": "Hotel & Restaurant Mgt"
+    },
+    {
+      "departmentName": "HRRE",
+      "departmentFullName": "HRM Reciprocal Exc"
+    },
+    {
+      "departmentName": "IART",
+      "departmentFullName": "INTerdisciplinary Art"
+    },
+    {
+      "departmentName": "IDNS",
+      "departmentFullName": "INTerdisciplinary-NSM"
+    },
+    {
+      "departmentName": "IGS",
+      "departmentFullName": "INTernational & Global St"
+    },
+    {
+      "departmentName": "ILAS",
+      "departmentFullName": "INTerdisciplinary-LASS"
+    },
+    {
+      "departmentName": "INAR",
+      "departmentFullName": "INTerior Arch"
+    },
+    {
+      "departmentName": "INDE",
+      "departmentFullName": "Industrial Engineering"
+    },
+    {
+      "departmentName": "INDS",
+      "departmentFullName": "Industrial Design"
+    },
+    {
+      "departmentName": "INTB",
+      "departmentFullName": "INTernational Business"
+    },
+    {
+      "departmentName": "IRW",
+      "departmentFullName": "INTeg Reading & Writing"
+    },
+    {
+      "departmentName": "ITAL",
+      "departmentFullName": "Italian"
+    },
+    {
+      "departmentName": "ITEC",
+      "departmentFullName": "Information Syst Tech"
+    },
+    {
+      "departmentName": "JPNS",
+      "departmentFullName": "Japanese"
+    },
+    {
+      "departmentName": "JWST",
+      "departmentFullName": "Jewish Studies"
+    },
+    {
+      "departmentName": "KIN",
+      "departmentFullName": "Kinesiology"
+    },
+    {
+      "departmentName": "LAAF",
+      "departmentFullName": "Law Affiliated Studies"
+    },
+    {
+      "departmentName": "LARE",
+      "departmentFullName": "Law Reciprocal Exchange"
+    },
+    {
+      "departmentName": "LAST",
+      "departmentFullName": "Latin Am Studies"
+    },
+    {
+      "departmentName": "LATN",
+      "departmentFullName": "Latin"
+    },
+    {
+      "departmentName": "LAW",
+      "departmentFullName": "Law"
+    },
+    {
+      "departmentName": "LSAF",
+      "departmentFullName": "LASS Affiliated Studies"
+    },
+    {
+      "departmentName": "LSRE",
+      "departmentFullName": "LASS Reciprocal Exc"
+    },
+    {
+      "departmentName": "MANA",
+      "departmentFullName": "Management"
+    },
+    {
+      "departmentName": "MARK",
+      "departmentFullName": "Marketing and Entrepren"
+    },
+    {
+      "departmentName": "MAS",
+      "departmentFullName": "Mexican Am Studies"
+    },
+    {
+      "departmentName": "MATH",
+      "departmentFullName": "Mathematics"
+    },
+    {
+      "departmentName": "MECE",
+      "departmentFullName": "Mechanical Engineering"
+    },
+    {
+      "departmentName": "MECT",
+      "departmentFullName": "Mechanical Technology"
+    },
+    {
+      "departmentName": "MIS",
+      "departmentFullName": "Management Info. Systems"
+    },
+    {
+      "departmentName": "MSCI",
+      "departmentFullName": "Military Science"
+    },
+    {
+      "departmentName": "MTLS",
+      "departmentFullName": "Materials Engineering"
+    },
+    {
+      "departmentName": "MUED",
+      "departmentFullName": "Music Education"
+    },
+    {
+      "departmentName": "MUSA",
+      "departmentFullName": "Applied Music"
+    },
+    {
+      "departmentName": "MUSI",
+      "departmentFullName": "Music"
+    },
+    {
+      "departmentName": "NAVY",
+      "departmentFullName": "Navy"
+    },
+    {
+      "departmentName": "NSAF",
+      "departmentFullName": "NSM Affiliated Studies"
+    },
+    {
+      "departmentName": "NSRE",
+      "departmentFullName": "NSM Reciprocal Exchange"
+    },
+    {
+      "departmentName": "NURS",
+      "departmentFullName": "Nursing"
+    },
+    {
+      "departmentName": "NUTR",
+      "departmentFullName": "Nutrition"
+    },
+    {
+      "departmentName": "OPTO",
+      "departmentFullName": "Optometry"
+    },
+    {
+      "departmentName": "PCEU",
+      "departmentFullName": "Pharmaceutics"
+    },
+    {
+      "departmentName": "PCOL",
+      "departmentFullName": "Pharmacology"
+    },
+    {
+      "departmentName": "PEB",
+      "departmentFullName": "Physical Edu Basic Instr"
+    },
+    {
+      "departmentName": "PEP",
+      "departmentFullName": "Physical Ed Professional"
+    },
+    {
+      "departmentName": "PETR",
+      "departmentFullName": "Petroleum Engineering"
+    },
+    {
+      "departmentName": "PHAR",
+      "departmentFullName": "Pharmacy"
+    },
+    {
+      "departmentName": "PHCA",
+      "departmentFullName": "Pharmacy Practice"
+    },
+    {
+      "departmentName": "PHIL",
+      "departmentFullName": "Philosophy"
+    },
+    {
+      "departmentName": "PHLA",
+      "departmentFullName": "Pharm Leadership Admin"
+    },
+    {
+      "departmentName": "PHLS",
+      "departmentFullName": "Psych Hlth Learn Sci"
+    },
+    {
+      "departmentName": "PHOP",
+      "departmentFullName": "Physiological Optics"
+    },
+    {
+      "departmentName": "PHYS",
+      "departmentFullName": "Physics"
+    },
+    {
+      "departmentName": "POLC",
+      "departmentFullName": "Policy"
+    },
+    {
+      "departmentName": "POLS",
+      "departmentFullName": "Political Science"
+    },
+    {
+      "departmentName": "PSYC",
+      "departmentFullName": "Psychology"
+    },
+    {
+      "departmentName": "PUBL",
+      "departmentFullName": "Public Administration"
+    },
+    {
+      "departmentName": "QSS",
+      "departmentFullName": "Quantitative Social Sci"
+    },
+    {
+      "departmentName": "RELS",
+      "departmentFullName": "Religious Studies"
+    },
+    {
+      "departmentName": "RUSS",
+      "departmentFullName": "Russian"
+    },
+    {
+      "departmentName": "SAAF",
+      "departmentFullName": "Affiliated Studies Grad"
+    },
+    {
+      "departmentName": "SAER",
+      "departmentFullName": "Systems Anal & Ed Res"
+    },
+    {
+      "departmentName": "SARE",
+      "departmentFullName": "Reciprocal Exchange Grad"
+    },
+    {
+      "departmentName": "SCLT",
+      "departmentFullName": "Supply Chain Logis Tech"
+    },
+    {
+      "departmentName": "SCM",
+      "departmentFullName": "Supply Chain Mgmt"
+    },
+    {
+      "departmentName": "SEDE",
+      "departmentFullName": "Secondary Education"
+    },
+    {
+      "departmentName": "SOC",
+      "departmentFullName": "Sociology"
+    },
+    {
+      "departmentName": "SOCW",
+      "departmentFullName": "Social Work"
+    },
+    {
+      "departmentName": "SPAC",
+      "departmentFullName": "Space Architecture"
+    },
+    {
+      "departmentName": "SPAN",
+      "departmentFullName": "Spanish"
+    },
+    {
+      "departmentName": "STAT",
+      "departmentFullName": "Statistics"
+    },
+    {
+      "departmentName": "SUBS",
+      "departmentFullName": "Subsea Engineering"
+    },
+    {
+      "departmentName": "TEAF",
+      "departmentFullName": "TECH Affiliated Studies"
+    },
+    {
+      "departmentName": "TECH",
+      "departmentFullName": "Technology"
+    },
+    {
+      "departmentName": "TELS",
+      "departmentFullName": "TECH Leadership& Superv"
+    },
+    {
+      "departmentName": "TEPM",
+      "departmentFullName": "Technology Project Mgt"
+    },
+    {
+      "departmentName": "THEA",
+      "departmentFullName": "Theatre"
+    },
+    {
+      "departmentName": "TMTH",
+      "departmentFullName": "Technical Mathematics"
+    },
+    {
+      "departmentName": "UNIV",
+      "departmentFullName": "University Studies"
+    },
+    {
+      "departmentName": "VIET",
+      "departmentFullName": "Vietnamese"
+    },
+    {
+      "departmentName": "WCL",
+      "departmentFullName": "World Cultures & Lit"
+    },
+    {
+      "departmentName": "WGSS",
+      "departmentFullName": "WomenGendSexualitySt"
+    }
+  ]
 }
