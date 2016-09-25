@@ -47,11 +47,11 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         var apiURLs = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
 
         _.each(apiURLs, function(apiURL) {
-                $rootScope.httpService.getData(apiURL)
-                    .then(appendResults)
-                    .then(populateFields)
-                    .catch(onError)
-                    .then(finallyDo)
+            $rootScope.httpService.getData(apiURL)
+                .then(appendResults)
+                .then(populateFields)
+                .catch(onError)
+                .then(finallyDo)
             }
         );
     };
@@ -98,7 +98,6 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
 
 
     var buildApiUrlsFromModel = function(department, creditHour, core) {
-        console.log("Building API URL...");
         var baseUrl = $scope.apiUrl + '/information?';
         var allParametersFromScope = [
             {
@@ -118,52 +117,25 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
             }
         ];
 
-        var areAllParametersUndefinedOrNull = function(parameters) {
-            var isUndefinedOrNull = true;
-            parameters.every(function(e) {
-                console.log("model is : " + e.model);
-                if(!$rootScope.arrayService.isArrayUndefinedOrNull(e.model)) {
-                    isUndefinedOrNull = false;
-                    return false;
-                }
-                return true;
-            });
-            console.log("function is returning " + isUndefinedOrNull);
-            return isUndefinedOrNull;
-        };
+        return generateApiURLsFromModel(allParametersFromScope, baseUrl);
+    };
 
-        if(areAllParametersUndefinedOrNull(allParametersFromScope)) {
-            console.log("No parameters");
-            return [baseUrl];
-        }
+    var generateApiURLsFromModel = function(allParametersFromScope, baseUrl) {
+        allParametersFromScope.forEach(function(part, index, arr) {
+            var apiParameter = part.apiParameter;
+            arr[index] = _.pluck(part.model, part.parameterToPluck);
 
+            if(!$rootScope.arrayService.isArrayUndefinedOrNull(arr[index])) {
+                $rootScope.apiURLService.appendParameterEqualsValueInPlace(arr[index], apiParameter);
+            }
+        });
 
-        // allParametersFromScope.forEach(function(part, index, allParametersFromScope) {
-        //     console.log(_.pluck(part.model, part.parameterToPluck));
-        //     allParametersFromScope[index] = _.pluck(part.model, part.parameterToPluck);
-        // });
-
-        department = _.pluck(department, 'departmentName');
-        creditHour = _.pluck(creditHour, 'creditHours');
-        core = _.pluck(core, 'categoryNumber');
-
-        if(!$rootScope.arrayService.isArrayUndefinedOrNull(department)) {
-            $rootScope.apiURLService.expandArrayValuesInPlace(department, 'department');
-        }
-        if(!$rootScope.arrayService.isArrayUndefinedOrNull(creditHour)) {
-            $rootScope.apiURLService.expandArrayValuesInPlace(creditHour, 'credit-hours');
-        }
-        if(!$rootScope.arrayService.isArrayUndefinedOrNull(core)) {
-            $rootScope.apiURLService.expandArrayValuesInPlace(core, 'core');
-        }
-
-        var allParameters = [department,creditHour,core]
+        var allAPIUrls = allParametersFromScope
             .filter($rootScope.cartesianProductService.nonEmpty)
-            .reduce($rootScope.cartesianProductService.productAdd);
+            .reduce($rootScope.cartesianProductService.productAdd, [""]);
 
-        $rootScope.apiURLService.appendParametersToAPIUrl(allParameters, baseUrl);
+        return $rootScope.apiURLService.appendParametersAndReturnAPIUrls(allAPIUrls, baseUrl);
 
-        return allParameters;
     };
 
     var deleteModel = function() {
