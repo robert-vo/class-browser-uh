@@ -119,13 +119,17 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         ];
 
         var areAllParametersUndefinedOrNull = function(parameters) {
-            parameters.forEach(function(e) {
-                if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(e.model)) {
-                    console.log("model: " + e.model);
+            var isUndefinedOrNull = true;
+            parameters.every(function(e) {
+                console.log("model is : " + e.model);
+                if(!$rootScope.arrayService.isArrayUndefinedOrNull(e.model)) {
+                    isUndefinedOrNull = false;
                     return false;
                 }
+                return true;
             });
-            return true;
+            console.log("function is returning " + isUndefinedOrNull);
+            return isUndefinedOrNull;
         };
 
         if(areAllParametersUndefinedOrNull(allParametersFromScope)) {
@@ -134,22 +138,22 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
         }
 
 
-        allParametersFromScope.forEach(function(part, index, allParametersFromScope) {
-            console.log(_.pluck(part.model, part.parameterToPluck));
-            allParametersFromScope[index] = _.pluck(part.model, part.parameterToPluck);
-        });
+        // allParametersFromScope.forEach(function(part, index, allParametersFromScope) {
+        //     console.log(_.pluck(part.model, part.parameterToPluck));
+        //     allParametersFromScope[index] = _.pluck(part.model, part.parameterToPluck);
+        // });
 
-        // department = _.pluck(department, 'departmentName');
-        // creditHour = _.pluck(creditHour, 'creditHours');
-        // core = _.pluck(core, 'categoryNumber');
+        department = _.pluck(department, 'departmentName');
+        creditHour = _.pluck(creditHour, 'creditHours');
+        core = _.pluck(core, 'categoryNumber');
 
-        if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(department)) {
+        if(!$rootScope.arrayService.isArrayUndefinedOrNull(department)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(department, 'department');
         }
-        if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(creditHour)) {
+        if(!$rootScope.arrayService.isArrayUndefinedOrNull(creditHour)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(creditHour, 'credit-hours');
         }
-        if($rootScope.arrayService.isArrayIsNotUndefinedOrNull(core)) {
+        if(!$rootScope.arrayService.isArrayUndefinedOrNull(core)) {
             $rootScope.apiURLService.expandArrayValuesInPlace(core, 'core');
         }
 
