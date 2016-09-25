@@ -32,15 +32,16 @@ factory('cartesianProductService', function() {
 }).
 factory('apiURLService', function() {
     return {
-        expandArrayValuesInPlace: function (arr, parameter) {
+        appendParameterEqualsValueInPlace: function (arr, parameter) {
             arr.forEach(function (part, index, arr) {
                 arr[index] = parameter + "=" + part;
             });
         },
-        appendParametersToAPIUrl: function (arr, baseURL) {
+        appendParametersAndReturnAPIUrls: function (arr, baseURL) {
             arr.forEach(function (part, index, arr) {
                 arr[index] = baseURL + part;
             });
+            return arr;
         }
     };
 }).
