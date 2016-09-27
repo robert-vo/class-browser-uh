@@ -7,7 +7,7 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'ClassCtrl'
     });
 }]).
-controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', function ($scope, $http, $q, $rootScope, $parse) {
+controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$window', function ($scope, $http, $q, $rootScope, $parse, $window) {
     $scope.rowCollection = [];
 
     var setScopeVariableFromJSON = function(filePath, scopeVariable) {
@@ -146,7 +146,8 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', functi
 
     $scope.goBack = function() {
         console.log('Going back to class search page.');
-        deleteModel('hasNoResults', 'isError', 'isDataLoading', 'showResults');
+        deleteModel('hasNoResults', 'isError', 'isDataLoading', 'showResults',
+            'subjectMessage', 'creditHoursMessage', 'coreMessage', 'parametersMessage');
     };
 
     $scope.clearForms = function() {
