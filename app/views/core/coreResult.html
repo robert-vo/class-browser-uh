@@ -5,7 +5,8 @@
 <h2>Core Search Results</h2>
 <table st-safe-src="rowCollection"
        st-table="displayed"
-       class="table table-bordered table-striped">
+       class="table table-bordered table-striped"
+       style="width:100%">
     <thead>
         <tr>
             <th width="10%" class="sortable" st-sort="department">Subject</th>
@@ -18,7 +19,7 @@
             <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody ng-if="!isWindowSmall()">
         <tr ng-repeat="row in displayed">
             <td>{{row.department}}</td>
             <td>{{row.department_crn}}</td>
@@ -27,7 +28,17 @@
             <td>{{row.class_description}}</td>
         </tr>
     </tbody>
-    <tfoot>
+
+    <tbody ng-if="isWindowSmall()">
+    <tr ng-repeat="row in displayed">
+        <td>{{row.department}} {{row.department_crn}}</td>
+        <td>Class Title: {{row.class_title}}</td>
+        <td>Credit Hours: {{row.credit_hours}}</td>
+        <td>Description: {{row.class_description}}</td>
+    </tr>
+    </tbody>
+
+    <tfoot ng-show="rowCollection.length > 10">
     <tr>
         <td colspan="5" class="text-center">
             <div st-items-by-page="10"
