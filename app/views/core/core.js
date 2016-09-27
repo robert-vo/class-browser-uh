@@ -8,7 +8,25 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
         controller: 'CoreCtrl'
     });
 }])
-.controller('CoreCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
+.controller('CoreCtrl', ['$scope', '$http', '$rootScope', '$window', function ($scope, $http, $rootScope, $window) {
+
+    var w = angular.element($window);
+    $scope.$watch(
+        function () {
+            return $window.innerWidth;
+        },
+        function (value) {
+            $scope.windowWidth = value;
+            $scope.isWindowSmall = function() {
+                return $scope.windowWidth < 768;
+            }
+        },
+        true
+    );
+
+    w.bind('resize', function(){
+        $scope.$apply();
+    });
 
     $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
         $scope.coreCategories = result;
