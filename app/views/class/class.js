@@ -147,7 +147,8 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
     $scope.goBack = function() {
         console.log('Going back to class search page.');
         deleteModel('hasNoResults', 'isError', 'isDataLoading', 'showResults',
-            'subjectMessage', 'creditHoursMessage', 'coreMessage', 'parametersMessage');
+            'subjectMessage', 'creditHoursMessage', 'coreMessage', 'parametersMessage',
+            'rowCollection');
     };
 
     $scope.clearForms = function() {
