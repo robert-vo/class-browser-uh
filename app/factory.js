@@ -102,7 +102,7 @@ angular.module('classBrowserUHApp').factory('cartesianProductService', function 
         function (value) {
             $rootScope.windowWidth = value;
             $rootScope.isWindowSmall = function() {
-                return $rootScope.windowWidth < 768;
+                return $rootScope.windowWidth <= 760;
             }
         },
         true
