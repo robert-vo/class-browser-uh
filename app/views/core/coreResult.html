@@ -1,5 +1,4 @@
 <link href="views/templates/tableStyle.css" rel="stylesheet">
-
 <p><p>{{messageTwo}}</p>
 <p></p><p>{{message}}</p>
 <h2>Core Search Results</h2>
@@ -31,10 +30,10 @@
 
     <tbody ng-if="isWindowSmall()">
     <tr ng-repeat="row in displayed">
-        <td>{{row.department}} {{row.department_crn}}</td>
-        <td>Class Title: {{row.class_title}}</td>
-        <td>Credit Hours: {{row.credit_hours}}</td>
-        <td>Description: {{row.class_description}}</td>
+        <td><b>Subject & Course Number:</b> {{row.department}} {{row.department_crn}}</td>
+        <td><b>Class Title:</b> {{row.class_title}}</td>
+        <td><b>Credit Hours:</b> {{row.credit_hours}}</td>
+        <td><b>Description:</b> {{row.class_description}}</td>
     </tr>
     </tbody>
 
