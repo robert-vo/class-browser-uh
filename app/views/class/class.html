@@ -17,7 +17,7 @@
                 Leaving a field blank, "Nothing Selected", searches for everything in the particular category.
             </p>
 
-            <form name="coreSearchForm">
+            <form name="coreSearchForm" ng-show="!isDataLoading">
                 <div class="form-group">
                     <label class="control-label" for="subject"><p>Subjects: </p></label>
                     <ol class="nya-bs-select"
