@@ -67,7 +67,7 @@ angular.module('classBrowserUHApp').factory('cartesianProductService', function 
             return defer.promise;
         }
     }
-}).run(function ($rootScope, cartesianProductService, apiURLService, arrayService, httpService) {
+}).run(function ($rootScope, cartesianProductService, apiURLService, arrayService, httpService, $window) {
     $rootScope.cartesianProductService = cartesianProductService;
     $rootScope.apiURLService = apiURLService;
     $rootScope.arrayService = arrayService;
@@ -93,4 +93,22 @@ angular.module('classBrowserUHApp').factory('cartesianProductService', function 
         'boolean': '[object Boolean]',
         'number': '[object Number]'
     };
+
+    var w = angular.element($window);
+    $rootScope.$watch(
+        function () {
+            return $window.innerWidth;
+        },
+        function (value) {
+            $rootScope.windowWidth = value;
+            $rootScope.isWindowSmall = function() {
+                return $rootScope.windowWidth < 768;
+            }
+        },
+        true
+    );
+
+    w.bind('resize', function(){
+        $rootScope.$apply();
+    });
 });
