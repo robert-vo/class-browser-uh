@@ -14,27 +14,31 @@
             <th width="10%">Credit Hours</th>
             <th width="60%">Class Description</th>
         </tr>
-        <tr>
-            <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
-        </tr>
     </thead>
-    <tbody ng-if="!isWindowSmall()">
-        <tr ng-repeat="row in displayed">
+    <tbody>
+        <tr>
+            <th colspan="5">
+                <input type="search"
+                       st-search=""
+                       class="form-control"
+                       placeholder="Search through the results here."/>
+            </th>
+        </tr>
+        <tr ng-repeat="row in displayed" ng-if="!isWindowSmall()">
             <td>{{row.department}}</td>
             <td>{{row.department_crn}}</td>
             <td>{{row.class_title}}</td>
             <td>{{row.credit_hours}}</td>
             <td>{{row.class_description}}</td>
         </tr>
-    </tbody>
 
-    <tbody ng-if="isWindowSmall()">
-    <tr ng-repeat="row in displayed">
-        <td><b>Subject & Course Number:</b> {{row.department}} {{row.department_crn}}</td>
-        <td><b>Class Title:</b> {{row.class_title}}</td>
-        <td><b>Credit Hours:</b> {{row.credit_hours}}</td>
-        <td><b>Description:</b> {{row.class_description}}</td>
-    </tr>
+        <tr ng-repeat="row in displayed" ng-if="isWindowSmall()">
+            <td><b>Subject & Course Number:</b> {{row.department}} {{row.department_crn}}</td>
+            <td><b>Class Title:</b> {{row.class_title}}</td>
+            <td><b>Credit Hours:</b> {{row.credit_hours}}</td>
+            <td><b>Description:</b> {{row.class_description}}</td>
+        </tr>
+
     </tbody>
 
     <tfoot ng-show="rowCollection.length > 10">
@@ -47,4 +51,4 @@
         </td>
     </tr>
     </tfoot>
-</table>
+</table>    
