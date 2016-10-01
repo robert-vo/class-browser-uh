@@ -1,3 +1,5 @@
+
+<div ng-controller="CoreCtrl">
 <link href="views/templates/tableStyle.css" rel="stylesheet">
 <p><p>{{messageTwo}}</p>
 <p></p><p>{{message}}</p>
@@ -21,6 +23,7 @@
                 <input type="search"
                        st-search=""
                        class="form-control"
+                       ng-model="hi"
                        placeholder="Search through the results here."/>
             </th>
         </tr>
@@ -39,16 +42,15 @@
             <td><b>Description:</b> {{row.class_description}}</td>
         </tr>
 
+        <tr ng-show="rowCollection.length > 10">
+            <td colspan="5" class="text-center">
+                <div st-items-by-page="10"
+                     st-pagination=""
+                     st-template="views/templates/pagination.custom.html">
+                </div>
+            </td>
+        </tr>
     </tbody>
 
-    <tfoot ng-show="rowCollection.length > 10">
-    <tr>
-        <td colspan="5" class="text-center">
-            <div st-items-by-page="10"
-                 st-pagination=""
-                 st-template="views/templates/pagination.custom.html">
-            </div>
-        </td>
-    </tr>
-    </tfoot>
-</table>    
+</table>
+    </div>
