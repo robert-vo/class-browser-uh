@@ -1,14 +1,18 @@
+<link href="views/templates/tableStyle.css" rel="stylesheet">
+<link href="views/templates/tableSort.css" rel="stylesheet">
 
 <div ng-controller="CoreCtrl">
-<link href="views/templates/tableStyle.css" rel="stylesheet">
-<p><p>{{messageTwo}}</p>
-<p></p><p>{{message}}</p>
-<h2>Core Search Results</h2>
-<table st-safe-src="rowCollection"
-       st-table="displayed"
-       class="table table-bordered table-striped"
-       style="width:100%">
-    <thead>
+
+    <p>
+    <p>{{messageTwo}}</p>
+    <p></p>
+    <p>{{message}}</p>
+    <h2>Core Search Results</h2>
+    <table st-safe-src="rowCollection"
+           st-table="displayed"
+           class="table table-bordered table-striped"
+           style="width:100%">
+        <thead>
         <tr>
             <th width="10%" class="sortable" st-sort="department">Subject</th>
             <th width="10%" class="sortable" st-sort="department_crn">CRN</th>
@@ -16,8 +20,8 @@
             <th width="10%">Credit Hours</th>
             <th width="60%">Class Description</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr>
             <th colspan="5">
                 <input type="search"
@@ -50,7 +54,7 @@
                 </div>
             </td>
         </tr>
-    </tbody>
+        </tbody>
 
-</table>
-    </div>
+    </table>
+</div>
