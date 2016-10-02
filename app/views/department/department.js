@@ -13,7 +13,7 @@ angular.module('classBrowserUHApp.department', ['ngRoute'])
     var url = $scope.apiUrl + '/department';
 
     function onSuccess(result) {
-        $scope.resultSet = result.result;
+        $scope.rowCollection = result.result;
         $scope.showResults = true;
         $scope.numberOfRows = result.numberOfRows;
     }
