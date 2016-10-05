@@ -47,57 +47,68 @@
     {
       "path": "resources/subjects.json",
       "scopeName": "departments",
-      "modelName": "departmentModel"
+      "modelName": "departmentModel",
+      "parameter": "subject"
     },
     {
       "path": "resources/buildings.json",
       "scopeName": "buildings",
-      "modelName": "buildingModel"
+      "modelName": "buildingModel",
+      "parameter": "building"
     },
     {
       "path": "resources/locations.json",
       "scopeName": "locations",
-      "modelName": "locationModel"
+      "modelName": "locationModel",
+      "parameter": "location"
     },
     {
       "path": "resources/component.json",
       "scopeName": "component",
-      "modelName": "componentModel"
+      "modelName": "componentModel",
+      "parameter": "component"
     },
     {
       "path": "resources/creditHours.json",
       "scopeName": "creditHours",
-      "modelName": "creditHourModel"
+      "modelName": "creditHourModel",
+      "parameter": "credit-hours"
     },
     {
       "path": "resources/weekendU.json",
       "scopeName": "weekendU",
-      "modelName": "weekendUModel"
+      "modelName": "weekendUModel",
+      "parameter": "weekendU"
     },
     {
       "path": "resources/coreCategories.json",
       "scopeName": "coreCategories",
-      "modelName": "coreCategoriesModel"
+      "modelName": "coreCategoriesModel",
+      "parameter": "core"
     },
     {
       "path": "resources/isCore.json",
       "scopeName": "isCore",
-      "modelName": "isCoreModel"
+      "modelName": "isCoreModel",
+      "parameter": "is-core"
     },
     {
       "path": "resources/syllabus.json",
       "scopeName": "syllabus",
-      "modelName": "syllabusModel"
+      "modelName": "syllabusModel",
+      "parameter": "syllabus"
     },
     {
       "path": "resources/classDays.json",
       "scopeName": "classDays",
-      "modelName": "classDaysModel"
+      "modelName": "classDaysModel",
+      "parameter": "classDays"
     },
     {
       "path": "",
       "scopeName": "courseNumber",
-      "modelName": "courseNumberModel"
+      "modelName": "courseNumberModel",
+      "parameter": "department-crn"
     }
   ]
 }
