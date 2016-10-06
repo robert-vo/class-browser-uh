@@ -1,10 +1,10 @@
 {
   "availableOptions": [
     {
-      "core": "Yes"
+      "is-core": "Yes"
     },
     {
-      "core": "No"
+      "is-core": "No"
     }
   ]
 }
