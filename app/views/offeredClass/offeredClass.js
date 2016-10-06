@@ -70,16 +70,72 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 console.log(e.parameter + "=" + obj[e.parameter]);
             });
 
-            $scope.parametersMessage = generateMessage($scope.termModel, 'Terms', 'semester', 'year');
+            // $scope.parametersMessage = generateMessage($scope.termModel, 'Terms', 'semester', 'year');
+            $scope.parametersMessage = generateMessageForAllModels();
         }
         else {
             alert("Please select a class term.");
         }
     };
 
+    var generateMessageForAllModels = function() {
+        var message = "";
+        $scope.allJSONAndScopeNames.forEach(function(e) {
+            if($scope.$eval(e.modelName) != undefined) {
+                message += "<b>" + e.uiParameter + "</b>: ";
+                var apiParameter = e.apiParameter;
+                var modelValue = $scope.$eval(e.modelName);
+
+                if($rootScope.types.get(modelValue) === $rootScope.types.array) {
+
+                    for(var i = 0; i < modelValue.length; i++) {
+                        modelValue[i] = modelValue[i][apiParameter];
+                    }
+                    var allParameterValuesForGivenmodel = modelValue.join(", ");
+                    message += allParameterValuesForGivenmodel;
+                    // for(var key in modelValue) {
+                    //     message += $scope.$eval(key)[apiParameter];
+                    // }
+                }
+                else {
+                    message += $scope.$eval(e.modelName)[apiParameter];
+                }
+                message += "<br>";
+            }
+            else {
+                message += e.modelName + " is undefined<br>";
+            }
+        });
+        return message;
+    };
+
     $scope.goBack = function() {
         console.log('Going back to offered class search page.');
         $scope.showResults = false;
+
+        $scope.allJSONAndScopeNames.forEach(function(e) {
+            deleteModel(e.modelName);
+        });
+
+        deleteModel('parametersMessage');
+
     };
+
+
+    $scope.termModel = {"term":2000,"year":2016,"semester":"Fall"};
+    $scope.formatModel = [{"format":"Hybrid","isOrNot":"Is"},{"format":"Face to Face","isOrNot":"Not"}];
+    $scope.statusModel = {"status":"Closed"};
+    $scope.sessionModel = [{"session":4,"sessionTitle":"Session 4"},{"session":2,"sessionTitle":"Session 2"}];
+    $scope.departmentModel = [{"departmentName":"AFSC","departmentFullName":"Air Force Science"},{"departmentName":"ARAB","departmentFullName":"Arabic"}];
+    $scope.buildingModel = [{"buildingID":517,"buildingAbbreviation":"A","buildingName":"Cullen Performance Hall"}];
+    $scope.locationModel = [{"location":"UH-Sugar Land"},{"location":"UH-San Antonio-Conrad Hilton"},{"location":"UH"}];
+    $scope.componentModel = [{"component":"LEC","componentName":"Lecture"}];
+    $scope.creditHourModel = [{"creditHours":4}];
+    $scope.weekendUModel = {"weekendU":"No"};
+    $scope.coreCategoriesModel = [{"categoryNumber":2,"categoryName":"Mathematics"}];
+    $scope.isCoreModel = {"core":"No"};
+    $scope.syllabusModel = {"syllabus":"No"};
+    $scope.classDaysModel = [{"day":"Monday","isOrNot":"Is"},{"day":"Sunday","isOrNot":"Is"},{"day":"Tuesday","isOrNot":"Not"}];
+    $scope.courseNumberModel = 2410;
 
 }]);
