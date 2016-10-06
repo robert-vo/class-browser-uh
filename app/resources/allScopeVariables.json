@@ -50,8 +50,8 @@
     },
     {
       "path": "resources/subjects.json",
-      "scopeName": "departments",
-      "modelName": "departmentModel",
+      "scopeName": "subject",
+      "modelName": "subjectModel",
       "apiParameter": "subject",
       "uiParameter": "Subject"
     },

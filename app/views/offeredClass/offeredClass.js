@@ -89,13 +89,11 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 if($rootScope.types.get(modelValue) === $rootScope.types.array) {
 
                     for(var i = 0; i < modelValue.length; i++) {
+                        console.log(modelValue[i]);
                         modelValue[i] = modelValue[i][apiParameter];
                     }
                     var allParameterValuesForGivenmodel = modelValue.join(", ");
                     message += allParameterValuesForGivenmodel;
-                    // for(var key in modelValue) {
-                    //     message += $scope.$eval(key)[apiParameter];
-                    // }
                 }
                 else {
                     message += $scope.$eval(e.modelName)[apiParameter];
