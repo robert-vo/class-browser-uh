@@ -123,7 +123,7 @@
       "path": "resources/isCore.json",
       "scopeName": "isCore",
       "modelName": "isCoreModel",
-      "apiParameterValueFromModel": "core",
+      "apiParameterValueFromModel": "is-core",
       "apiParameterInEndpoint": "is-core",
       "uiParameter": "Is Core",
       "displayParameters": "is-core"
