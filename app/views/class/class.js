@@ -36,8 +36,6 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
 
         var apiURLs = buildApiUrlsFromModel($scope.subjectModel, $scope.creditHourModel, $scope.coreModel);
 
-        console.log(apiURLs);
-
         _.each(apiURLs, function(apiURL) {
             $rootScope.httpService.getData(apiURL)
                 .then(appendResults)
@@ -147,7 +145,6 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
     };
 
     $scope.goBack = function() {
-        console.log('Going back to class search page.');
         deleteModel('hasNoResults', 'isError', 'isDataLoading', 'showResults',
             'subjectMessage', 'creditHoursMessage', 'coreMessage', 'parametersMessage',
             'rowCollection');
