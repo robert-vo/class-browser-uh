@@ -62,9 +62,30 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     var getAllData = function() {
-        $scope.allJSONAndScopeNames.forEach(function(e) {
+        var allAPIUrls = getAllAPIUrls();
+    };
 
-        })
+    var getAllAPIUrls = function() {
+        $scope.allJSONAndScopeNames.forEach(function(aScopeVariable) {
+            if($scope.$eval(aScopeVariable.modelName) != undefined) {
+                var modelValue = $scope.$eval(aScopeVariable.modelName);
+
+                if(isNotArray(modelValue)) {
+                    modelValue = [modelValue];
+                }
+
+                modelValue.forEach(function(aModel) {
+                    if(aModel["isOrNot"] != undefined) {
+                        //for the isOrNot parameters,
+                        //it would have to be something like...
+                        //hybrid=1 (is hybrid)
+                        //online=0 (is not online)
+                        console.log("has is or not");
+                    }
+                    console.log(aScopeVariable.apiParameterInEndpoint + "=" + aModel[aScopeVariable.apiParameterValueFromModel]);
+                });
+            }
+        });
     };
 
     var generateMessageForAllModels = function() {
@@ -85,8 +106,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         return message;
     };
 
+    var isNotArray = function(models) {
+        return $rootScope.types.get(models) !== $rootScope.types.array;
+    };
+
     var getAllMessagesForModelAndParameters = function(models, parameters) {
-        if($rootScope.types.get(models) !== $rootScope.types.array) {
+        if(isNotArray(models)) {
             models = [models];
         }
 
@@ -125,7 +150,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     $scope.creditHourModel = [{"credit-hours":4}];
     $scope.weekendUModel = {"weekendU":"No"};
     $scope.coreCategoriesModel = [{"categoryNumber":2,"categoryName":"Mathematics"}];
-    $scope.isCoreModel = {"core":"No"};
+    $scope.isCoreModel = {"is-core":"No"};
     $scope.syllabusModel = {"syllabus":"No"};
     $scope.classDaysModel = [{"day":"Monday","isOrNot":"Is"},{"day":"Sunday","isOrNot":"Is"},{"day":"Tuesday","isOrNot":"Not"}];
     $scope.courseNumberModel = {"courseNumber": 2410};
