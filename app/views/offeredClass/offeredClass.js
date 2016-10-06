@@ -50,10 +50,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             $scope.isError = false;
             $scope.hasNoResults = false;
 
-            console.log("Finding classes...");
             $scope.showResults = true;
             $scope.parametersMessage = generateMessageForAllModels();
 
+            $scope.rowCollection = getAllData();
             $scope.isDataLoading = false;
         }
         else {
@@ -61,16 +61,22 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         }
     };
 
+    var getAllData = function() {
+        $scope.allJSONAndScopeNames.forEach(function(e) {
+
+        })
+    };
+
     var generateMessageForAllModels = function() {
         var message = "";
 
-        $scope.allJSONAndScopeNames.forEach(function(e) {
-            if($scope.$eval(e.modelName) != undefined) {
-                var modelValue = $scope.$eval(e.modelName);
-                var allDisplayParameters = e.displayParameters.split(", ");
+        $scope.allJSONAndScopeNames.forEach(function(aScopeVariable) {
+            if($scope.$eval(aScopeVariable.modelName) != undefined) {
+                var modelValue = $scope.$eval(aScopeVariable.modelName);
+                var allDisplayParameters = aScopeVariable.displayParameters.split(", ");
                 var allMessagesForModel = getAllMessagesForModelAndParameters(modelValue, allDisplayParameters);
 
-                message += "<b>" + e.uiParameter + "</b>: ";
+                message += "<b>" + aScopeVariable.uiParameter + "</b>: ";
                 message += allMessagesForModel.join(", ");
                 message += "<br>";
             }
@@ -79,16 +85,16 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         return message;
     };
 
-    var getAllMessagesForModelAndParameters = function(model, parameters) {
-        if($rootScope.types.get(model) !== $rootScope.types.array) {
-            model = [model];
+    var getAllMessagesForModelAndParameters = function(models, parameters) {
+        if($rootScope.types.get(models) !== $rootScope.types.array) {
+            models = [models];
         }
 
         var allMessages = [];
-        model.forEach(function(aModel) {
+        models.forEach(function(model) {
             var aMessageForModel = "";
             parameters.forEach(function(parameter) {
-                aMessageForModel = aMessageForModel + aModel[parameter] + " ";
+                aMessageForModel = aMessageForModel + model[parameter] + " ";
             });
             allMessages.push(aMessageForModel.trim());
         });
