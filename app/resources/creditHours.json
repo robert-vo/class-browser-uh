@@ -1,40 +1,40 @@
 {
   "availableOptions": [
     {
-      "creditHours": 0
+      "credit-hours": 0
     },
     {
-      "creditHours": 1
+      "credit-hours": 1
     },
     {
-      "creditHours": 1.5
+      "credit-hours": 1.5
     },
     {
-      "creditHours": 2
+      "credit-hours": 2
     },
     {
-      "creditHours": 3
+      "credit-hours": 3
     },
     {
-      "creditHours": 4
+      "credit-hours": 4
     },
     {
-      "creditHours": 5
+      "credit-hours": 5
     },
     {
-      "creditHours": 6
+      "credit-hours": 6
     },
     {
-      "creditHours": 7
+      "credit-hours": 7
     },
     {
-      "creditHours": 8
+      "credit-hours": 8
     },
     {
-      "creditHours": 9
+      "credit-hours": 9
     },
     {
-      "creditHours": 10
+      "credit-hours": 10
     }
   ]
 }

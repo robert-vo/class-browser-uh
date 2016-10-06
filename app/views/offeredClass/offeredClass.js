@@ -89,11 +89,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 if($rootScope.types.get(modelValue) === $rootScope.types.array) {
 
                     for(var i = 0; i < modelValue.length; i++) {
-                        console.log(modelValue[i]);
                         modelValue[i] = modelValue[i][apiParameter];
                     }
-                    var allParameterValuesForGivenmodel = modelValue.join(", ");
-                    message += allParameterValuesForGivenmodel;
+                    var allParameterValuesForGivenModel = modelValue.join(", ");
+                    message += allParameterValuesForGivenModel;
                 }
                 else {
                     message += $scope.$eval(e.modelName)[apiParameter];
@@ -124,11 +123,11 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     $scope.formatModel = [{"format":"Hybrid","isOrNot":"Is"},{"format":"Face to Face","isOrNot":"Not"}];
     $scope.statusModel = {"status":"Closed"};
     $scope.sessionModel = [{"session":4,"sessionTitle":"Session 4"},{"session":2,"sessionTitle":"Session 2"}];
-    $scope.departmentModel = [{"departmentName":"AFSC","departmentFullName":"Air Force Science"},{"departmentName":"ARAB","departmentFullName":"Arabic"}];
+    $scope.subjectModel = [{"subject":"AFSC","subjectFullName":"Air Force Science"},{"subject":"ARAB","subjectFullName":"Arabic"}];
     $scope.buildingModel = [{"buildingID":517,"buildingAbbreviation":"A","buildingName":"Cullen Performance Hall"}];
     $scope.locationModel = [{"location":"UH-Sugar Land"},{"location":"UH-San Antonio-Conrad Hilton"},{"location":"UH"}];
     $scope.componentModel = [{"component":"LEC","componentName":"Lecture"}];
-    $scope.creditHourModel = [{"creditHours":4}];
+    $scope.creditHourModel = [{"credit-hours":4}];
     $scope.weekendUModel = {"weekendU":"No"};
     $scope.coreCategoriesModel = [{"categoryNumber":2,"categoryName":"Mathematics"}];
     $scope.isCoreModel = {"core":"No"};

@@ -58,7 +58,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
             },
             {
                 model: creditHour,
-                parameterToPluck: 'creditHours',
+                parameterToPluck: 'credit-hours',
                 apiParameter: 'credit-hours'
             },
             {
@@ -118,7 +118,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
             }
             else {
                 $scope.subjectMessage = generateMessage($scope.subjectModel, 'Subjects', 'subjectFullName');
-                $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
+                $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'credit-hours');
                 $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
                 $scope.parametersMessage = $scope.subjectMessage +
                     $scope.creditHoursMessage +
