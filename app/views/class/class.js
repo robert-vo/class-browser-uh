@@ -34,7 +34,9 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
         $scope.rowCollection = [];
         $scope.numberOfRows = 0;
 
-        var apiURLs = buildApiUrlsFromModel($scope.departmentModel, $scope.creditHourModel, $scope.coreModel);
+        var apiURLs = buildApiUrlsFromModel($scope.subjectModel, $scope.creditHourModel, $scope.coreModel);
+
+        console.log(apiURLs);
 
         _.each(apiURLs, function(apiURL) {
             $rootScope.httpService.getData(apiURL)
@@ -46,12 +48,12 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
         );
     };
 
-    var buildApiUrlsFromModel = function(department, creditHour, core) {
+    var buildApiUrlsFromModel = function(subject, creditHour, core) {
         var baseUrl = $scope.apiUrl + '/information?';
         var allParametersFromScope = [
             {
-                model: department,
-                parameterToPluck: 'departmentName',
+                model: subject,
+                parameterToPluck: 'subject',
                 apiParameter: 'department'
             },
             {
@@ -115,7 +117,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
                 $scope.parametersMessage = "No parameters were chosen, so all classes have been retrieved.";
             }
             else {
-                $scope.subjectMessage = generateMessage($scope.departmentModel, 'Subjects', 'departmentFullName');
+                $scope.subjectMessage = generateMessage($scope.subjectModel, 'Subjects', 'subjectFullName');
                 $scope.creditHoursMessage = generateMessage($scope.creditHourModel, 'Credit Hours', 'creditHours');
                 $scope.coreMessage = generateMessage($scope.coreModel, 'Core Categories', 'categoryName');
                 $scope.parametersMessage = $scope.subjectMessage +

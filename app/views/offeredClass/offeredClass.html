@@ -117,19 +117,19 @@
                     <div class="col-xs-7 col-md-7 col-sm-7">
 
                         <ol class="nya-bs-select"
-                            ng-model="departmentModel"
+                            ng-model="subjectModel"
                             data-live-search="true"
                             data-selected-text-format={{selectedCountLimit}}
                             id="subject"
                             multiple>
-                            <li nya-bs-option="option in departments.availableOptions">
-                                <a>{{option.departmentName}} : {{ option.departmentFullName }}<span
+                            <li nya-bs-option="option in subject.availableOptions">
+                                <a>{{option.subject}} : {{ option.subjectFullName}}<span
                                         class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
                         </ol>
                     </div>
                     <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('departmentModel')">Clear
+                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('subjectModel')">Clear
                             Subjects
                         </button>
                     </div>
@@ -357,15 +357,15 @@
                     </div>
                 </div>
                 <input
-                    type="submit"
-                    class="btn btn-primary btn-lg btn-block"
-                    value="Search For Classes"
-                    ng-click="findClasses(!!offeredClassSearchForm.$valid)">
+                        type="submit"
+                        class="btn btn-primary btn-lg btn-block"
+                        value="Search For Classes"
+                        ng-click="findClasses(!!offeredClassSearchForm.$valid)">
                 <input
-                    type="button"
-                    class="btn btn-danger btn-lg btn-block"
-                    value="Clear All Fields"
-                    ng-click="clearForms()">
+                        type="button"
+                        class="btn btn-danger btn-lg btn-block"
+                        value="Clear All Fields"
+                        ng-click="clearForms()">
             </form>
         </div>
 
