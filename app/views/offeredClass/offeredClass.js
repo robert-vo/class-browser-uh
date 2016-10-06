@@ -76,13 +76,14 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
                 modelValue.forEach(function(aModel) {
                     if(aModel["isOrNot"] != undefined) {
-                        //for the isOrNot parameters,
-                        //it would have to be something like...
-                        //hybrid=1 (is hybrid)
-                        //online=0 (is not online)
-                        console.log("has is or not");
+                        var apiParameter = aModel[aScopeVariable.apiParameterValueFromModel].split(" ").join("-") +
+                            "=" + (aModel["isOrNot"] == "Is");
+                        console.log(apiParameter);
                     }
-                    console.log(aScopeVariable.apiParameterInEndpoint + "=" + aModel[aScopeVariable.apiParameterValueFromModel]);
+                    else {
+                        var apiParameter = aScopeVariable.apiParameterInEndpoint + "=" + aModel[aScopeVariable.apiParameterValueFromModel];
+                        console.log(apiParameter);
+                    }
                 });
             }
         });
