@@ -24,91 +24,106 @@
       "path": "resources/terms.json",
       "scopeName": "terms",
       "modelName": "termModel",
-      "parameter": "term"
+      "apiParameter": "term",
+      "uiParameter": "Term"
     },
     {
       "path": "resources/format.json",
       "scopeName": "format",
       "modelName": "formatModel",
-      "parameter": "format"
+      "apiParameter": "format",
+      "uiParameter": "Format"
     },
     {
       "path": "resources/status.json",
       "scopeName": "status",
       "modelName": "statusModel",
-      "parameter": "status"
+      "apiParameter": "status",
+      "uiParameter": "Status"
     },
     {
       "path": "resources/session.json",
       "scopeName": "session",
       "modelName": "sessionModel",
-      "parameter": "session"
+      "apiParameter": "session",
+      "uiParameter": "Session"
     },
     {
       "path": "resources/subjects.json",
       "scopeName": "departments",
       "modelName": "departmentModel",
-      "parameter": "subject"
+      "apiParameter": "subject",
+      "uiParameter": "Subject"
     },
     {
       "path": "resources/buildings.json",
       "scopeName": "buildings",
       "modelName": "buildingModel",
-      "parameter": "building"
+      "apiParameter": "building",
+      "uiParameter": "Building"
     },
     {
       "path": "resources/locations.json",
       "scopeName": "locations",
       "modelName": "locationModel",
-      "parameter": "location"
+      "apiParameter": "location",
+      "uiParameter": "Location"
     },
     {
       "path": "resources/component.json",
       "scopeName": "component",
       "modelName": "componentModel",
-      "parameter": "component"
+      "apiParameter": "component",
+      "uiParameter": "Component"
     },
     {
       "path": "resources/creditHours.json",
       "scopeName": "creditHours",
       "modelName": "creditHourModel",
-      "parameter": "credit-hours"
+      "apiParameter": "credit-hours",
+      "uiParameter": "Credit Hours"
     },
     {
       "path": "resources/weekendU.json",
       "scopeName": "weekendU",
       "modelName": "weekendUModel",
-      "parameter": "weekendU"
+      "apiParameter": "weekendU",
+      "uiParameter": "Is WeekendU"
     },
     {
       "path": "resources/coreCategories.json",
       "scopeName": "coreCategories",
       "modelName": "coreCategoriesModel",
-      "parameter": "core"
+      "apiParameter": "core",
+      "uiParameter": "Core Categories"
     },
     {
       "path": "resources/isCore.json",
       "scopeName": "isCore",
       "modelName": "isCoreModel",
-      "parameter": "is-core"
+      "apiParameter": "is-core",
+      "uiParameter": "Is Core"
     },
     {
       "path": "resources/syllabus.json",
       "scopeName": "syllabus",
       "modelName": "syllabusModel",
-      "parameter": "syllabus"
+      "apiParameter": "syllabus",
+      "uiParameter": "Syllabus"
     },
     {
       "path": "resources/classDays.json",
       "scopeName": "classDays",
       "modelName": "classDaysModel",
-      "parameter": "classDays"
+      "apiParameter": "classDays",
+      "uiParameter": "Class Days"
     },
     {
       "path": "",
       "scopeName": "courseNumber",
       "modelName": "courseNumberModel",
-      "parameter": "department-crn"
+      "apiParameter": "department-crn",
+      "uiParameter": "Course Number"
     }
   ]
 }
