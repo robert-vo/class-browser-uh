@@ -63,29 +63,36 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     var generateMessageForAllModels = function() {
         var message = "";
+
         $scope.allJSONAndScopeNames.forEach(function(e) {
             if($scope.$eval(e.modelName) != undefined) {
                 var modelValue = $scope.$eval(e.modelName);
                 var allDisplayParameters = e.displayParameters.split(", ");
+                var allMessagesForModel = getAllMessagesForModelAndParameters(modelValue, allDisplayParameters);
 
-                if($rootScope.types.get(modelValue) !== $rootScope.types.array) {
-                    modelValue = [modelValue];
-                }
-
-                var allMessagesForModel = [];
-                modelValue.forEach(function(model) {
-                    var aMessageForModel = "";
-                    allDisplayParameters.forEach(function(parameter) {
-                        aMessageForModel = aMessageForModel + model[parameter] + " ";
-                    });
-                    allMessagesForModel.push(aMessageForModel.trim());
-                });
                 message += "<b>" + e.uiParameter + "</b>: ";
                 message += allMessagesForModel.join(", ");
                 message += "<br>";
             }
         });
+
         return message;
+    };
+
+    var getAllMessagesForModelAndParameters = function(model, parameters) {
+        if($rootScope.types.get(model) !== $rootScope.types.array) {
+            model = [model];
+        }
+
+        var allMessages = [];
+        model.forEach(function(aModel) {
+            var aMessageForModel = "";
+            parameters.forEach(function(parameter) {
+                aMessageForModel = aMessageForModel + aModel[parameter] + " ";
+            });
+            allMessages.push(aMessageForModel.trim());
+        });
+        return allMessages;
     };
 
     $scope.goBack = function() {
