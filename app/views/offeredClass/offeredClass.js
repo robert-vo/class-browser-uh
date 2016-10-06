@@ -26,7 +26,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     initializeAllJSONAndScopeNames("offeredClass");
 
-    $scope.validValues = ['a', 'A','1','2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    $scope.validValues = ['A','1','2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
     $scope.deleteModel = function() {
         [].slice.call(arguments).forEach(function(arg) {
