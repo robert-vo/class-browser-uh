@@ -112,10 +112,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.showResults = false;
 
         $scope.allJSONAndScopeNames.forEach(function(e) {
-            deleteModel(e.modelName);
+            $scope.deleteModel(e.modelName);
         });
 
-        deleteModel('parametersMessage');
+        $scope.deleteModel('parametersMessage');
 
     };
 
