@@ -154,7 +154,7 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
     };
 
     $scope.clearForms = function() {
-        deleteModel('departmentModel', 'creditHourModel', 'coreModel',
+        deleteModel('subjectModel', 'creditHourModel', 'coreModel',
             'parametersMessage', 'rowCollection', 'hasNoResults', 'isError',
             'isDataLoading');
     };
