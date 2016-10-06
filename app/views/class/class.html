@@ -21,12 +21,12 @@
                 <div class="form-group">
                     <label class="control-label" for="subject"><p>Subjects: </p></label>
                     <ol class="nya-bs-select"
-                        ng-model="departmentModel"
+                        ng-model="subjectModel"
                         data-live-search="true"
                         data-selected-text-format={{selectedCountLimit}}
                         id="subject"
                         multiple>
-                        <li nya-bs-option="option in departments.availableOptions">
+                        <li nya-bs-option="option in subject.availableOptions">
                             <a>{{option.departmentName}} : {{ option.departmentFullName }}<span class="glyphicon glyphicon-ok check-mark"></span></a>
                         </li>
                     </ol>

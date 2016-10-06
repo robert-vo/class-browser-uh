@@ -2,8 +2,8 @@
   "class": [
     {
       "path": "resources/subjects.json",
-      "scopeName": "departments",
-      "modelName": "departmentModel",
+      "scopeName": "subject",
+      "modelName": "subjectModel",
       "parameter": "subject"
     },
     {
