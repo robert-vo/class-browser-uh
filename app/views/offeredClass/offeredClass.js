@@ -65,28 +65,47 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         var allAPIUrls = getAllAPIUrls();
     };
 
-    var getAllAPIUrls = function() {
+    var generateBaseURL = function() {
+        var baseURLWithoutTerm = $scope.apiUrl + "/classes/term=";
+        baseURLWithoutTerm += $scope.$eval('termModel')['term'];
+        baseURLWithoutTerm += "?";
+        return baseURLWithoutTerm;
+    };
+
+    var generateAllParameters = function() {
+        var allParameters = [];
         $scope.allJSONAndScopeNames.forEach(function(aScopeVariable) {
-            if($scope.$eval(aScopeVariable.modelName) != undefined) {
+            if(aScopeVariable.modelName != 'termModel') {
                 var modelValue = $scope.$eval(aScopeVariable.modelName);
+                if (modelValue != undefined) {
+                    if (isNotArray(modelValue)) {
+                        modelValue = [modelValue];
+                    }
 
-                if(isNotArray(modelValue)) {
-                    modelValue = [modelValue];
+                    var currentParameters = [];
+                    modelValue.forEach(function (aModel) {
+                        if (aModel["isOrNot"] != undefined) {
+                            currentParameters.push(aModel[aScopeVariable.apiParameterValueFromModel].split(" ").join("-") +
+                                "=" + (aModel["isOrNot"] == "Is"));
+                        }
+                        else {
+                            currentParameters.push(aScopeVariable.apiParameterInEndpoint + "=" + aModel[aScopeVariable.apiParameterValueFromModel]);
+                        }
+                    });
+                    allParameters.push(currentParameters);
                 }
-
-                modelValue.forEach(function(aModel) {
-                    if(aModel["isOrNot"] != undefined) {
-                        var apiParameter = aModel[aScopeVariable.apiParameterValueFromModel].split(" ").join("-") +
-                            "=" + (aModel["isOrNot"] == "Is");
-                        console.log(apiParameter);
-                    }
-                    else {
-                        var apiParameter = aScopeVariable.apiParameterInEndpoint + "=" + aModel[aScopeVariable.apiParameterValueFromModel];
-                        console.log(apiParameter);
-                    }
-                });
             }
         });
+        return allParameters;
+    };
+
+    var getAllAPIUrls = function() {
+        var baseURL = generateBaseURL();
+        var allParameters = generateAllParameters();
+        var allAPIUrls = allParameters
+            .reduce($rootScope.cartesianProductService.productAdd, [""]);
+
+        return $rootScope.apiURLService.appendParametersAndReturnAPIUrls(allAPIUrls, baseURL);
     };
 
     var generateMessageForAllModels = function() {
