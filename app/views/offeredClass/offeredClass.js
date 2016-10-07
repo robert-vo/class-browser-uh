@@ -54,7 +54,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             $scope.parametersMessage = generateMessageForAllModels();
 
             getAllData().then(function(data) {
-                $scope.rowCollection = data.result;
+                $scope.rowCollection = [];
+                data.forEach(function(aData) {
+                    $scope.rowCollection = $scope.rowCollection.concat(aData.result);
+                });
             }, function(err) {
                 console.log('Unable to get the data given error: ' + err);
             });
