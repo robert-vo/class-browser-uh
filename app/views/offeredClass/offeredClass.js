@@ -53,7 +53,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             $scope.showResults = true;
             $scope.parametersMessage = generateMessageForAllModels();
 
-            $scope.rowCollection = getAllData();
+            getAllData().then(function(data) {
+                $scope.rowCollection = data.result;
+            }, function(err) {
+                console.log('Unable to get the data given error: ' + err);
+            });
+
             $scope.isDataLoading = false;
         }
         else {
@@ -62,7 +67,14 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     var getAllData = function() {
-        var allAPIUrls = getAllAPIUrls();
+        var apiURLs = getAllAPIUrls();
+        var promises = [];
+
+        _.each(apiURLs, function(apiURL) {
+            promises.push($rootScope.httpService.getData(apiURL));
+        });
+
+        return $q.all(promises);
     };
 
     var generateBaseURL = function() {
