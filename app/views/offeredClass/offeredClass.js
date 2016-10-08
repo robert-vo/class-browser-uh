@@ -247,6 +247,20 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.syllabusModel = undefined;
         $scope.classDaysModel = undefined;
         $scope.courseNumberModel = undefined;
-    }
+    };
 
+    $scope.getSyllabus = function(syllabus) {
+        if(syllabus == 'Unavailable') {
+            return "Syllabus Not Available.";
+        }
+        else {
+            return "<button type='button' class='btn btn-primary'>Syllabus</button>";
+        }
+    };
+
+    $scope.openSyllabusInNewWindow = function(syllabusLink) {
+        if(syllabusLink != 'Unavailable') {
+            $window.open(syllabusLink, '_blank');
+        }
+    }
 }]);
