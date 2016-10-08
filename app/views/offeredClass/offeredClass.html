@@ -359,12 +359,14 @@
                         type="submit"
                         class="btn btn-primary btn-lg btn-block"
                         value="Search For Classes"
-                        ng-click="findClasses(!!offeredClassSearchForm.$valid)">
+                        ng-click="findClasses(!!offeredClassSearchForm.$valid)"
+                        ng-show="!isDataLoading">
                 <input
                         type="button"
                         class="btn btn-danger btn-lg btn-block"
                         value="Clear All Fields"
-                        ng-click="clearForms()">
+                        ng-click="clearForms()"
+                        ng-show="!isDataLoading">
             </form>
         </div>
 
