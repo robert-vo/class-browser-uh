@@ -75,6 +75,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                     $scope.warningMessage = "There are no classes found with the categories you have selected. Please try again.";
                 }
                 else if(!$scope.isError) {
+                    console.log($scope.rowCollection);
                     $scope.showResults = true;
                 }
             };
@@ -187,20 +188,65 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
 
-    $scope.termModel = {"term":2000,"year":2016,"semester":"Fall"};
-    $scope.formatModel = [{"format":"Hybrid","isOrNot":"Is"},{"format":"Face to Face","isOrNot":"Not"}];
-    $scope.statusModel = {"status":"Closed"};
-    $scope.sessionModel = [{"session":4,"sessionTitle":"Session 4"},{"session":2,"sessionTitle":"Session 2"}];
-    $scope.subjectModel = [{"subject":"AFSC","subjectFullName":"Air Force Science"},{"subject":"ARAB","subjectFullName":"Arabic"}];
-    $scope.buildingModel = [{"buildingID":517,"building":"A","buildingName":"Cullen Performance Hall"}];
-    $scope.locationModel = [{"location":"UH-Sugar Land"},{"location":"UH-San Antonio-Conrad Hilton"},{"location":"UH"}];
-    $scope.componentModel = [{"component":"LEC","componentName":"Lecture"}];
-    $scope.creditHourModel = [{"credit-hours":4}];
-    $scope.weekendUModel = {"weekendU":"No"};
-    $scope.coreCategoriesModel = [{"categoryNumber":2,"categoryName":"Mathematics"}];
-    $scope.isCoreModel = {"is-core":"No"};
-    $scope.syllabusModel = {"syllabus":"No"};
-    $scope.classDaysModel = [{"day":"Monday","isOrNot":"Is"},{"day":"Sunday","isOrNot":"Is"},{"day":"Tuesday","isOrNot":"Not"}];
-    $scope.courseNumberModel = {"courseNumber": 2410};
+    $scope.selectTestModels = function() {
+        clearAllModels();
+        $scope.termModel = {"term": 2000, "year": 2016, "semester": "Fall"};
+        $scope.formatModel = [{"format": "Hybrid", "isOrNot": "Is"}, {"format": "Face to Face", "isOrNot": "Not"}];
+        $scope.statusModel = {"status": "Closed"};
+        $scope.sessionModel = [{"session": 4, "sessionTitle": "Session 4"}, {
+            "session": 2,
+            "sessionTitle": "Session 2"
+        }];
+        $scope.subjectModel = [{"subject": "AFSC", "subjectFullName": "Air Force Science"}, {
+            "subject": "ARAB",
+            "subjectFullName": "Arabic"
+        }];
+        $scope.buildingModel = [{"buildingID": 517, "building": "A", "buildingName": "Cullen Performance Hall"}];
+        $scope.locationModel = [{"location": "UH-Sugar Land"}, {"location": "UH-San Antonio-Conrad Hilton"}, {"location": "UH"}];
+        $scope.componentModel = [{"component": "LEC", "componentName": "Lecture"}];
+        $scope.creditHourModel = [{"credit-hours": 4}];
+        $scope.weekendUModel = {"weekendU": "No"};
+        $scope.coreCategoriesModel = [{"categoryNumber": 2, "categoryName": "Mathematics"}];
+        $scope.isCoreModel = {"is-core": "No"};
+        $scope.syllabusModel = {"syllabus": "No"};
+        $scope.classDaysModel = [{"day": "Monday", "isOrNot": "Is"}, {
+            "day": "Sunday",
+            "isOrNot": "Is"
+        }, {"day": "Tuesday", "isOrNot": "Not"}];
+        $scope.courseNumberModel = {"courseNumber": 2410};
+    };
+
+    $scope.selectTestModelsTwo = function() {
+        clearAllModels();
+        $scope.termModel = {"term": 2000, "year": 2016, "semester": "Fall"};
+        $scope.weekendUModel = {"weekendU": "Yes"};
+
+
+    };
+
+    $scope.selectTestModelsThree = function() {
+        clearAllModels();
+        $scope.termModel = {"term": 2000, "year": 2016, "semester": "Fall"};
+        $scope.isCoreModel = {"is-core": "Yes"};
+        $scope.formatModel = [{"format": "Online", "isOrNot": "Is"}];
+    };
+
+    var clearAllModels = function() {
+        $scope.termModel = undefined;
+        $scope.formatModel = undefined;
+        $scope.statusModel = undefined;
+        $scope.sessionModel = undefined;
+        $scope.subjectModel = undefined;
+        $scope.buildingModel = undefined;
+        $scope.locationModel = undefined;
+        $scope.componentModel = undefined;
+        $scope.creditHourModel = undefined;
+        $scope.weekendUModel = undefined;
+        $scope.coreCategoriesModel = undefined;
+        $scope.isCoreModel = undefined;
+        $scope.syllabusModel = undefined;
+        $scope.classDaysModel = undefined;
+        $scope.courseNumberModel = undefined;
+    }
 
 }]);
