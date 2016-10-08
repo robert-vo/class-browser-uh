@@ -41,28 +41,48 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             $scope.allJSONAndScopeNames.forEach(function(e) {
                 $scope.deleteModel(e.modelName);
             });
+
+            $scope.deleteModel('warningMessage', 'hasNoResults', 'isError');
         }
     };
 
     $scope.findClasses = function(isValidForm) {
         if(isValidForm) {
             $scope.isDataLoading = true;
-            $scope.isError = false;
             $scope.hasNoResults = false;
-
-            $scope.showResults = true;
+            $scope.isError = false;
             $scope.parametersMessage = generateMessageForAllModels();
 
-            getAllData().then(function(data) {
+            var setRowCollectionFromData = function(data) {
                 $scope.rowCollection = [];
-                data.forEach(function(aData) {
-                    $scope.rowCollection = $scope.rowCollection.concat(aData.result);
+                $scope.numberOfRows = 0;
+                data.forEach(function(aRow) {
+                    $scope.numberOfRows += aRow.numberOfRows;
+                    $scope.rowCollection = $scope.rowCollection.concat(aRow.result);
                 });
-            }, function(err) {
-                console.log('Unable to get the data given error: ' + err);
-            });
+            };
 
-            $scope.isDataLoading = false;
+            var onError = function(err) {
+                console.log('Unable to get the data given error: ' + err);
+                $scope.isError = true;
+            };
+
+            var finallyDo = function() {
+                $scope.isDataLoading = false;
+
+                if($scope.numberOfRows == 0 && !$scope.isError) {
+                    $scope.hasNoResults = true;
+                    $scope.warningMessage = "There are no classes found with the categories you have selected. Please try again.";
+                }
+                else if(!$scope.isError) {
+                    $scope.showResults = true;
+                }
+            };
+
+            getAllData()
+                .then(setRowCollectionFromData)
+                .catch(onError)
+                .finally(finallyDo);
         }
         else {
             alert("Please select a class term.");
@@ -164,13 +184,6 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     $scope.goBack = function() {
         console.log('Going back to offered class search page.');
         $scope.showResults = false;
-
-        $scope.allJSONAndScopeNames.forEach(function(e) {
-            $scope.deleteModel(e.modelName);
-        });
-
-        $scope.deleteModel('parametersMessage');
-
     };
 
 
