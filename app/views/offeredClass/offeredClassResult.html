@@ -16,13 +16,7 @@
     <thead>
     <tr>
         <th class="sortable" st-sort="attributes">attributes</th>
-        <th class="sortable" st-sort="classDays.monday">Monday</th>
-        <th class="sortable" st-sort="classDays.tuesday">Tuesday</th>
-        <th class="sortable" st-sort="classDays.wednesday">Wednesday</th>
-        <th class="sortable" st-sort="classDays.thursday">Thursday</th>
-        <th class="sortable" st-sort="classDays.friday">Friday</th>
-        <th class="sortable" st-sort="classDays.saturday">Saturday</th>
-        <th class="sortable" st-sort="classDays.sunday">Sunday</th>
+        <th>Class Days</th>
         <th class="sortable" st-sort="classReferenceNumber">CRN</th>
         <th class="sortable" st-sort="classStatus">Status</th>
         <th class="sortable" st-sort="classTitle">Title</th>
@@ -62,13 +56,14 @@
     <tbody>
     <tr ng-repeat="row in displayed">
         <td>{{row.attributes}}</td>
-        <td>{{row.classDays.monday ? "✓" : "✗"}}</td>
-        <td>{{row.classDays.tuesday ? "✓" : "✗"}}</td>
-        <td>{{row.classDays.wednesday ? "✓" : "✗"}}</td>
-        <td>{{row.classDays.thursday ? "✓" : "✗"}}</td>
-        <td>{{row.classDays.friday ? "✓" : "✗"}}</td>
-        <td>{{row.classDays.saturday ? "✓" : "✗"}}</td>
-        <td>{{row.classDays.sunday ? "✓" : "✗"}}</td>
+        <td>{{getClassDays(row.classDays)}}</td>
+        <!--<td>{{row.classDays.monday ? "✓" : "✗"}}</td>-->
+        <!--<td>{{row.classDays.tuesday ? "✓" : "✗"}}</td>-->
+        <!--<td>{{row.classDays.wednesday ? "✓" : "✗"}}</td>-->
+        <!--<td>{{row.classDays.thursday ? "✓" : "✗"}}</td>-->
+        <!--<td>{{row.classDays.friday ? "✓" : "✗"}}</td>-->
+        <!--<td>{{row.classDays.saturday ? "✓" : "✗"}}</td>-->
+        <!--<td>{{row.classDays.sunday ? "✓" : "✗"}}</td>-->
         <td>{{row.classReferenceNumber}}</td>
         <td>{{row.classStatus}}</td>
         <td>{{row.classTitle}}</td>
@@ -84,8 +79,8 @@
         <td>{{row.description}}</td>
         <td>{{row.duration}}</td>
         <td>{{row.format}}</td>
-        <td>{{row.departmentInformation.instructor}}</td>
-        <td>{{row.departmentInformation.instructorEmail}}</td>
+        <td>{{row.instructorInformation.instructor}}</td>
+        <td>{{row.instructorInformation.instructorEmail}}</td>
         <td>{{row.lastUpdated}}</td>
         <!--<td>{{row.locationInformation.buildingAbbreviation}}</td>-->
         <!--<td>{{row.locationInformation.buildingID}}</td>-->
