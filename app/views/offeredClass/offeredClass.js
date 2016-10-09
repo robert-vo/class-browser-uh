@@ -38,10 +38,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         var clearFormDialogConfirmation = $window.confirm('Are you sure you want to clear the entire form?');
 
         if (clearFormDialogConfirmation) {
-            $scope.allJSONAndScopeNames.forEach(function(e) {
-                $scope.deleteModel(e.modelName);
-            });
-
+            clearAllModels();
             $scope.deleteModel('warningMessage', 'hasNoResults', 'isError');
         }
     };
@@ -231,22 +228,19 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.formatModel = [{"format": "Online", "isOrNot": "Is"}];
     };
 
+    $scope.selectTestModelsOneClassResult = function() {
+        clearAllModels();
+        $scope.termModel = {"term": 2000, "year": 2016, "semester": "Fall"};
+        $scope.formatModel = [{"format": "Online", "isOrNot": "Is"}];
+        $scope.sessionModel = [{"session": 6, "sessionTitle": "Session 6"}];
+        $scope.subjectModel = [{"subject": "SOC", "subjectFullName": "Sociology"}];
+
+    };
+
     var clearAllModels = function() {
-        $scope.termModel = undefined;
-        $scope.formatModel = undefined;
-        $scope.statusModel = undefined;
-        $scope.sessionModel = undefined;
-        $scope.subjectModel = undefined;
-        $scope.buildingModel = undefined;
-        $scope.locationModel = undefined;
-        $scope.componentModel = undefined;
-        $scope.creditHourModel = undefined;
-        $scope.weekendUModel = undefined;
-        $scope.coreCategoriesModel = undefined;
-        $scope.isCoreModel = undefined;
-        $scope.syllabusModel = undefined;
-        $scope.classDaysModel = undefined;
-        $scope.courseNumberModel = undefined;
+        $scope.allJSONAndScopeNames.forEach(function(e) {
+            $scope.deleteModel(e.modelName);
+        });
     };
 
     $scope.getSyllabus = function(syllabus) {
@@ -262,5 +256,60 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         if(syllabusLink != 'Unavailable') {
             $window.open(syllabusLink, '_blank');
         }
+    };
+
+    $scope.getClassDays = function(classDays) {
+        var classDaysString = "";
+
+        var allClassDays = [
+                {
+                    "classDay": "monday",
+                    "classAbbreviation": "Mo"
+                },
+                {
+                    "classDay": "tuesday",
+                    "classAbbreviation": "Tu"
+                },
+                {
+                    "classDay": "wednesday",
+                    "classAbbreviation": "We"
+                },
+                {
+                    "classDay": "thursday",
+                    "classAbbreviation": "Th"
+                },
+                {
+                    "classDay": "friday",
+                    "classAbbreviation": "Fr"
+                },
+                {
+                    "classDay": "saturday",
+                    "classAbbreviation": "Sa"
+                },
+                {
+                    "classDay": "sunday",
+                    "classAbbreviation": "Su"
+                }
+            ];
+
+        allClassDays.forEach(function(e) {
+            // console.log(classDays);
+            // console.log(classDays["classDay"]);
+            // console.log(classDays.classDay);
+            // console.log(e);
+            // if(classDays[e]) {
+            //     console.log("falls on class day");
+            // }
+            // else {
+            //     console.log("erfghiu");
+            // }
+        });
+
+        if(classDays.monday) {
+            classDaysString += "Mo";
+        }
+
+
+        return classDaysString;
     }
 }]);
