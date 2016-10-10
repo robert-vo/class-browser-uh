@@ -56,5 +56,35 @@
       "day": "Sunday",
       "isOrNot": "Is"
     }
+  ],
+  "dayAbbreviations": [
+    {
+      "classDay": "monday",
+      "classDayAbbreviation": "Mo"
+    },
+    {
+      "classDay": "tuesday",
+      "classDayAbbreviation": "Tu"
+    },
+    {
+      "classDay": "wednesday",
+      "classDayAbbreviation": "We"
+    },
+    {
+      "classDay": "thursday",
+      "classDayAbbreviation": "Th"
+    },
+    {
+      "classDay": "friday",
+      "classDayAbbreviation": "Fr"
+    },
+    {
+      "classDay": "saturday",
+      "classDayAbbreviation": "Sa"
+    },
+    {
+      "classDay": "sunday",
+      "classDayAbbreviation": "Su"
+    }
   ]
 }
