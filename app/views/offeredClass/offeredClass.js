@@ -262,15 +262,15 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     $scope.getClassDays = function(classDaysForAClass) {
-        var classDaysString = "";
         var allClassDays = $scope.classDays.dayAbbreviations;
 
-        allClassDays.forEach(function(day) {
-            if(classDaysForAClass[day.classDay]) {
-                classDaysString += day.classDayAbbreviation;
-            }
-        });
-
-        return classDaysString != "" ? classDaysString : "No Class Days";
+        return allClassDays
+                .filter(function(aClassDay) {
+                    return classDaysForAClass[aClassDay.classDay];
+                })
+                .map(function(aClassDay) {
+                    return aClassDay.classDayAbbreviation;
+                })
+                .join("") || "No Class Days";
     }
 }]);
