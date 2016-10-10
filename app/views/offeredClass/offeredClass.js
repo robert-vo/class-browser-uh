@@ -184,6 +184,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.showResults = false;
     };
 
+    $scope.printDates = function(startDate, endDate) {
+        return startDate.replace("-", "/") + " to " + endDate.replace("-", "/");
+    };
+
 
     $scope.selectTestModels = function() {
         clearAllModels();
