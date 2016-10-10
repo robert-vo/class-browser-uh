@@ -1,4 +1,4 @@
-<link href="views/templates/tableStyle.css" rel="stylesheet">
+<!--<link href="views/templates/tableStyle.css" rel="stylesheet">-->
 <link href="views/templates/tableSort.css" rel="stylesheet">
 <link href="views/templates/searchFieldClear.css" rel="stylesheet">
 
@@ -96,9 +96,8 @@
         <!--<td>{{row.termInformation.termID}}</td>-->
         <!--<td>{{row.termInformation.year}}</td>-->
     </tr>
-    </tbody>
-    <tfoot>
-    <tr>
+
+    <tr ng-show="rowCollection.length > 10">
         <td colspan="5" class="text-center">
             <div st-items-by-page="10"
                  st-pagination=""
@@ -106,5 +105,6 @@
             </div>
         </td>
     </tr>
-    </tfoot>
+
+    </tbody>
 </table>

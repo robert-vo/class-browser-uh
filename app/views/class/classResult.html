@@ -32,9 +32,8 @@
         <td>{{row.credit_hours}}</td>
         <td>{{row.class_description}}</td>
     </tr>
-    </tbody>
-    <tfoot>
-    <tr>
+
+    <tr ng-show="rowCollection.length > 10">
         <td colspan="5" class="text-center">
             <div st-items-by-page="10"
                  st-pagination=""
@@ -42,5 +41,5 @@
             </div>
         </td>
     </tr>
-    </tfoot>
+    </tbody>
 </table>
