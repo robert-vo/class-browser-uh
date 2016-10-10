@@ -72,7 +72,6 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                     $scope.warningMessage = "There are no classes found with the categories you have selected. Please try again.";
                 }
                 else if(!$scope.isError) {
-                    console.log($scope.rowCollection);
                     $scope.showResults = true;
                 }
             };
@@ -264,56 +263,14 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     $scope.getClassDays = function(classDays) {
         var classDaysString = "";
+        var allClassDays = $scope.classDays.dayAbbreviations;
 
-        var allClassDays = [
-                {
-                    "classDay": "monday",
-                    "classAbbreviation": "Mo"
-                },
-                {
-                    "classDay": "tuesday",
-                    "classAbbreviation": "Tu"
-                },
-                {
-                    "classDay": "wednesday",
-                    "classAbbreviation": "We"
-                },
-                {
-                    "classDay": "thursday",
-                    "classAbbreviation": "Th"
-                },
-                {
-                    "classDay": "friday",
-                    "classAbbreviation": "Fr"
-                },
-                {
-                    "classDay": "saturday",
-                    "classAbbreviation": "Sa"
-                },
-                {
-                    "classDay": "sunday",
-                    "classAbbreviation": "Su"
-                }
-            ];
-
-        allClassDays.forEach(function(e) {
-            // console.log(classDays);
-            // console.log(classDays["classDay"]);
-            // console.log(classDays.classDay);
-            // console.log(e);
-            // if(classDays[e]) {
-            //     console.log("falls on class day");
-            // }
-            // else {
-            //     console.log("erfghiu");
-            // }
+        allClassDays.forEach(function(day) {
+            if(classDays[day.classDay]) {
+                classDaysString += day.classDayAbbreviation;
+            }
         });
 
-        if(classDays.monday) {
-            classDaysString += "Mo";
-        }
-
-
-        return classDaysString;
+        return classDaysString != "" ? classDaysString : "No Class Days";
     }
 }]);
