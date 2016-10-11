@@ -288,11 +288,17 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     $scope.displayDetailedOfferedClass = function(aClass) {
         $scope.displayDetailed = true;
         $scope.detailedClass = aClass;
+        $scope.detailedOfferedClassMessage = aClass.classTitle;
     };
 
     $scope.exitDisplayDetailedOfferedClass = function() {
         $scope.displayDetailed = false;
         $scope.detailedClass = undefined;
     };
+
+    $scope.printSeatInformation = function(status, seatInformation) {
+        return status + " (" + seatInformation.seatsTaken + "/" +
+            seatInformation.seatsTotal + ")";
+    }
 
 }]);
