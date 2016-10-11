@@ -15,13 +15,14 @@
        class="table table-bordered table-striped">
     <thead>
     <tr>
+        <th>View More Information</th>
         <th class="sortable" st-sort="attributes">attributes</th>
         <th>Class Days</th>
         <th class="sortable" st-sort="classReferenceNumber">CRN</th>
         <th class="sortable" st-sort="classStatus">Status</th>
         <th class="sortable" st-sort="classTitle">Title</th>
         <th class="sortable" st-sort="component">Component</th>
-        <th class="sortable" st-sort="core">core</th>
+        <th class="sortable" st-sort="core">Core Categories</th>
         <th class="sortable" st-sort="dateTimeInformation.startTime">Start Time</th>
         <th class="sortable" st-sort="dateTimeInformation.endTime">End Time</th>
         <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
@@ -55,6 +56,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="row in displayed">
+        <td ng-click="displayDetailedOfferedClass(row)">View Class</td>
         <td>{{row.attributes}}</td>
         <td>{{getClassDays(row.classDays)}}</td>
         <!--<td>{{row.classDays.monday ? "✓" : "✗"}}</td>-->
@@ -68,7 +70,7 @@
         <td>{{row.classStatus}}</td>
         <td>{{row.classTitle}}</td>
         <td>{{row.component}}</td>
-        <td>{{row.core}}</td>
+        <td>{{printCoreCategories(row.core)}}</td>
         <td>{{row.dateTimeInformation.startTime}}</td>
         <td>{{row.dateTimeInformation.endTime}}</td>
         <td>{{printDates(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>

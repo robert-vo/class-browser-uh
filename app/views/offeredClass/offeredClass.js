@@ -272,5 +272,16 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                     return aClassDay.classDayAbbreviation;
                 })
                 .join("") || "No Class Days";
-    }
+    };
+
+    $scope.printCoreCategories = function(coreCategories) {
+        return coreCategories
+                .filter(function(aCoreCategory) {
+                    return aCoreCategory.length != 0;
+                })
+                .map(function(aCoreCategory) {
+                    return $scope.coreCategories.availableOptions[aCoreCategory - 1].categoryName;
+                })
+                .join(", ") || "Not a core class.";
+    };
 }]);
