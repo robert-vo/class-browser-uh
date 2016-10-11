@@ -2,20 +2,22 @@
     Back To Offered Class Results
 </button>
 
+<h2>Detailed Offered Class</h2>
+<p ng-bind-html="detailedOfferedClassMessage"></p>
+
 <br>
-termInformation.termID => {{detailedClass.termInformation.termID}}<br>
-termInformation.year => {{detailedClass.termInformation.year}}<br>
-termInformation.semester => {{detailedClass.termInformation.semester}}<br>
-classTitle => {{detailedClass.classTitle}}<br>
-departmentInformation.department => {{detailedClass.departmentInformation.department}}<br>
-departmentInformation.departmentName => {{detailedClass.departmentInformation.departmentName}}<br>
-departmentInformation.departmentCRN => {{detailedClass.departmentInformation.departmentCRN}}<br>
-departmentInformation.credit_hours => {{detailedClass.departmentInformation.credit_hours}}<br>
-classStatus => {{detailedClass.classStatus}}<br>
-classReferenceNumber => {{detailedClass.classReferenceNumber}}<br>
-seatInformation.seatsTaken => {{detailedClass.seatInformation.seatsTaken}}<br>
-seatInformation.seatsAvailable => {{detailedClass.seatInformation.seatsAvailable}}<br>
-seatInformation.seatsTotal => {{detailedClass.seatInformation.seatsTotal}}<br>
+<b>Year</b>: {{detailedClass.termInformation.year}}<br>
+Semester => {{detailedClass.termInformation.semester}}<br>
+Title => {{detailedClass.classTitle}}<br>
+Department => {{detailedClass.departmentInformation.department}}<br>
+Department Name => {{detailedClass.departmentInformation.departmentName}}<br>
+Department CRN => {{detailedClass.departmentInformation.departmentCRN}}<br>
+Credit Hours => {{detailedClass.departmentInformation.credit_hours}}<br>
+Status => {{detailedClass.classStatus}}<br>
+CRN => {{detailedClass.classReferenceNumber}}<br>
+Seats Taken => {{detailedClass.seatInformation.seatsTaken}}<br>
+Seats Available => {{detailedClass.seatInformation.seatsAvailable}}<br>
+Seats Total => {{detailedClass.seatInformation.seatsTotal}}<br>
 dateTimeInformation.startDate => {{detailedClass.dateTimeInformation.startDate}}<br>
 dateTimeInformation.endDate => {{detailedClass.dateTimeInformation.endDate}}<br>
 dateTimeInformation.startTime => {{detailedClass.dateTimeInformation.startTime}}<br>
