@@ -93,7 +93,7 @@
             <!--<td>{{row.seatInformation.seatsTaken}}</td>-->
             <!--<td>{{row.seatInformation.seatsTotal}}</td>-->
             <td>{{row.session}}</td>
-            <td ng-click="openSyllabusInNewWindow(row.syllabus)">{{getSyllabus(row.syllabus)}}</td>
+            <td ng-bind-html="getSyllabus(row.syllabus)"></td>
                 <!--{{(row.syllabus != 'Unavailable') ? '<a href={{row.syllabus}}>hi</a>' : "Unavailable"}}</td>-->
             <!--<td>{{row.termInformation.semester}}</td>-->
             <!--<td>{{row.termInformation.termID}}</td>-->
