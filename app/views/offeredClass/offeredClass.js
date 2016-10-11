@@ -284,4 +284,15 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 })
                 .join(", ") || "Not a core class.";
     };
+
+    $scope.displayDetailedOfferedClass = function(aClass) {
+        $scope.displayDetailed = true;
+        $scope.detailedClass = aClass;
+    };
+
+    $scope.exitDisplayDetailedOfferedClass = function() {
+        $scope.displayDetailed = false;
+        $scope.detailedClass = undefined;
+    };
+
 }]);
