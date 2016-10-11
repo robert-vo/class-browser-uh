@@ -251,13 +251,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             return "Syllabus Not Available.";
         }
         else {
-            return "<button type='button' class='btn btn-primary'>Syllabus</button>";
-        }
-    };
-
-    $scope.openSyllabusInNewWindow = function(syllabusLink) {
-        if(syllabusLink != 'Unavailable') {
-            $window.open(syllabusLink, '_blank');
+            return "<a href=" + syllabus + " target=_blank>Syllabus</a>";
         }
     };
 
