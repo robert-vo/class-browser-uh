@@ -59,7 +59,7 @@
             </form>
         </div>
 
-        <loading-icon></loading-icon>
+        <md-progress-circular style="display: block; margin: 0 auto;" ng-if="isDataLoading" md-mode="indeterminate"></md-progress-circular>
         <error-message-box></error-message-box>
         <warning-message-box></warning-message-box>
 
