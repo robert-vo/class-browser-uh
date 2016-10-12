@@ -25,8 +25,7 @@
             <th class="sortable" st-sort="classTitle">Title</th>
             <!--<th class="sortable" st-sort="component">Component</th>-->
             <th class="sortable" st-sort="core">Core Categories</th>
-            <th class="sortable" st-sort="dateTimeInformation.startTime">Start Time</th>
-            <th class="sortable" st-sort="dateTimeInformation.endTime">End Time</th>
+            <th class="sortable" st-sort="dateTimeInformation.startTime">Meeting Times</th>
             <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
             <!--<th class="sortable" st-sort="dateTimeInformation.endDate">End Date</th>-->
             <!--<th class="sortable" st-sort="departmentInformation.credit_hours">Credit Hours</th>-->
@@ -73,8 +72,7 @@
             <td>{{row.classTitle}}</td>
             <!--<td>{{row.component}}</td>-->
             <td>{{printCoreCategories(row.core)}}</td>
-            <td>{{row.dateTimeInformation.startTime}}</td>
-            <td>{{row.dateTimeInformation.endTime}}</td>
+            <td>{{getTimes(row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
             <td>{{printDates(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
             <!--<td>{{row.departmentInformation.credit_hours}}</td>-->
             <!--<td>{{row.departmentInformation.departmentName}}</td>-->
