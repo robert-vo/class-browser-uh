@@ -13,7 +13,8 @@ angular.module('classBrowserUHApp', [
     'smart-table',
     'nya.bootstrap.select',
     'ngSanitize',
-    'angular.backtop'
+    'angular.backtop',
+    'ngMaterial'
 ]).controller('EnvVarCtrl', ['$scope', 'envService', function ($scope, envService) {
     $scope.environment = envService.get();
     $scope.vars = envService.read('all');
