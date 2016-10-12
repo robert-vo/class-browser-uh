@@ -29,8 +29,8 @@
             <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
             <!--<th class="sortable" st-sort="dateTimeInformation.endDate">End Date</th>-->
             <!--<th class="sortable" st-sort="departmentInformation.credit_hours">Credit Hours</th>-->
-            <th class="sortable" st-sort="departmentInformation.department">Department</th>
-            <th class="sortable" st-sort="departmentInformation.departmentCRN">DepartmentCRN</th>
+            <th class="sortable" st-sort="departmentInformation.department">Subject & Course Number</th>
+            <!--<th class="sortable" st-sort="departmentInformation.departmentCRN">DepartmentCRN</th>-->
             <!--<th class="sortable" st-sort="departmentInformation.departmentName">departmentInformation.departmentName</th>-->
             <th class="sortable" st-sort="description">Description</th>
             <!--<th class="sortable" st-sort="duration">Duration</th>-->
@@ -76,8 +76,7 @@
             <td>{{row.dateTimeInformation.endTime}}</td>
             <td>{{printDates(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
             <!--<td>{{row.departmentInformation.credit_hours}}</td>-->
-            <td>{{row.departmentInformation.department}}</td>
-            <td>{{row.departmentInformation.departmentCRN}}</td>
+            <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}}</td>
             <!--<td>{{row.departmentInformation.departmentName}}</td>-->
             <td>{{row.description}}</td>
             <!--<td>{{row.duration}}</td>-->
