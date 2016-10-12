@@ -291,8 +291,28 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     $scope.getMeetingTimesMessage = function(startTime, endTime) {
-        console.log(startTime);
-        return startTime + " " + endTime;
+        if(startTime == "" && endTime == "") {
+            return "Class does not meet in person.";
+        }
+        else {
+            var newStartTime = convertClassTimeToAMPM(startTime);
+            var newEndTime = convertClassTimeToAMPM(endTime);
+            return newStartTime + " - " + newEndTime;
+        }
+    };
+
+    var convertClassTimeToAMPM = function(time) {
+        var hours = parseInt(time.substr(0, 2));
+        var minutes = time.substr(3, 2);
+        var isPM = false;
+
+        if(hours - 12 >= 0) {
+            isPM = true;
+        }
+
+        var baseTime = hours + ":" + minutes;
+
+        return isPM ? baseTime + "P.M." : baseTime + "A.M.";
     };
 
     $scope.getMeetingDatesMessage = function(startDate, endDate) {
