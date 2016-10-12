@@ -183,11 +183,6 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.showResults = false;
     };
 
-    $scope.printDates = function(startDate, endDate) {
-        return startDate.replace("-", "/") + " to " + endDate.replace("-", "/");
-    };
-
-
     $scope.selectTestModels = function() {
         clearAllModels();
         $scope.termModel = {"term": 2000, "year": 2016, "semester": "Fall"};
@@ -296,7 +291,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     $scope.getMeetingTimesMessage = function(startTime, endTime) {
+        console.log(startTime);
         return startTime + " " + endTime;
+    };
+
+    $scope.getMeetingDatesMessage = function(startDate, endDate) {
+        return startDate.replace("-", "/") + " to " + endDate.replace("-", "/");
     };
 
 }]);
