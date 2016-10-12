@@ -25,13 +25,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="row in displayed">
+    <tr ng-repeat="row in displayed" ng-if="!isWindowSmall()">
         <td>{{row.department}}</td>
         <td>{{row.department_crn}}</td>
         <td>{{row.class_title}}</td>
         <td>{{row.credit_hours}}</td>
         <td>{{row.class_description}}</td>
     </tr>
+
+    <tr ng-repeat="row in displayed" ng-if="isWindowSmall()">
+        <td><b>Subject & Course Number:</b> {{row.department}} {{row.department_crn}}</td>
+        <td><b>Class Title:</b> {{row.class_title}}</td>
+        <td><b>Credit Hours:</b> {{row.credit_hours}}</td>
+        <td><b>Description:</b> {{row.class_description}}</td>
+    </tr>
+
 
     <tr ng-show="rowCollection.length > 10">
         <td colspan="5" class="text-center">
