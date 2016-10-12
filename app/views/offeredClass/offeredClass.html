@@ -15,7 +15,7 @@
         <button class="btn" ng-click="selectTestModelsThree()">Test 3</button>
         <button class="btn" ng-click="selectTestModelsOneClassResult()">One Class</button>
 
-        <div id="classSearch" ng-show="!showResults">
+        <div id="classSearch" ng-show="!showResults && !isDataLoading">
             <h2>Offered Class Search</h2>
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
                 <div class="row">
@@ -375,7 +375,7 @@
             </form>
         </div>
 
-        <loading-icon></loading-icon>
+        <md-progress-circular style="display: block; margin: 0 auto;" ng-if="isDataLoading" md-mode="indeterminate"></md-progress-circular>
         <error-message-box></error-message-box>
         <warning-message-box></warning-message-box>
 
