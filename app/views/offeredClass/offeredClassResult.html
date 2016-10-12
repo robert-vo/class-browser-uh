@@ -17,6 +17,7 @@
         <tr>
 
             <th>View More Information</th>
+            <th class="sortable" st-sort="departmentInformation.department">Subject & Course Number</th>
             <!--<th class="sortable" st-sort="attributes">attributes</th>-->
             <th>Class Days</th>
             <th class="sortable" st-sort="classReferenceNumber">CRN</th>
@@ -29,14 +30,13 @@
             <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
             <!--<th class="sortable" st-sort="dateTimeInformation.endDate">End Date</th>-->
             <!--<th class="sortable" st-sort="departmentInformation.credit_hours">Credit Hours</th>-->
-            <th class="sortable" st-sort="departmentInformation.department">Subject & Course Number</th>
             <!--<th class="sortable" st-sort="departmentInformation.departmentCRN">DepartmentCRN</th>-->
             <!--<th class="sortable" st-sort="departmentInformation.departmentName">departmentInformation.departmentName</th>-->
             <th class="sortable" st-sort="description">Description</th>
             <!--<th class="sortable" st-sort="duration">Duration</th>-->
             <th class="sortable" st-sort="format">Format</th>
             <th class="sortable" st-sort="departmentInformation.instructor">Instructor Name</th>
-            <th class="sortable" st-sort="departmentInformation.instructorEmail">Instructor's Email</th>
+            <!--<th class="sortable" st-sort="departmentInformation.instructorEmail">Instructor's Email</th>-->
             <!--<th class="sortable" st-sort="lastUpdated">Last Updated</th>-->
             <!--<th class="sortable" st-sort="locationInformation.buildingAbbreviation">Building Abbreviation</th>-->
             <!--<th class="sortable" st-sort="locationInformation.buildingID">locationInformation.buildingID</th>-->
@@ -57,7 +57,8 @@
         </thead>
         <tbody>
         <tr ng-repeat="row in displayed">
-            <td ng-click="displayDetailedOfferedClass(row)">View Class</td>
+            <td ng-click="displayDetailedOfferedClass(row)">  <button type="button" class="btn btn-info">Info</button></td>
+            <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}}</td>
             <!--<td>{{row.attributes}}</td>-->
             <td>{{getClassDays(row.classDays)}}</td>
             <!--<td>{{row.classDays.monday ? "✓" : "✗"}}</td>-->
@@ -76,13 +77,11 @@
             <td>{{row.dateTimeInformation.endTime}}</td>
             <td>{{printDates(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
             <!--<td>{{row.departmentInformation.credit_hours}}</td>-->
-            <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}}</td>
             <!--<td>{{row.departmentInformation.departmentName}}</td>-->
             <td>{{row.description}}</td>
             <!--<td>{{row.duration}}</td>-->
             <td>{{row.format}}</td>
-            <td>{{row.instructorInformation.instructor}}</td>
-            <td>{{row.instructorInformation.instructorEmail}}</td>
+            <td>{{row.instructorInformation.instructor}} <br><span class="glyphicon glyphicon-envelope"></span>{{row.instructorInformation.instructorEmail}}</td>
             <!--<td>{{row.lastUpdated}}</td>-->
             <!--<td>{{row.locationInformation.buildingAbbreviation}}</td>-->
             <!--<td>{{row.locationInformation.buildingID}}</td>-->
