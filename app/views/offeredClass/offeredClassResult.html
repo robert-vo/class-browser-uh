@@ -59,7 +59,7 @@
             <td ng-click="displayDetailedOfferedClass(row)">  <button type="button" class="btn btn-info">Info</button></td>
             <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}}</td>
             <!--<td>{{row.attributes}}</td>-->
-            <td>{{getClassDays(row.classDays)}}</td>
+            <td>{{getClassDaysMessage(row.classDays)}}</td>
             <!--<td>{{row.classDays.monday ? "✓" : "✗"}}</td>-->
             <!--<td>{{row.classDays.tuesday ? "✓" : "✗"}}</td>-->
             <!--<td>{{row.classDays.wednesday ? "✓" : "✗"}}</td>-->
@@ -68,12 +68,12 @@
             <!--<td>{{row.classDays.saturday ? "✓" : "✗"}}</td>-->
             <!--<td>{{row.classDays.sunday ? "✓" : "✗"}}</td>-->
             <td>{{row.classReferenceNumber}}</td>
-            <td>{{printSeatInformation(row.classStatus, row.seatInformation)}}</td>
+            <td>{{getSeatInformationMessage(row.classStatus, row.seatInformation)}}</td>
             <td>{{row.classTitle}}</td>
             <!--<td>{{row.component}}</td>-->
-            <td>{{printCoreCategories(row.core)}}</td>
-            <td>{{getTimes(row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
-            <td>{{printDates(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
+            <td>{{getCoreCategoriesMessage(row.core)}}</td>
+            <td>{{getMeetingTimesMessage(row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
+            <td>{{getMeetingDatesMessage(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
             <!--<td>{{row.departmentInformation.credit_hours}}</td>-->
             <!--<td>{{row.departmentInformation.departmentName}}</td>-->
             <td>{{row.description}}</td>
