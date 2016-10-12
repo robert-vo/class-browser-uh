@@ -255,7 +255,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         }
     };
 
-    $scope.getClassDays = function(classDaysForAClass) {
+    $scope.getClassDaysMessage = function(classDaysForAClass) {
         var allClassDays = $scope.classDays.dayAbbreviations;
 
         return allClassDays
@@ -268,7 +268,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 .join("") || "No Class Days";
     };
 
-    $scope.printCoreCategories = function(coreCategories) {
+    $scope.getCoreCategoriesMessage = function(coreCategories) {
         return coreCategories
                 .filter(function(aCoreCategory) {
                     return aCoreCategory.length != 0;
@@ -290,9 +290,13 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.detailedClass = undefined;
     };
 
-    $scope.printSeatInformation = function(status, seatInformation) {
+    $scope.getSeatInformationMessage = function(status, seatInformation) {
         return status + " (" + seatInformation.seatsTaken + "/" +
             seatInformation.seatsTotal + ")";
-    }
+    };
+
+    $scope.getMeetingTimesMessage = function(startTime, endTime) {
+        return startTime + " " + endTime;
+    };
 
 }]);
