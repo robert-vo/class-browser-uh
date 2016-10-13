@@ -8,8 +8,45 @@
 
     <div class="demo-dialog-content">
         <p>
-            something {{ctrl.getClass()}} else
-            You hit the secret button. Here's a donut:
+            <span ng-bind-html="ctrl.getClassAttribute('attributes')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.friday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.monday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.saturday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.sunday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.thursday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.tuesday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classDays.wednesday')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classReferenceNumber')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classStatus')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('classTitle')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('component')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('core')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('dateTimeInformation.endDate')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('dateTimeInformation.endTime')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('dateTimeInformation.startDate')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('dateTimeInformation.startTime')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('departmentInformation.credit_hours')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('departmentInformation.department')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('departmentInformation.departmentCRN')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('departmentInformation.departmentName')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('description')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('duration')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('format')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('instructorInformation.instructor')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('instructorInformation.instructorEmail')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('lastUpdated')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('locationInformation.buildingAbbreviation')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('locationInformation.buildingID')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('locationInformation.buildingName')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('locationInformation.location')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('seatInformation.seatsAvailable')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('seatInformation.seatsTaken')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('seatInformation.seatsTotal')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('session')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('syllabus')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('termInformation.semester')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('termInformation.termID')"></span>
+            <span ng-bind-html="ctrl.getClassAttribute('termInformation.year')"></span>
         </p>
     </div>
 
