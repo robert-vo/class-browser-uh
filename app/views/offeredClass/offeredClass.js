@@ -62,6 +62,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
             var onError = function(err) {
                 console.log('Unable to get the data given error: ' + err);
                 $scope.isError = true;
+                $scope.errorMessage = "An error has occurred while trying to retrieve the classes. Please try again later.";
             };
 
             var finallyDo = function() {
