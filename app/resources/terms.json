@@ -9,9 +9,14 @@
       "term": 2000,
       "year": 2016,
       "semester": "Fall"
+    },
+    {
+      "term": 2010,
+      "year": 2017,
+      "semester": "Spring"
     }
   ],
-  "unavailableOptions": [
+  "options": [
     {
       "term": 1980,
       "year": 2016,
