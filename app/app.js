@@ -25,16 +25,6 @@ angular.module('classBrowserUHApp', [
 
 function BasicDemoCtrl($mdPanel) {
     this._mdPanel = $mdPanel;
-
-    this.desserts = [
-        'Apple Pie',
-        'Donut',
-        'Fudge',
-        'Cupcake',
-        'Ice Cream',
-        'Tiramisu'
-    ];
-
     this.selected = {favoriteDessert: 'Donut'};
     this.disableParentScroll = true;
 }
@@ -63,45 +53,6 @@ BasicDemoCtrl.prototype.showDialog = function() {
     this._mdPanel.open(config);
 };
 
-BasicDemoCtrl.prototype.showMenu = function(ev) {
-    var position = this._mdPanel.newPanelPosition()
-        .relativeTo('.demo-menu-open-button')
-        .addPanelPosition(this._mdPanel.xPosition.ALIGN_START, this._mdPanel.yPosition.BELOW);
-
-    var config = {
-        attachTo: angular.element(document.body),
-        controller: PanelMenuCtrl,
-        controllerAs: 'ctrl',
-        template:
-        '<div class="demo-menu-example" ' +
-        '     aria-label="Select your favorite dessert." ' +
-        '     role="listbox">' +
-        '  <div class="demo-menu-item" ' +
-        '       ng-class="{selected : dessert == ctrl.favoriteDessert}" ' +
-        '       aria-selected="{{dessert == ctrl.favoriteDessert}}" ' +
-        '       tabindex="-1" ' +
-        '       role="option" ' +
-        '       ng-repeat="dessert in ctrl.desserts" ' +
-        '       ng-click="ctrl.selectDessert(dessert)"' +
-        '       ng-keydown="ctrl.onKeydown($event, dessert)">' +
-        '    {{ dessert }} ' +
-        '  </div>' +
-        '</div>',
-        panelClass: 'demo-menu-example',
-        position: position,
-        locals: {
-            'selected': this.selected,
-            'desserts': this.desserts
-        },
-        openFrom: ev,
-        clickOutsideToClose: true,
-        escapeToClose: true,
-        focusOnOpen: false,
-        zIndex: 2
-    };
-
-    this._mdPanel.open(config);
-};
 
 function PanelDialogCtrl(mdPanelRef) {
     this._mdPanelRef = mdPanelRef;
