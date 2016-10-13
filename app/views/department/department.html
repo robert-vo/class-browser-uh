@@ -11,7 +11,7 @@
         <h2 ng-show="!showResults">Department Information</h2>
         <p ng-show="!showResults">Click on the button below to view all of the department abbreviations and names.</p>
         <button type="button" class="btn btn-primary btn-lg btn-block" ng-click='populateDepartments()' ng-show="!showResults && !isDataLoading">Populate Departments</button>
-        <md-progress-circular style="display: block; margin: 0 auto;" ng-if="isDataLoading" md-mode="indeterminate"></md-progress-circular>
+        <loading-icon></loading-icon>
         <error-message-box></error-message-box>
         <div ng-include="'views/department/departmentResult.html'" ng-show="showResults"></div>
     </div>
