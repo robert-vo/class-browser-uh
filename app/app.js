@@ -25,11 +25,10 @@ angular.module('classBrowserUHApp', [
 
 function BasicDemoCtrl($mdPanel) {
     this._mdPanel = $mdPanel;
-    this.selected = {favoriteDessert: 'Donut'};
     this.disableParentScroll = true;
 }
 
-BasicDemoCtrl.prototype.showDialog = function() {
+BasicDemoCtrl.prototype.showDialog = function(aClass) {
     var position = this._mdPanel.newPanelPosition()
         .absolute()
         .center();
@@ -47,7 +46,8 @@ BasicDemoCtrl.prototype.showDialog = function() {
         zIndex: 150,
         clickOutsideToClose: true,
         escapeToClose: true,
-        focusOnOpen: true
+        focusOnOpen: true,
+        aClass: aClass
     };
 
     this._mdPanel.open(config);
@@ -67,9 +67,12 @@ PanelDialogCtrl.prototype.closeDialog = function() {
     });
 };
 
+PanelDialogCtrl.prototype.getClass = function() {
+    return this._mdPanelRef.config.aClass;
+};
+
 function PanelMenuCtrl(mdPanelRef, $timeout) {
     this._mdPanelRef = mdPanelRef;
-    this.favoriteDessert = this.selected.favoriteDessert;
     $timeout(function() {
         var selected = document.querySelector('.demo-menu-item.selected');
         if (selected) {
@@ -79,13 +82,6 @@ function PanelMenuCtrl(mdPanelRef, $timeout) {
         }
     });
 }
-
-PanelMenuCtrl.prototype.selectDessert = function(dessert) {
-    this.selected.favoriteDessert = dessert;
-    this._mdPanelRef && this._mdPanelRef.close().then(function() {
-        angular.element(document.querySelector('.demo-menu-open-button')).focus();
-    });
-};
 
 PanelMenuCtrl.prototype.onKeydown = function($event, dessert) {
     var handled;
