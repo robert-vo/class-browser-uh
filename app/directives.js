@@ -16,6 +16,12 @@ angular.module('classBrowserUHApp').directive('pageSelect', function () {
         templateUrl: 'views/navbar/navbar.html',
         controller: 'NavBarCtrl'
     };
+}).directive('loadingIcon', function() {
+    return {
+        restrict: 'E',
+        require: '^mdProgressCircular',
+        template: '<md-progress-circular style="display: block; margin: 0 auto;" ng-if="isDataLoading" md-mode="indeterminate"></md-progress-circular>'
+    };
 }).directive('errorMessageBox', function () {
     return {
         restrict: 'E',
