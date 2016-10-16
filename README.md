@@ -1,4 +1,4 @@
-# class-browser-uh-web
+# Class Browser for UH (class-browser-uh-web)
 
 Website to view information about classes at the University of Houston. This project utilizes the ```class-browser-api```, which could be found at [here.](https://github.com/robert-vo/class-browser-api)  
 
