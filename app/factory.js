@@ -67,7 +67,7 @@ angular.module('classBrowserUHApp').factory('cartesianProductService', function 
             return defer.promise;
         }
     }
-}).run(function ($rootScope, cartesianProductService, apiURLService, arrayService, httpService, $window) {
+}).run(function ($rootScope, cartesianProductService, apiURLService, arrayService, httpService, $window, $mdDialog) {
     $rootScope.cartesianProductService = cartesianProductService;
     $rootScope.apiURLService = apiURLService;
     $rootScope.arrayService = arrayService;
@@ -111,4 +111,20 @@ angular.module('classBrowserUHApp').factory('cartesianProductService', function 
     w.bind('resize', function(){
         $rootScope.$apply();
     });
+
+    $rootScope.showConfirmAndReturnPromise = function(ev) {
+        var title = "Are you sure you want to clear the entire form?";
+        var textContent = 'Your current selection(s) will not be saved.';
+        var okay = "Okay";
+        var nope = "Nope";
+
+        var confirm = $mdDialog.confirm()
+            .title(title)
+            .textContent(textContent)
+            .targetEvent(ev)
+            .ok(okay)
+            .cancel(nope);
+
+        return $mdDialog.show(confirm);
+    }
 });
