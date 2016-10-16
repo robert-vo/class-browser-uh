@@ -35,12 +35,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         };
 
         $scope.clearForms = function() {
-            var clearFormDialogConfirmation = $window.confirm('Are you sure you want to clear the entire form?');
-
-            if (clearFormDialogConfirmation) {
+            $rootScope.showConfirmAndReturnPromise().then(function() {
                 clearAllModels();
                 $scope.deleteModel('warningMessage', 'hasNoResults', 'isError');
-            }
+            }, function() {
+                console.log("Not deleting...")
+            });
         };
 
         $scope.findClasses = function(isValidForm) {
