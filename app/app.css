@@ -46,3 +46,7 @@
         display: none;
     }
 }
+
+input[type=search] {
+    box-sizing: inherit !important;
+}
