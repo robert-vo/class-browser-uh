@@ -7,7 +7,7 @@ config(['$routeProvider', function($routeProvider) {
         controller: 'ClassCtrl'
     });
 }]).
-controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$window', function ($scope, $http, $q, $rootScope, $parse, $window) {
+controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse',function ($scope, $http, $q, $rootScope, $parse) {
     $scope.rowCollection = [];
 
     var setScopeVariableFromJSON = function(filePath, scopeVariable) {
@@ -151,9 +151,13 @@ controller('ClassCtrl', ['$scope', '$http', '$q', '$rootScope', '$parse', '$wind
     };
 
     $scope.clearForms = function() {
-        deleteModel('subjectModel', 'creditHourModel', 'coreModel',
-            'parametersMessage', 'rowCollection', 'hasNoResults', 'isError',
-            'isDataLoading');
+        $rootScope.showConfirmAndReturnPromise().then(function() {
+            deleteModel('subjectModel', 'creditHourModel', 'coreModel',
+                'parametersMessage', 'rowCollection', 'hasNoResults', 'isError',
+                'isDataLoading');
+        }, function() {
+            console.log("Not deleting...")
+        });
     };
 
 }]);
