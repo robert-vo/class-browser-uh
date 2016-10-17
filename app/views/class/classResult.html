@@ -20,11 +20,17 @@
         <th width="17%" class="sortable" st-sort="credit_hours">Credit Hours</th>
         <th width="48%">Class Description</th>
     </tr>
-    <tr>
-        <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
-    </tr>
     </thead>
     <tbody>
+    <tr>
+        <th colspan="5">
+            <input type="search"
+                   st-search=""
+                   class="form-control"
+                   ng-model="hi"
+                   placeholder="Search through the results here."/>
+        </th>
+    </tr>
     <tr ng-repeat="row in displayed" ng-if="!isWindowSmall()">
         <td>{{row.department}}</td>
         <td>{{row.department_crn}}</td>
