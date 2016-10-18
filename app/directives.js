@@ -26,12 +26,12 @@ angular.module('classBrowserUHApp').directive('pageSelect', function () {
     return {
         restrict: 'E',
         replace: true,
-        template: '<div id="errorBox" ng-if="isError"><br><div class="alert alert-danger"> <p><strong>Error!</strong> {{errorMessage}}</p></div></div>'
+        template: '<div id="errorBox" ng-if="isError"><br><div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><strong>Error!</strong> {{errorMessage}}</p></div></div>'
     };
 }).directive('warningMessageBox', function () {
     return {
         restrict: 'E',
-        template: '<br> <div class="alert alert-warning" ng-show="hasNoResults"> <p><strong>Warning!</strong></p> <p>{{warningMessage}}</p> </div>'
+        template: '<br> <div class="alert alert-warning alert-dismissible" ng-show="hasNoResults"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><p><strong>Warning!</strong></p> <p>{{warningMessage}}</p> </div>'
     };
 }).directive('courseNumberValidator', function () {
     return {
@@ -51,4 +51,8 @@ angular.module('classBrowserUHApp').directive('pageSelect', function () {
             });
         }
     }
+}).directive('searchBar', function() {
+    return {
+        template: '<input type="search" st-search="" class="form-control" ng-model="hi" placeholder="Search through the results here."/>'
+    };
 });
