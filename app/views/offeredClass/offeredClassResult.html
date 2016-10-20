@@ -17,7 +17,6 @@
            class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>View More Information</th>
             <th class="sortable" st-sort="departmentInformation.department">Class (CRN)</th>
             <th class="sortable" st-sort="classTitle">Title</th>
             <th>Days & Times</th>
@@ -29,6 +28,7 @@
             <th class="sortable" st-sort="locationInformation.buildingName">Room</th>
             <th class="sortable" st-sort="session">Session</th>
             <th class="sortable" st-sort="syllabus">Syllabus</th>
+            <th>View More Information</th>
         </tr>
         <tr>
             <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
@@ -36,12 +36,6 @@
         </thead>
         <tbody>
         <tr ng-repeat="row in displayed">
-            <td>
-                <md-button class="md-primary md-raised demo-dialog-open-button"
-                           ng-click="showDetailedClass($event, row)">
-                View More
-                </md-button>
-            </td>
             <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}} ({{row.classReferenceNumber}})</td>
             <td>{{row.classTitle}}</td>
             <td>{{getClassDaysAndMeetingTimesMessage(row.classDays, row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
@@ -51,8 +45,14 @@
             <td>{{row.format}}</td>
             <td>{{row.instructorInformation.instructor}}</td>
             <td>{{row.locationInformation.buildingAbbreviation}} {{row.locationInformation.roomNumber}}</td>
-            <td>{{row.session}}</td>
+            <td>{{getSessionMessage(row.session)}}</td>
             <td ng-bind-html="getSyllabus(row.syllabus)"></td>
+            <td>
+                <md-button class="md-primary md-raised demo-dialog-open-button"
+                           ng-click="showDetailedClass($event, row)">
+                    View More
+                </md-button>
+            </td>
         </tr>
         <tr ng-show="rowCollection.length > 10">
             <td colspan="5" class="text-center">
