@@ -297,17 +297,6 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 .join(", ") || "Not a core class.";
     };
 
-    $scope.displayDetailedOfferedClass = function(aClass) {
-        $scope.displayDetailed = true;
-        $scope.detailedClass = aClass;
-        $scope.detailedOfferedClassMessage = aClass.classTitle;
-    };
-
-    $scope.exitDisplayDetailedOfferedClass = function() {
-        $scope.displayDetailed = false;
-        $scope.detailedClass = undefined;
-    };
-
     $scope.getClassDaysAndMeetingTimesMessage = function(days, startTime, endTime) {
         var daysMessage = $scope.getClassDaysMessage(days);
         var timesMessage = $scope.getMeetingTimesMessage(startTime, endTime);
