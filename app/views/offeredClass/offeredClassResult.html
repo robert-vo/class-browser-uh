@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="views/templates/scrollable.css">
+<link rel="stylesheet" href="views/offeredClass/offeredClass.css">
 
-<span ng-show="!displayDetailed">
     <link href="views/templates/tableSort.css" rel="stylesheet">
     <link href="views/templates/searchFieldClear.css" rel="stylesheet">
 
@@ -21,9 +21,9 @@
             <th class="sortable" st-sort="departmentInformation.department">Class (CRN)</th>
             <th class="sortable" st-sort="classTitle">Title</th>
             <th>Days & Times</th>
-            <th class="sortable" st-sort="classStatus">Status</th>
-            <th class="sortable" st-sort="core">Core Categories</th>
             <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
+            <th class="sortable" st-sort="classStatus">Status</th>
+            <th class="sortable" st-sort="core">Core</th>
             <th class="sortable" st-sort="format">Format</th>
             <th class="sortable" st-sort="departmentInformation.instructor">Instructor</th>
             <th class="sortable" st-sort="locationInformation.buildingName">Room</th>
@@ -45,9 +45,9 @@
             <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}} ({{row.classReferenceNumber}})</td>
             <td>{{row.classTitle}}</td>
             <td>{{getClassDaysAndMeetingTimesMessage(row.classDays, row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
+            <td>{{getMeetingDatesMessage(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
             <td><div ng-class="row.classStatus == 'Open' ? 'circle-status-open' : 'circle-status-closed'"></div></td>
             <td>{{getCoreCategoriesMessage(row.core)}}</td>
-            <td>{{getMeetingDatesMessage(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
             <td>{{row.format}}</td>
             <td>{{row.instructorInformation.instructor}}</td>
             <td>{{row.locationInformation.buildingAbbreviation}} {{row.locationInformation.roomNumber}}</td>
@@ -64,4 +64,3 @@
         </tr>
         </tbody>
     </table>
-</span>
