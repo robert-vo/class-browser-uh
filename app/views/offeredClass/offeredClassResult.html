@@ -11,7 +11,6 @@
         0 5px 24px 4px rgba(0, 0, 0, 0.12);
         width: 500px;
     }
-
     .demo-dialog-content {
         padding: 0 15px;
         width: 100%;
@@ -50,6 +49,22 @@
         color: rgb(16, 108, 200);
     }
 </style>
+<link rel="stylesheet" href="views/templates/scrollable.css">
+
+<style>
+    .circle-status-open {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background: #72C11C;
+    }
+    .circle-status-closed {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background: red;
+    }
+</style>
 
 <span ng-show="!displayDetailed">
     <link href="views/templates/tableSort.css" rel="stylesheet">
@@ -69,18 +84,15 @@
         <thead>
         <tr>
             <th>View More Information</th>
-            <th class="sortable" st-sort="departmentInformation.department">Subject & Course Number</th>
-            <th>Class Days</th>
-            <th class="sortable" st-sort="classReferenceNumber">CRN</th>
-            <th class="sortable" st-sort="classStatus">Status</th>
+            <th class="sortable" st-sort="departmentInformation.department">Class (CRN)</th>
             <th class="sortable" st-sort="classTitle">Title</th>
+            <th>Days & Times</th>
+            <th class="sortable" st-sort="classStatus">Status</th>
             <th class="sortable" st-sort="core">Core Categories</th>
-            <th class="sortable" st-sort="dateTimeInformation.startTime">Meeting Times</th>
             <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
-            <th class="sortable" st-sort="description">Description</th>
             <th class="sortable" st-sort="format">Format</th>
-            <th class="sortable" st-sort="departmentInformation.instructor">Instructor Name</th>
-            <th class="sortable" st-sort="locationInformation.buildingName">Building Name</th>
+            <th class="sortable" st-sort="departmentInformation.instructor">Instructor</th>
+            <th class="sortable" st-sort="locationInformation.buildingName">Room</th>
             <th class="sortable" st-sort="session">Session</th>
             <th class="sortable" st-sort="syllabus">Syllabus</th>
         </tr>
@@ -90,28 +102,24 @@
         </thead>
         <tbody>
         <tr ng-repeat="row in displayed">
-            <td ng-controller="BasicDemoCtrl as ctrl">
+            <td>
                 <md-button class="md-primary md-raised demo-dialog-open-button"
-                           ng-click="ctrl.showDialog(row)">
+                           ng-click="showDetailedClass($event, row)">
                 View More
                 </md-button>
             </td>
-            <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}}</td>
-            <td>{{getClassDaysMessage(row.classDays)}}</td>
-            <td>{{row.classReferenceNumber}}</td>
-            <td>{{getSeatInformationMessage(row.classStatus, row.seatInformation)}}</td>
+            <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}} ({{row.classReferenceNumber}})</td>
             <td>{{row.classTitle}}</td>
+            <td>{{getClassDaysAndMeetingTimesMessage(row.classDays, row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
+            <td><div ng-class="row.classStatus == 'Open' ? 'circle-status-open' : 'circle-status-closed'"></div></td>
             <td>{{getCoreCategoriesMessage(row.core)}}</td>
-            <td>{{getMeetingTimesMessage(row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
             <td>{{getMeetingDatesMessage(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
-            <td>{{row.description}}</td>
             <td>{{row.format}}</td>
-            <td>{{row.instructorInformation.instructor}} <br><span class="glyphicon glyphicon-envelope"></span>{{row.instructorInformation.instructorEmail}}</td>
-            <td>{{row.locationInformation.buildingName}}</td>
+            <td>{{row.instructorInformation.instructor}}</td>
+            <td>{{row.locationInformation.buildingAbbreviation}} {{row.locationInformation.roomNumber}}</td>
             <td>{{row.session}}</td>
             <td ng-bind-html="getSyllabus(row.syllabus)"></td>
         </tr>
-
         <tr ng-show="rowCollection.length > 10">
             <td colspan="5" class="text-center">
                 <div st-items-by-page="10"
@@ -120,9 +128,6 @@
                 </div>
             </td>
         </tr>
-
         </tbody>
     </table>
 </span>
-
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
