@@ -294,7 +294,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 .map(function(aCoreCategory) {
                     return $scope.coreCategories.availableOptions[aCoreCategory - 1].categoryName;
                 })
-                .join(", ") || "Not a core class.";
+                .join(", ");
     };
 
     $scope.getClassDaysAndMeetingTimesMessage = function(days, startTime, endTime) {
@@ -361,6 +361,18 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         else {
             console.log("new option " + option);
             console.log("Model updated" + model);
+        }
+    };
+
+    $scope.getSessionMessage = function(session) {
+        console.log(session);
+        switch(session) {
+            case 'Regular Academic Session':
+                return session;
+            case 'MIN':
+                return 'Mini Session';
+            default:
+                return 'Session ' + session;
         }
     };
 
