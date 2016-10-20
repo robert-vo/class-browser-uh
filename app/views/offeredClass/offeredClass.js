@@ -251,6 +251,10 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         }
     };
 
+    $scope.scrollToTermField = function() {
+        $('html, body').animate({scrollTop: $('#terms').offset().top}, 'slow');
+    };
+
     $scope.showNoTermSelectedAlert = function(ev) {
         var title = "Warning!";
         var description = "A term needs to be selected. Please select a term.";
@@ -261,10 +265,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 .clickOutsideToClose(true)
                 .title(title)
                 .textContent(description)
-                .ariaLabel('Alert Dialog Demo')
+                .ariaLabel('Term Dialog')
                 .ok(okay)
                 .targetEvent(ev)
-        );
+        ).then(function() {
+            $scope.scrollToTermField();
+        });
     };
 
     $scope.getClassDaysMessage = function(classDaysForAClass) {
