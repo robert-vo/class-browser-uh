@@ -244,7 +244,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     $scope.getSyllabus = function(syllabus) {
         if(syllabus == 'Unavailable') {
-            return "Syllabus Not Available.";
+            return "N/A";
         }
         else {
             return "<a href=" + syllabus + " target=_blank>Syllabus</a>";
@@ -283,7 +283,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
                 .map(function(aClassDay) {
                     return aClassDay.classDayAbbreviation;
                 })
-                .join("") || "No Class Days";
+                .join("");
     };
 
     $scope.getCoreCategoriesMessage = function(coreCategories) {
@@ -308,6 +308,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         $scope.detailedClass = undefined;
     };
 
+    $scope.getClassDaysAndMeetingTimesMessage = function(days, startTime, endTime) {
+        var daysMessage = $scope.getClassDaysMessage(days);
+        var timesMessage = $scope.getMeetingTimesMessage(startTime, endTime);
+        return daysMessage && timesMessage ? daysMessage + " " + timesMessage : "TBA";
+    };
+
     $scope.getSeatInformationMessage = function(status, seatInformation) {
         return status + " (" + seatInformation.seatsTaken + "/" +
             seatInformation.seatsTotal + ")";
@@ -315,7 +321,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
 
     $scope.getMeetingTimesMessage = function(startTime, endTime) {
         if(startTime == "" && endTime == "") {
-            return "Class does not meet in person.";
+            return "";
         }
         else {
             var newStartTime = convertClassTimeToAMPM(startTime);
@@ -329,8 +335,12 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         var minutes = time.substr(3, 2);
         var isPM = false;
 
-        if(hours - 12 >= 0) {
+        if(hours >= 12) {
             isPM = true;
+
+            if(hours >= 13) {
+                hours = hours - 12;
+            }
         }
 
         var baseTime = hours + ":" + minutes;
