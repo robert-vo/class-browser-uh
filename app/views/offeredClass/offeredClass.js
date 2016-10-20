@@ -374,4 +374,31 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
         });
         return includes;
     };
+
+
+    $scope.showDetailedClass = function(ev, aClass) {
+        $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'views/templates/dialog.template.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            locals: {
+                aClass: aClass
+            },
+            fullscreen: true
+        });
+    };
+
+    function DialogController($scope, $mdDialog, aClass) {
+        $scope.aClass = aClass;
+
+        $scope.hide = function() {
+            $mdDialog.hide();
+        };
+
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+    }
 }]);
