@@ -15,6 +15,7 @@
         <button class="btn" ng-click="selectTestModelsThree()">Test 3</button>
         <button class="btn" ng-click="selectTestModelsOneClassResult()">One Class</button>
 
+
         <div id="classSearch" ng-show="!showResults && !isDataLoading">
             <h2>Offered Class Search</h2>
             <form name="offeredClassSearchForm" ng-class="{'has-error': offeredClassSearchForm.selectTerm.$invalid}">
@@ -36,10 +37,10 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('termModel')">Clear Term
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('termModel')">Clear Term-->
+                        <!--</button>-->
+                    <!--</div>-->
                     <div class="row">
                         <div class="col-xs-3 col-md-3 col-sm-3">
                             <p class="text-danger" ng-show="offeredClassSearchForm.selectTerm.$invalid">Please select a
@@ -58,18 +59,18 @@
                             ng-model="formatModel"
                             data-selected-text-format={{selectedCountLimit}}
                             multiple>
-                            <li nya-bs-option="option in format.availableOptions group by option.isOrNot">
+                            <li nya-bs-option="option in format.availableOptions group by option.isOrNot" ng-click="validateChoice($event, option, formatModel)">
                                 <span class="dropdown-header">{{$group}}</span>
                                 <a>{{ option.isOrNot == "Not" ? "Not" : ""}} {{ option.format }}<span
                                         class="glyphicon glyphicon-ok check-mark"></span></a>
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('formatModel')">Clear Class
-                            Format
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('formatModel')">Clear Class-->
+                            <!--Format-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -86,11 +87,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('statusModel')">Clear Class
-                            Status
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('statusModel')">Clear Class-->
+                            <!--Status-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -108,11 +109,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('sessionModel')">Clear Class
-                            Sessions
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('sessionModel')">Clear Class-->
+                            <!--Sessions-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -133,11 +134,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('subjectModel')">Clear
-                            Subjects
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('subjectModel')">Clear-->
+                            <!--Subjects-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -155,11 +156,11 @@
                                 valid-values="validValues"
                                 placeholder="Enter the 4 digit course number, e.g., 2410.">
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('courseNumberModel')">Clear
-                            Course Number
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('courseNumberModel')">Clear-->
+                            <!--Course Number-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="row">
@@ -179,11 +180,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('buildingModel')">Clear
-                            Buildings
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('buildingModel')">Clear-->
+                            <!--Buildings-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -203,11 +204,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('locationModel')">Clear Campus
-                            Locations
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('locationModel')">Clear Campus-->
+                            <!--Locations-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -228,11 +229,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('componentModel')">Clear Class
-                            Components
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('componentModel')">Clear Class-->
+                            <!--Components-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="row">
@@ -249,11 +250,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('creditHourModel')">Clear
-                            Number of Credit Hours
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('creditHourModel')">Clear-->
+                            <!--Number of Credit Hours-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="row">
@@ -268,11 +269,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                         <button class="btn btn-danger" type="reset" ng-click="deleteModel('isCoreModel')">Clear Is
-                            Core
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                         <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('isCoreModel')">Clear Is-->
+                            <!--Core-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="row">
@@ -290,12 +291,12 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('coreCategoriesModel')">Clear
-                            Core
-                            Requirement
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('coreCategoriesModel')">Clear-->
+                            <!--Core-->
+                            <!--Requirement-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
 
@@ -311,11 +312,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('weekendUModel')">Clear Is
-                            WeekendU
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('weekendUModel')">Clear Is-->
+                            <!--WeekendU-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="row">
@@ -330,11 +331,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('syllabusModel')">Clear Has
-                            Syllabus
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('syllabusModel')">Clear Has-->
+                            <!--Syllabus-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="row">
@@ -354,11 +355,11 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-xs-3 col-md-3 col-sm-3">
-                        <button class="btn btn-danger" type="reset" ng-click="deleteModel('classDaysModel')">Clear Class
-                            Days
-                        </button>
-                    </div>
+                    <!--<div class="col-xs-3 col-md-3 col-sm-3">-->
+                        <!--<button class="btn btn-danger" type="reset" ng-click="deleteModel('classDaysModel')">Clear Class-->
+                            <!--Days-->
+                        <!--</button>-->
+                    <!--</div>-->
                 </div>
                 <input
                         type="submit"
