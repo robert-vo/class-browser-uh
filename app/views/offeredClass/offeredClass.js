@@ -365,7 +365,6 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     $scope.getSessionMessage = function(session) {
-        console.log(session);
         switch(session) {
             case 'Regular Academic Session':
                 return session;
