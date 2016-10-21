@@ -1,13 +1,17 @@
-<link rel="stylesheet" href="views/templates/scrollable.css">
 <link rel="stylesheet" href="views/offeredClass/offeredClass.css">
 <link href="views/templates/tableSort.css" rel="stylesheet">
-<link href="views/templates/searchFieldClear.css" rel="stylesheet">
+<link href="views/templates/search.field.clear.css" rel="stylesheet">
 
 <button ng-click="goBack()" class="btn btn-default" >
     Back To Offered Class Search
 </button>
 
-
+<style>
+    table{
+        width:100%;
+        table-layout : fixed;
+    }
+</style>
 <h2>Offered Class Search Results</h2>
 <p ng-bind-html="parametersMessage"></p>
 <p ng-bind-html="numberOfRowsMessage"></p>
