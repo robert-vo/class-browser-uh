@@ -28,7 +28,7 @@
             <th class="sortable" st-sort="locationInformation.buildingName">Room</th>
             <th class="sortable" st-sort="session">Session</th>
             <th class="sortable" st-sort="syllabus">Syllabus</th>
-            <th>View More Information</th>
+            <th>More Info</th>
         </tr>
         <tr>
             <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
@@ -50,8 +50,9 @@
             <td>
                 <md-button class="md-primary md-raised demo-dialog-open-button"
                            ng-click="showDetailedClass($event, row)">
-                    View More
+                    <div class="glyphicon glyphicon-chevron-right"></div>
                 </md-button>
+
             </td>
         </tr>
         <tr ng-show="rowCollection.length > 10">
