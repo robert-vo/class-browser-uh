@@ -1,19 +1,19 @@
 {
   "class": [
     {
-      "path": "resources/subjects.json",
+      "path": "resources/json/subjects.json",
       "scopeName": "subject",
       "modelName": "subjectModel",
       "parameter": "subject"
     },
     {
-      "path": "resources/creditHours.json",
+      "path": "resources/json/creditHours.json",
       "scopeName": "creditHours",
       "modelName": "creditHourModel",
       "parameter": "creditHour"
     },
     {
-      "path": "resources/coreCategories.json",
+      "path": "resources/json/coreCategories.json",
       "scopeName": "coreCategories",
       "modelName": "coreModel",
       "parameter": "core"
@@ -21,7 +21,7 @@
   ],
   "offeredClass": [
     {
-      "path": "resources/terms.json",
+      "path": "resources/json/terms.json",
       "scopeName": "terms",
       "modelName": "termModel",
       "apiParameterValueFromModel": "term",
@@ -30,7 +30,7 @@
       "displayParameters": "semester, year"
     },
     {
-      "path": "resources/format.json",
+      "path": "resources/json/format.json",
       "scopeName": "format",
       "modelName": "formatModel",
       "apiParameterValueFromModel": "format",
@@ -39,7 +39,7 @@
       "displayParameters": "isOrNot, format"
     },
     {
-      "path": "resources/status.json",
+      "path": "resources/json/status.json",
       "scopeName": "status",
       "modelName": "statusModel",
       "apiParameterValueFromModel": "status",
@@ -48,7 +48,7 @@
       "displayParameters": "status"
     },
     {
-      "path": "resources/session.json",
+      "path": "resources/json/session.json",
       "scopeName": "session",
       "modelName": "sessionModel",
       "apiParameterValueFromModel": "session",
@@ -57,7 +57,7 @@
       "displayParameters": "sessionTitle"
     },
     {
-      "path": "resources/subjects.json",
+      "path": "resources/json/subjects.json",
       "scopeName": "subject",
       "modelName": "subjectModel",
       "apiParameterValueFromModel": "subject",
@@ -66,7 +66,7 @@
       "displayParameters": "subjectFullName"
     },
     {
-      "path": "resources/buildings.json",
+      "path": "resources/json/buildings.json",
       "scopeName": "buildings",
       "modelName": "buildingModel",
       "apiParameterValueFromModel": "building",
@@ -75,7 +75,7 @@
       "displayParameters": "buildingName"
     },
     {
-      "path": "resources/locations.json",
+      "path": "resources/json/locations.json",
       "scopeName": "locations",
       "modelName": "locationModel",
       "apiParameterValueFromModel": "location",
@@ -84,7 +84,7 @@
       "displayParameters": "location"
     },
     {
-      "path": "resources/component.json",
+      "path": "resources/json/component.json",
       "scopeName": "component",
       "modelName": "componentModel",
       "apiParameterValueFromModel": "component",
@@ -93,7 +93,7 @@
       "displayParameters": "componentName"
     },
     {
-      "path": "resources/creditHours.json",
+      "path": "resources/json/creditHours.json",
       "scopeName": "creditHours",
       "modelName": "creditHourModel",
       "apiParameterValueFromModel": "credit-hours",
@@ -102,7 +102,7 @@
       "displayParameters": "credit-hours"
     },
     {
-      "path": "resources/weekendU.json",
+      "path": "resources/json/weekendU.json",
       "scopeName": "weekendU",
       "modelName": "weekendUModel",
       "apiParameterValueFromModel": "weekendU",
@@ -111,7 +111,7 @@
       "displayParameters": "weekendU"
     },
     {
-      "path": "resources/coreCategories.json",
+      "path": "resources/json/coreCategories.json",
       "scopeName": "coreCategories",
       "modelName": "coreCategoriesModel",
       "apiParameterValueFromModel": "categoryNumber",
@@ -120,7 +120,7 @@
       "displayParameters": "categoryName"
     },
     {
-      "path": "resources/isCore.json",
+      "path": "resources/json/isCore.json",
       "scopeName": "isCore",
       "modelName": "isCoreModel",
       "apiParameterValueFromModel": "is-core",
@@ -129,7 +129,7 @@
       "displayParameters": "is-core"
     },
     {
-      "path": "resources/syllabus.json",
+      "path": "resources/json/syllabus.json",
       "scopeName": "syllabus",
       "modelName": "syllabusModel",
       "apiParameterValueFromModel": "syllabus",
@@ -138,7 +138,7 @@
       "displayParameters": "syllabus"
     },
     {
-      "path": "resources/classDays.json",
+      "path": "resources/json/classDays.json",
       "scopeName": "classDays",
       "modelName": "classDaysModel",
       "apiParameterValueFromModel": "day",
