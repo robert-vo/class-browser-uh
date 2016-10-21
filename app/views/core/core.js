@@ -9,7 +9,7 @@ angular.module('classBrowserUHApp.core', ['ngRoute'])
     });
 }])
 .controller('CoreCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
-    $rootScope.httpService.getData('resources/coreCategories.json').then(function(result) {
+    $rootScope.httpService.getData('resources/json/coreCategories.json').then(function(result) {
         $scope.coreCategories = result;
     });
 

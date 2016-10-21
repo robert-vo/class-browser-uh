@@ -16,7 +16,7 @@ angular.module('classBrowserUHApp.offeredClass', ['ngRoute'])
     };
 
     var initializeAllJSONAndScopeNames = function(name) {
-        $rootScope.httpService.getData('resources/allScopeVariables.json').then(function(result) {
+        $rootScope.httpService.getData('resources/json/allScopeVariables.json').then(function(result) {
             $scope.allJSONAndScopeNames = result[name];
             $scope.allJSONAndScopeNames.forEach(function(e) {
                 setScopeVariableFromJSON(e.path, e.scopeName);
