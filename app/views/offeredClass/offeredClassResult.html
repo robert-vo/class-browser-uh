@@ -1,67 +1,66 @@
 <link rel="stylesheet" href="views/templates/scrollable.css">
 <link rel="stylesheet" href="views/offeredClass/offeredClass.css">
+<link href="views/templates/tableSort.css" rel="stylesheet">
+<link href="views/templates/searchFieldClear.css" rel="stylesheet">
 
-    <link href="views/templates/tableSort.css" rel="stylesheet">
-    <link href="views/templates/searchFieldClear.css" rel="stylesheet">
+<button ng-click="goBack()" class="btn btn-default" >
+    Back To Offered Class Search
+</button>
 
-    <button ng-click="goBack()" class="btn btn-default" >
-        Back To Offered Class Search
-    </button>
 
-    <h2>Offered Class Search Results</h2>
-    <p ng-bind-html="parametersMessage"></p>
-    <p ng-bind-html="numberOfRowsMessage"></p>
+<h2>Offered Class Search Results</h2>
+<p ng-bind-html="parametersMessage"></p>
+<p ng-bind-html="numberOfRowsMessage"></p>
 
-    <table st-safe-src="rowCollection"
-           st-table="displayed"
-           class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th class="sortable" st-sort="departmentInformation.department">Class (CRN)</th>
-            <th class="sortable" st-sort="classTitle">Title</th>
-            <th>Days & Times</th>
-            <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
-            <th class="sortable" st-sort="classStatus">Status</th>
-            <th class="sortable" st-sort="core">Core</th>
-            <th class="sortable" st-sort="format">Format</th>
-            <th class="sortable" st-sort="departmentInformation.instructor">Instructor</th>
-            <th class="sortable" st-sort="locationInformation.buildingName">Room</th>
-            <th class="sortable" st-sort="session">Session</th>
-            <th class="sortable" st-sort="syllabus">Syllabus</th>
-            <th>More Info</th>
-        </tr>
-        <tr>
-            <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="row in displayed">
-            <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}} ({{row.classReferenceNumber}})</td>
-            <td>{{row.classTitle}}</td>
-            <td>{{getClassDaysAndMeetingTimesMessage(row.classDays, row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
-            <td>{{getMeetingDatesMessage(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
-            <td><div ng-class="row.classStatus == 'Open' ? 'circle-status-open' : 'circle-status-closed'"></div></td>
-            <td>{{getCoreCategoriesMessage(row.core)}}</td>
-            <td>{{row.format}}</td>
-            <td>{{row.instructorInformation.instructor}}</td>
-            <td>{{row.locationInformation.buildingAbbreviation}} {{row.locationInformation.roomNumber}}</td>
-            <td>{{getSessionMessage(row.session)}}</td>
-            <td ng-bind-html="getSyllabus(row.syllabus)"></td>
-            <td>
-                <md-button class="md-primary md-raised demo-dialog-open-button"
-                           ng-click="showDetailedClass($event, row)">
-                    <div class="glyphicon glyphicon-chevron-right"></div>
-                </md-button>
-
-            </td>
-        </tr>
-        <tr ng-show="rowCollection.length > 10">
-            <td colspan="5" class="text-center">
-                <div st-items-by-page="10"
-                     st-pagination=""
-                     st-template="views/templates/pagination.custom.html">
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<table st-safe-src="rowCollection"
+       st-table="displayed"
+       class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th class="sortable" st-sort="departmentInformation.department">Class (CRN)</th>
+        <th class="sortable" st-sort="classTitle">Title</th>
+        <th >Days & Times</th>
+        <th class="sortable" st-sort="dateTimeInformation.startDate">Meeting Dates</th>
+        <th class="sortable" st-sort="classStatus">Status</th>
+        <th class="sortable" st-sort="core">Core</th>
+        <th class="sortable" st-sort="format">Format</th>
+        <th class="sortable" st-sort="departmentInformation.instructor">Instructor</th>
+        <th class="sortable" st-sort="locationInformation.buildingName">Room</th>
+        <th class="sortable" st-sort="session">Session</th>
+        <th class="sortable" st-sort="syllabus">Syllabus</th>
+        <th >More Info</th>
+    </tr>
+    <tr>
+        <th colspan="5"><input type="search" st-search="" class="form-control" placeholder="Search through the results here."/></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in displayed">
+        <td>{{row.departmentInformation.department}} {{row.departmentInformation.departmentCRN}} ({{row.classReferenceNumber}})</td>
+        <td>{{row.classTitle}}</td>
+        <td>{{getClassDaysAndMeetingTimesMessage(row.classDays, row.dateTimeInformation.startTime, row.dateTimeInformation.endTime)}}</td>
+        <td>{{getMeetingDatesMessage(row.dateTimeInformation.startDate, row.dateTimeInformation.endDate)}}</td>
+        <td><div ng-class="row.classStatus == 'Open' ? 'circle-status-open' : 'circle-status-closed'"></div></td>
+        <td>{{getCoreCategoriesMessage(row.core)}}</td>
+        <td>{{row.format}}</td>
+        <td>{{row.instructorInformation.instructor}}</td>
+        <td>{{row.locationInformation.buildingAbbreviation}} {{row.locationInformation.roomNumber}}</td>
+        <td>{{getSessionMessage(row.session)}}</td>
+        <td ng-bind-html="getSyllabus(row.syllabus)"></td>
+        <td>
+            <md-button class="md-primary md-raised"
+                       ng-click="showDetailedClass($event, row)" style="width: 100%; margin: 0; min-width: 0;">
+                <div class="glyphicon glyphicon-chevron-right"></div>
+            </md-button>
+        </td>
+    </tr>
+    <tr ng-show="rowCollection.length > 10">
+        <td colspan="5" class="text-center">
+            <div st-items-by-page="10"
+                 st-pagination=""
+                 st-template="views/templates/pagination.custom.html">
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
