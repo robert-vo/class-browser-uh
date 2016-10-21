@@ -1,0 +1,75 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Mango (Fruit)</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <!--md-svg-src="img/icons/ic_close_24px.svg" -->
+                    <md-icon aria-label="Close dialog">&times;</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+                <p>
+                    {{aClass}}
+                    <br>
+                    <br>
+                    <br><span>{{aClass["attributes"]}}</span>
+                    <br><span>{{aClass["classDays.friday"]}}</span>
+                    <br><span>{{aClass["classDays.monday"]}}</span>
+                    <br><span>{{aClass["classDays.saturday"]}}</span>
+                    <br><span>{{aClass["classDays.sunday"]}}</span>
+                    <br><span>{{aClass["classDays.thursday"]}}</span>
+                    <br><span>{{aClass["classDays.tuesday"]}}</span>
+                    <br><span>{{aClass["classDays.wednesday"]}}</span>
+                    <br><span>{{aClass["classReferenceNumber"]}}</span>
+                    <br><span>{{aClass["classStatus"]}}</span>
+                    <br><span>{{aClass["classTitle"]}}</span>
+                    <br><span>{{aClass["component"]}}</span>
+                    <br><span>{{aClass["core"]}}</span>
+                    <br><span>{{aClass["dateTimeInformation.endDate"]}}</span>
+                    <br><span>{{aClass["dateTimeInformation.endTime"]}}</span>
+                    <br><span>{{aClass["dateTimeInformation.startDate"]}}</span>
+                    <br><span>{{aClass["dateTimeInformation.startTime"]}}</span>
+                    <br><span>{{aClass["departmentInformation.credit_hours"]}}</span>
+                    <br><span>{{aClass["departmentInformation.department"]}}</span>
+                    <br><span>{{aClass["departmentInformation.departmentCRN"]}}</span>
+                    <br><span>{{aClass["departmentInformation.departmentName"]}}</span>
+                    <br><span>{{aClass["description"]}}</span>
+                    <br><span>{{aClass["duration"]}}</span>
+                    <br><span>{{aClass["format"]}}</span>
+                    <br><span>{{aClass["instructorInformation.instructor"]}}</span>
+                    <br><span>{{aClass["instructorInformation.instructorEmail"]}}</span>
+                    <br><span>{{aClass["lastUpdated"]}}</span>
+                    <br><span>{{aClass["locationInformation.buildingAbbreviation"]}}</span>
+                    <br><span>{{aClass["locationInformation.buildingID"]}}</span>
+                    <br><span>{{aClass["locationInformation.buildingName"]}}</span>
+                    <br><span>{{aClass["locationInformation.location"]}}</span>
+                    <br><span>{{aClass["seatInformation.seatsAvailable"]}}</span>
+                    <br><span>{{aClass["seatInformation.seatsTaken"]}}</span>
+                    <br><span>{{aClass["seatInformation.seatsTotal"]}}</span>
+                    <br><span>{{aClass["session"]}}</span>
+                    <br><span>{{aClass["syllabus"]}}</span>
+                    <br><span>{{aClass["termInformation.semester"]}}</span>
+                    <br><span>{{aClass["termInformation.termID"]}}</span>
+                    <br><span>{{aClass["termInformation.year"]}}</span>
+
+                </p>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="hide()">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
+
