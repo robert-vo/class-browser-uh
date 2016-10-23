@@ -2,61 +2,57 @@
     <form ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Mango (Fruit)</h2>
+                <h2>{{aClass.departmentInformation.department}} {{aClass.departmentInformation.departmentCRN}} &mdash; {{aClass["classTitle"]}} ({{aClass["classReferenceNumber"]}})</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="cancel()">
-                    <!--md-svg-src="img/icons/ic_close_24px.svg" -->
-                    <md-icon aria-label="Close dialog">&times;</md-icon>
+                    <md-icon aria-label="Close dialog" md-svg-src="resources/img/ic_close_24px.svg"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
 
         <md-dialog-content>
             <div class="md-dialog-content">
-                <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+                <h2>{{aClass.termInformation.semester}} {{aClass.termInformation.year}}</h2>
                 <p>
-                    {{aClass}}
                     <br>
                     <br>
-                    <br><span>{{aClass["attributes"]}}</span>
-                    <br><span>{{aClass["classDays.friday"]}}</span>
-                    <br><span>{{aClass["classDays.monday"]}}</span>
-                    <br><span>{{aClass["classDays.saturday"]}}</span>
-                    <br><span>{{aClass["classDays.sunday"]}}</span>
-                    <br><span>{{aClass["classDays.thursday"]}}</span>
-                    <br><span>{{aClass["classDays.tuesday"]}}</span>
-                    <br><span>{{aClass["classDays.wednesday"]}}</span>
-                    <br><span>{{aClass["classReferenceNumber"]}}</span>
-                    <br><span>{{aClass["classStatus"]}}</span>
-                    <br><span>{{aClass["classTitle"]}}</span>
-                    <br><span>{{aClass["component"]}}</span>
-                    <br><span>{{aClass["core"]}}</span>
-                    <br><span>{{aClass["dateTimeInformation.endDate"]}}</span>
-                    <br><span>{{aClass["dateTimeInformation.endTime"]}}</span>
-                    <br><span>{{aClass["dateTimeInformation.startDate"]}}</span>
-                    <br><span>{{aClass["dateTimeInformation.startTime"]}}</span>
-                    <br><span>{{aClass["departmentInformation.credit_hours"]}}</span>
-                    <br><span>{{aClass["departmentInformation.department"]}}</span>
-                    <br><span>{{aClass["departmentInformation.departmentCRN"]}}</span>
-                    <br><span>{{aClass["departmentInformation.departmentName"]}}</span>
-                    <br><span>{{aClass["description"]}}</span>
-                    <br><span>{{aClass["duration"]}}</span>
-                    <br><span>{{aClass["format"]}}</span>
-                    <br><span>{{aClass["instructorInformation.instructor"]}}</span>
-                    <br><span>{{aClass["instructorInformation.instructorEmail"]}}</span>
-                    <br><span>{{aClass["lastUpdated"]}}</span>
-                    <br><span>{{aClass["locationInformation.buildingAbbreviation"]}}</span>
-                    <br><span>{{aClass["locationInformation.buildingID"]}}</span>
-                    <br><span>{{aClass["locationInformation.buildingName"]}}</span>
-                    <br><span>{{aClass["locationInformation.location"]}}</span>
-                    <br><span>{{aClass["seatInformation.seatsAvailable"]}}</span>
-                    <br><span>{{aClass["seatInformation.seatsTaken"]}}</span>
-                    <br><span>{{aClass["seatInformation.seatsTotal"]}}</span>
-                    <br><span>{{aClass["session"]}}</span>
-                    <br><span>{{aClass["syllabus"]}}</span>
-                    <br><span>{{aClass["termInformation.semester"]}}</span>
-                    <br><span>{{aClass["termInformation.termID"]}}</span>
-                    <br><span>{{aClass["termInformation.year"]}}</span>
+                    <br><span>attributes => {{aClass.attributes}}</span>
+                    <br><span>classDays.friday => {{aClass.classDays.friday}}</span>
+                    <br><span>classDays.monday => {{aClass.classDays.monday}}</span>
+                    <br><span>classDays.saturday => {{aClass.classDays.saturday}}</span>
+                    <br><span>classDays.sunday => {{aClass.classDays.sunday}}</span>
+                    <br><span>classDays.thursday => {{aClass.classDays.thursday}}</span>
+                    <br><span>classDays.tuesday => {{aClass.classDays.tuesday}}</span>
+                    <br><span>classDays.wednesday => {{aClass.classDays.wednesday}}</span>
+                    <br><span>classReferenceNumber => {{aClass.classReferenceNumber}}</span>
+                    <br><span>classStatus => {{aClass.classStatus}}</span>
+                    <br><span>classTitle => {{aClass.classTitle}}</span>
+                    <br><span>component => {{aClass.component}}</span>
+                    <br><span>core => {{aClass.core}}</span>
+                    <br><span>dateTimeInformation.endDate => {{aClass.dateTimeInformation.endDate}}</span>
+                    <br><span>dateTimeInformation.endTime => {{aClass.dateTimeInformation.endTime}}</span>
+                    <br><span>dateTimeInformation.startDate => {{aClass.dateTimeInformation.startDate}}</span>
+                    <br><span>dateTimeInformation.startTime => {{aClass.dateTimeInformation.startTime}}</span>
+                    <br><span>departmentInformation.credit_hours => {{aClass.departmentInformation.credit_hours}}</span>
+                    <br><span>departmentInformation.department => {{aClass.departmentInformation.department}}</span>
+                    <br><span>departmentInformation.departmentCRN => {{aClass.departmentInformation.departmentCRN}}</span>
+                    <br><span>departmentInformation.departmentName => {{aClass.departmentInformation.departmentName}}</span>
+                    <br><span>description => {{aClass.description}}</span>
+                    <br><span>duration => {{aClass.duration}}</span>
+                    <br><span>format => {{aClass.format}}</span>
+                    <br><span>instructorInformation.instructor => {{aClass.instructorInformation.instructor}}</span>
+                    <br><span>instructorInformation.instructorEmail => {{aClass.instructorInformation.instructorEmail}}</span>
+                    <br><span>lastUpdated => {{aClass.lastUpdated}}</span>
+                    <br><span>locationInformation.buildingAbbreviation => {{aClass.locationInformation.buildingAbbreviation}}</span>
+                    <br><span>locationInformation.buildingID => {{aClass.locationInformation.buildingID}}</span>
+                    <br><span>locationInformation.buildingName => {{aClass.locationInformation.buildingName}}</span>
+                    <br><span>locationInformation.location => {{aClass.locationInformation.location}}</span>
+                    <br><span>locationInformation.roomNumber => {{aClass.locationInformation.roomNumber}}</span>
+                    <br><span>seatInformation.seatsAvailable => {{aClass.seatInformation.seatsAvailable}}</span>
+                    <br><span>seatInformation.seatsTaken => {{aClass.seatInformation.seatsTaken}}</span>
+                    <br><span>seatInformation.seatsTotal => {{aClass.seatInformation.seatsTotal}}</span>
+                    <br><span>session => {{aClass.session}}</span>
+                    <br><span>syllabus => {{aClass.syllabus}}</span>
 
                 </p>
 
@@ -66,7 +62,7 @@
         <md-dialog-actions layout="row">
             <span flex></span>
             <md-button ng-click="hide()">
-                Ok
+                Close
             </md-button>
         </md-dialog-actions>
     </form>
