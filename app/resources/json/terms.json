@@ -14,6 +14,16 @@
       "term": 2010,
       "year": 2017,
       "semester": "Spring"
+    },
+    {
+      "term": 2020,
+      "year": 2017,
+      "semester": "Summer"
+    },
+    {
+      "term": 2030,
+      "year": 2017,
+      "semester": "Fall"
     }
   ],
   "options": [
